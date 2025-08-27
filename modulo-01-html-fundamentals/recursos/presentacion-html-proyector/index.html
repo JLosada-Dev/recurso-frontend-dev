@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guía Completa de HTML - Optimizada para Proyección</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slideshow-container">
+        <!-- Navigation Header -->
+        <header class="slideshow-header">
+            <div class="slide-counter">
+                <span id="current-slide">1</span> / <span id="total-slides">18</span>
+            </div>
+            <button id="index-btn" class="btn btn--outline">Índice</button>
+        </header>
+
+        <!-- Slides Container -->
+        <div class="slides-wrapper">
+            <!-- Slide 1: Title -->
+            <div class="slide active" data-slide="1">
+                <div class="slide-content title-slide">
+                    <h1>Guía Completa de HTML</h1>
+                    <p class="subtitle">Lenguaje de Marcado de Hipertexto - Optimizada para Proyección</p>
+                    <p class="content">Material de estudio completo para desarrollo web</p>
+                </div>
+            </div>
+
+            <!-- Slide 2: Index -->
+            <div class="slide" data-slide="2">
+                <div class="slide-content">
+                    <h2>Índice de Contenidos</h2>
+                    <ol class="index-list">
+                        <li><a href="#" data-goto="3">¿Qué es HTML y cómo funciona la web?</a></li>
+                        <li><a href="#" data-goto="4">Configuración del entorno de desarrollo</a></li>
+                        <li><a href="#" data-goto="5">Anatomía de un documento HTML</a></li>
+                        <li><a href="#" data-goto="6">Etiquetas, elementos y atributos</a></li>
+                        <li><a href="#" data-goto="7">HTML Semántico - Conceptos</a></li>
+                        <li><a href="#" data-goto="8">HTML Semántico - Etiquetas principales</a></li>
+                        <li><a href="#" data-goto="9">Títulos y Texto</a></li>
+                        <li><a href="#" data-goto="10">Listas</a></li>
+                        <li><a href="#" data-goto="11">Enlaces y Multimedia básica</a></li>
+                        <li><a href="#" data-goto="12">Formularios</a></li>
+                        <li><a href="#" data-goto="13">Multimedia Avanzada</a></li>
+                        <li><a href="#" data-goto="14">Datos Tabulares</a></li>
+                        <li><a href="#" data-goto="15">Elementos Autocerrables</a></li>
+                        <li><a href="#" data-goto="16">Ejemplo práctico completo</a></li>
+                        <li><a href="#" data-goto="17">Buenas prácticas</a></li>
+                        <li><a href="#" data-goto="18">Recursos y próximos pasos</a></li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Slide 3: What is HTML -->
+            <div class="slide" data-slide="3">
+                <div class="slide-content">
+                    <h2>¿Qué es HTML?</h2>
+                    <div class="definition-box">
+                        <p><strong>HyperText Markup Language</strong><br>
+                        (Lenguaje de Marcado de Hipertexto)</p>
+                    </div>
+                    <p><strong>Propósito:</strong> Dar estructura y significado al contenido web mediante etiquetas</p>
+                    
+                    <h3>¿Cómo funciona la web?</h3>
+                    <ol class="web-process">
+                        <li>Usuario escribe URL en navegador</li>
+                        <li>Navegador hace petición HTTP/HTTPS al servidor</li>
+                        <li>Servidor responde con documentos (HTML, CSS, JS)</li>
+                        <li>Navegador interpreta HTML y muestra página web</li>
+                    </ol>
+
+                    <div class="components">
+                        <div class="component">
+                            <strong>URL:</strong> Localizador único de recursos en línea
+                        </div>
+                        <div class="component">
+                            <strong>HTTP/HTTPS:</strong> Protocolo de transferencia de datos
+                        </div>
+                        <div class="component">
+                            <strong>HTML:</strong> Lenguaje de estructura y contenido
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 4: Environment Setup -->
+            <div class="slide" data-slide="4">
+                <div class="slide-content">
+                    <h2>Configuración del Entorno</h2>
+                    
+                    <div class="tools-grid">
+                        <div class="tool-card">
+                            <h3>Editor de Código</h3>
+                            <ul>
+                                <li>Visual Studio Code</li>
+                                <li>Sublime Text</li>
+                                <li>Atom</li>
+                            </ul>
+                            <p><strong>Características:</strong> Coloreado de sintaxis, autocompletado, extensiones</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>Navegador Web</h3>
+                            <ul>
+                                <li>Chrome</li>
+                                <li>Firefox</li>
+                                <li>Edge</li>
+                                <li>Safari</li>
+                            </ul>
+                            <p><strong>Uso:</strong> Visualizar y probar código</p>
+                        </div>
+
+                        <div class="tool-card">
+                            <h3>Servidor Local (opcional)</h3>
+                            <ul>
+                                <li>XAMPP</li>
+                                <li>MAMP</li>
+                                <li>Live Server</li>
+                            </ul>
+                            <p><strong>Uso:</strong> Simular entorno real</p>
+                        </div>
+                    </div>
+
+                    <h3>Estructura de Carpetas</h3>
+                    <pre><code>proyecto/
+├── index.html    # archivo principal
+├── css/          # hojas de estilo
+├── js/           # scripts JavaScript
+└── img/          # imágenes</code></pre>
+                </div>
+            </div>
+
+            <!-- Slide 5: HTML Document Anatomy -->
+            <div class="slide" data-slide="5">
+                <div class="slide-content">
+                    <h2>Anatomía de un Documento HTML</h2>
+                    
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Mi página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hola mundo&lt;/h1&gt;
+    &lt;p&gt;Mi primer sitio web&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                    <div class="parts-explanation">
+                        <div class="part">
+                            <strong>&lt;!DOCTYPE html&gt;</strong> - Declara HTML5
+                        </div>
+                        <div class="part">
+                            <strong>&lt;html&gt;</strong> - Elemento raíz del documento
+                        </div>
+                        <div class="part">
+                            <strong>&lt;head&gt;</strong> - Metainformación no visible
+                        </div>
+                        <div class="part">
+                            <strong>&lt;body&gt;</strong> - Contenido visible de la página
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 6: Tags, Elements and Attributes -->
+            <div class="slide" data-slide="6">
+                <div class="slide-content">
+                    <h2>Etiquetas, Elementos y Atributos</h2>
+                    
+                    <div class="definitions">
+                        <div class="definition">
+                            <strong>Etiqueta:</strong> Palabra clave entre &lt; &gt; que define función
+                        </div>
+                        <div class="definition">
+                            <strong>Elemento:</strong> Etiqueta apertura + contenido + etiqueta cierre
+                        </div>
+                        <div class="definition">
+                            <strong>Atributo:</strong> Información extra que modifica comportamiento
+                        </div>
+                    </div>
+
+                    <h3>Ejemplos</h3>
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Elemento Normal</h4>
+                            <pre><code>&lt;p&gt;Hola mundo&lt;/p&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Con Atributos</h4>
+                            <pre><code>&lt;img src="foto.jpg" alt="Descripción"&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Elementos Vacíos</h4>
+                            <pre><code>&lt;br&gt;, &lt;hr&gt;, &lt;input&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <h3>Anidación</h3>
+                    <pre><code>&lt;section&gt;
+  &lt;h2&gt;Título&lt;/h2&gt;
+  &lt;p&gt;Párrafo&lt;/p&gt;
+  &lt;ul&gt;
+    &lt;li&gt;Item 1&lt;/li&gt;
+    &lt;li&gt;Item 2&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+
+            <!-- Slide 7: Semantic HTML - Concepts -->
+            <div class="slide" data-slide="7">
+                <div class="slide-content">
+                    <h2>HTML Semántico - ¿Por qué?</h2>
+                    
+                    <div class="benefits-grid">
+                        <div class="benefit">
+                            <h3>Accesibilidad mejorada</h3>
+                            <p>Lectores de pantalla navegan mejor</p>
+                        </div>
+                        <div class="benefit">
+                            <h3>Mejor SEO</h3>
+                            <p>Motores de búsqueda entienden contenido</p>
+                        </div>
+                        <div class="benefit">
+                            <h3>Código mantenible</h3>
+                            <p>Más fácil de leer y mantener</p>
+                        </div>
+                        <div class="benefit">
+                            <h3>Evitar &lt;div&gt;</h3>
+                            <p>Solo usar cuando no hay etiqueta específica</p>
+                        </div>
+                    </div>
+
+                    <h3>Estructura Básica</h3>
+                    <pre><code>&lt;body&gt;
+  &lt;header&gt;&lt;!-- Cabecera --&gt;&lt;/header&gt;
+  &lt;main&gt;&lt;!-- Contenido principal --&gt;&lt;/main&gt;
+  &lt;aside&gt;&lt;!-- Contenido complementario --&gt;&lt;/aside&gt;
+  &lt;footer&gt;&lt;!-- Pie de página --&gt;&lt;/footer&gt;
+&lt;/body&gt;</code></pre>
+                </div>
+            </div>
+
+            <!-- Slide 8: Main Semantic Tags -->
+            <div class="slide" data-slide="8">
+                <div class="slide-content">
+                    <h2>Etiquetas Semánticas Principales</h2>
+                    
+                    <table class="tags-table">
+                        <thead>
+                            <tr>
+                                <th>Etiqueta</th>
+                                <th>Función</th>
+                                <th>Uso</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>&lt;header&gt;</code></td>
+                                <td>Cabecera de página/sección</td>
+                                <td>Logo, título, navegación</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;nav&gt;</code></td>
+                                <td>Zona de navegación</td>
+                                <td>Menús, breadcrumbs, paginación</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;main&gt;</code></td>
+                                <td>Contenido principal</td>
+                                <td>Tema central (único por página)</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;section&gt;</code></td>
+                                <td>Sección temática</td>
+                                <td>Capítulos, bloques temáticos</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;article&gt;</code></td>
+                                <td>Contenido independiente</td>
+                                <td>Noticias, posts, productos</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;aside&gt;</code></td>
+                                <td>Contenido complementario</td>
+                                <td>Publicidad, widgets, enlaces</td>
+                            </tr>
+                            <tr>
+                                <td><code>&lt;footer&gt;</code></td>
+                                <td>Pie de página</td>
+                                <td>Copyright, contacto, redes</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Slide 9: Titles and Text -->
+            <div class="slide" data-slide="9">
+                <div class="slide-content">
+                    <h2>Títulos y Texto</h2>
+                    
+                    <p><strong>Concepto:</strong> Las etiquetas de texto son fundamentales para estructurar el contenido de manera jerárquica y semánticamente correcta.</p>
+
+                    <h3>Encabezados</h3>
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Jerarquía</h4>
+                            <pre><code>&lt;h1&gt;Título Principal&lt;/h1&gt;
+&lt;h2&gt;Subtítulo&lt;/h2&gt;
+&lt;h3&gt;Sección específica&lt;/h3&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Reglas</h4>
+                            <ul>
+                                <li>Solo un &lt;h1&gt; por página</li>
+                                <li>Seguir orden jerárquico</li>
+                                <li>No saltar niveles</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Elementos de Texto</h3>
+                    <div class="examples">
+                        <div class="example">
+                            <h4>&lt;p&gt; - Párrafos</h4>
+                            <pre><code>&lt;p&gt;Este es un párrafo.&lt;/p&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>&lt;strong&gt; - Importante</h4>
+                            <pre><code>&lt;p&gt;Esto es &lt;strong&gt;importante&lt;/strong&gt;.&lt;/p&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>&lt;em&gt; - Énfasis</h4>
+                            <pre><code>&lt;p&gt;Esto está &lt;em&gt;enfatizado&lt;/em&gt;.&lt;/p&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>&lt;mark&gt; - Resaltado</h4>
+                            <pre><code>&lt;p&gt;&lt;mark&gt;Texto resaltado&lt;/mark&gt;&lt;/p&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 10: Lists -->
+            <div class="slide" data-slide="10">
+                <div class="slide-content">
+                    <h2>Listas - Organización del Contenido</h2>
+                    
+                    <p><strong>Concepto:</strong> Las listas permiten organizar información de manera estructurada y accesible.</p>
+
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Lista Desordenada (&lt;ul&gt;)</h4>
+                            <pre><code>&lt;ul&gt;
+  &lt;li&gt;Primer elemento&lt;/li&gt;
+  &lt;li&gt;Segundo elemento&lt;/li&gt;
+  &lt;li&gt;Tercer elemento&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                            <p><strong>Uso:</strong> Elementos sin orden específico</p>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Lista Ordenada (&lt;ol&gt;)</h4>
+                            <pre><code>&lt;ol&gt;
+  &lt;li&gt;Primer paso&lt;/li&gt;
+  &lt;li&gt;Segundo paso&lt;/li&gt;
+  &lt;li&gt;Tercer paso&lt;/li&gt;
+&lt;/ol&gt;</code></pre>
+                            <p><strong>Uso:</strong> Secuencias específicas</p>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Lista de Definiciones (&lt;dl&gt;)</h4>
+                            <pre><code>&lt;dl&gt;
+  &lt;dt&gt;HTML&lt;/dt&gt;
+  &lt;dd&gt;Lenguaje de marcado&lt;/dd&gt;
+  &lt;dt&gt;CSS&lt;/dt&gt;
+  &lt;dd&gt;Hojas de estilo&lt;/dd&gt;
+&lt;/dl&gt;</code></pre>
+                            <p><strong>Uso:</strong> Pares término-definición</p>
+                        </div>
+                    </div>
+
+                    <h3>Listas Anidadas</h3>
+                    <pre><code>&lt;ul&gt;
+  &lt;li&gt;Frontend
+    &lt;ul&gt;
+      &lt;li&gt;HTML&lt;/li&gt;
+      &lt;li&gt;CSS&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Backend&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+            </div>
+
+            <!-- Slide 11: Links and Basic Media -->
+            <div class="slide" data-slide="11">
+                <div class="slide-content">
+                    <h2>Enlaces y Multimedia Básica</h2>
+                    
+                    <h3>Enlaces (&lt;a&gt;)</h3>
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Enlace Externo</h4>
+                            <pre><code>&lt;a href="https://ejemplo.com" target="_blank"&gt;
+  Visitar sitio
+&lt;/a&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Enlace Interno</h4>
+                            <pre><code>&lt;a href="#seccion"&gt;Ir a sección&lt;/a&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Enlace de Email</h4>
+                            <pre><code>&lt;a href="mailto:contacto@ejemplo.com"&gt;
+  Enviar email
+&lt;/a&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <h3>Imágenes (&lt;img&gt;)</h3>
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Imagen Básica</h4>
+                            <pre><code>&lt;img src="imagen.jpg" alt="Descripción" 
+     width="300" loading="lazy"&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Con Contenedor Semántico</h4>
+                            <pre><code>&lt;figure&gt;
+  &lt;img src="grafico.jpg" alt="Gráfico"&gt;
+  &lt;figcaption&gt;Evolución de ventas&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+                        </div>
+                    </div>
+
+                    <div class="definition-box">
+                        <p><strong>Buena práctica:</strong> Siempre incluir atributo alt en imágenes para accesibilidad</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 12: Forms -->
+            <div class="slide" data-slide="12">
+                <div class="slide-content">
+                    <h2>Formularios - Interacción con Usuarios</h2>
+                    
+                    <h3>Estructura del Formulario</h3>
+                    <pre><code>&lt;form action="/procesar" method="post"&gt;
+  &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre" required&gt;
+  
+  &lt;label for="email"&gt;Email:&lt;/label&gt;
+  &lt;input type="email" id="email" name="email" required&gt;
+  
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+
+                    <h3>Tipos de Input</h3>
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Campos de Texto</h4>
+                            <ul>
+                                <li><code>type="text"</code> - Texto simple</li>
+                                <li><code>type="email"</code> - Correo electrónico</li>
+                                <li><code>type="password"</code> - Contraseña</li>
+                                <li><code>type="number"</code> - Números</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Opciones</h4>
+                            <ul>
+                                <li><code>type="checkbox"</code> - Opción múltiple</li>
+                                <li><code>type="radio"</code> - Opción única</li>
+                                <li><code>&lt;select&gt;</code> - Lista desplegable</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Otros Elementos</h4>
+                            <ul>
+                                <li><code>&lt;textarea&gt;</code> - Texto multilínea</li>
+                                <li><code>&lt;button&gt;</code> - Botones</li>
+                                <li><code>type="file"</code> - Subir archivos</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 13: Advanced Media -->
+            <div class="slide" data-slide="13">
+                <div class="slide-content">
+                    <h2>Multimedia Avanzada</h2>
+                    
+                    <h3>Video (&lt;video&gt;)</h3>
+                    <pre><code>&lt;video controls width="640" height="480"&gt;
+  &lt;source src="video.mp4" type="video/mp4"&gt;
+  &lt;source src="video.webm" type="video/webm"&gt;
+  Tu navegador no soporta video.
+&lt;/video&gt;</code></pre>
+
+                    <h3>Audio (&lt;audio&gt;)</h3>
+                    <pre><code>&lt;audio controls&gt;
+  &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+  &lt;source src="audio.ogg" type="audio/ogg"&gt;
+  Tu navegador no soporta audio.
+&lt;/audio&gt;</code></pre>
+
+                    <h3>Contenido Externo (&lt;iframe&gt;)</h3>
+                    <pre><code>&lt;iframe src="https://www.youtube.com/embed/VIDEO_ID" 
+        width="560" height="315" 
+        title="Video tutorial"&gt;&lt;/iframe&gt;</code></pre>
+
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Atributos Útiles</h4>
+                            <ul>
+                                <li><code>controls</code> - Controles de reproducción</li>
+                                <li><code>autoplay</code> - Reproducción automática</li>
+                                <li><code>loop</code> - Reproducción en bucle</li>
+                                <li><code>muted</code> - Sin sonido</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Formatos Comunes</h4>
+                            <ul>
+                                <li><strong>Video:</strong> MP4, WebM, OGV</li>
+                                <li><strong>Audio:</strong> MP3, OGG, WAV</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 14: Tables -->
+            <div class="slide" data-slide="14">
+                <div class="slide-content">
+                    <h2>Datos Tabulares</h2>
+                    
+                    <h3>Estructura de Tabla</h3>
+                    <pre><code>&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Producto&lt;/th&gt;
+      &lt;th&gt;Precio&lt;/th&gt;
+      &lt;th&gt;Stock&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Laptop&lt;/td&gt;
+      &lt;td&gt;$999.00&lt;/td&gt;
+      &lt;td&gt;15&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Elementos de Tabla</h4>
+                            <ul>
+                                <li><code>&lt;table&gt;</code> - Contenedor principal</li>
+                                <li><code>&lt;thead&gt;</code> - Encabezado</li>
+                                <li><code>&lt;tbody&gt;</code> - Cuerpo con datos</li>
+                                <li><code>&lt;tr&gt;</code> - Fila</li>
+                                <li><code>&lt;th&gt;</code> - Celda encabezado</li>
+                                <li><code>&lt;td&gt;</code> - Celda de datos</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>Atributos Útiles</h4>
+                            <ul>
+                                <li><code>colspan</code> - Ocupa múltiples columnas</li>
+                                <li><code>rowspan</code> - Ocupa múltiples filas</li>
+                                <li><code>scope</code> - Define alcance del encabezado</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="definition-box">
+                        <p><strong>Cuándo usar:</strong> Datos con relación fila-columna, reportes, horarios</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 15: Void Elements -->
+            <div class="slide" data-slide="15">
+                <div class="slide-content">
+                    <h2>Elementos Autocerrables</h2>
+                    
+                    <p><strong>Concepto:</strong> Elementos que no necesitan etiqueta de cierre porque no contienen contenido.</p>
+
+                    <div class="examples">
+                        <div class="example">
+                            <h4>&lt;img&gt; - Imágenes</h4>
+                            <pre><code>&lt;img src="foto.jpg" alt="Descripción"&gt;</code></pre>
+                            <p><strong>Requeridos:</strong> src, alt</p>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>&lt;input&gt; - Campos de formulario</h4>
+                            <pre><code>&lt;input type="text" name="nombre" required&gt;</code></pre>
+                            <p><strong>Tipos:</strong> text, email, password, checkbox, radio</p>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>&lt;br&gt; - Salto de línea</h4>
+                            <pre><code>Primera línea&lt;br&gt;Segunda línea</code></pre>
+                            <p><strong>Uso:</strong> Solo para saltos semánticamente necesarios</p>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>&lt;hr&gt; - Separador temático</h4>
+                            <pre><code>&lt;p&gt;Párrafo 1&lt;/p&gt;&lt;hr&gt;&lt;p&gt;Párrafo 2&lt;/p&gt;</code></pre>
+                            <p><strong>Uso:</strong> Cambio de tema o sección</p>
+                        </div>
+                    </div>
+
+                    <div class="examples">
+                        <div class="example">
+                            <h4>&lt;meta&gt; - Metadatos</h4>
+                            <pre><code>&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width"&gt;</code></pre>
+                        </div>
+                        
+                        <div class="example">
+                            <h4>&lt;link&gt; - Recursos externos</h4>
+                            <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;
+&lt;link rel="icon" href="favicon.ico"&gt;</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 16: Complete Example -->
+            <div class="slide" data-slide="16">
+                <div class="slide-content">
+                    <h2>Ejemplo Práctico Completo</h2>
+                    
+                    <p><strong>Descripción:</strong> Sitio web que integra todas las etiquetas y conceptos aprendidos</p>
+
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi Portafolio - Desarrollador Web&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;img src="logo.png" alt="Logo personal" width="80"&gt;
+        &lt;h1&gt;Juan Pérez&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#about"&gt;Sobre mí&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#projects"&gt;Proyectos&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#contact"&gt;Contacto&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+
+    &lt;main&gt;
+        &lt;section id="about"&gt;
+            &lt;article&gt;
+                &lt;h2&gt;Sobre mí&lt;/h2&gt;
+                &lt;p&gt;Soy un &lt;strong&gt;desarrollador web&lt;/strong&gt; 
+                   con experiencia en tecnologías modernas.&lt;/p&gt;
+            &lt;/article&gt;
+        &lt;/section&gt;
+
+        &lt;section id="contact"&gt;
+            &lt;h2&gt;Contacto&lt;/h2&gt;
+            &lt;form action="/contacto" method="post"&gt;
+                &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+                &lt;input type="text" id="nombre" required&gt;
+                
+                &lt;label for="email"&gt;Email:&lt;/label&gt;
+                &lt;input type="email" id="email" required&gt;
+                
+                &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+            &lt;/form&gt;
+        &lt;/section&gt;
+    &lt;/main&gt;
+
+    &lt;footer&gt;
+        &lt;p&gt;&amp;copy; 2025 Juan Pérez&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+
+                    <div class="examples">
+                        <div class="example">
+                            <h4>Destacado</h4>
+                            <ul>
+                                <li>Estructura semántica completa</li>
+                                <li>Formularios accesibles</li>
+                                <li>Navegación clara</li>
+                                <li>Metadatos optimizados</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 17: Best Practices -->
+            <div class="slide" data-slide="17">
+                <div class="slide-content">
+                    <h2>Buenas Prácticas</h2>
+                    
+                    <div class="practices-grid">
+                        <div class="practice-category">
+                            <h3>Estructura y Semántica</h3>
+                            <ul>
+                                <li>Usar HTML semántico antes que &lt;div&gt; genéricos</li>
+                                <li>Mantener jerarquía de títulos (un &lt;h1&gt; por página)</li>
+                                <li>Un solo &lt;main&gt; por página</li>
+                                <li>Estructura lógica sin CSS</li>
+                            </ul>
+                        </div>
+
+                        <div class="practice-category">
+                            <h3>Accesibilidad</h3>
+                            <ul>
+                                <li>Incluir atributo alt en todas las imágenes</li>
+                                <li>Asociar labels con campos de formulario</li>
+                                <li>Usar atributos ARIA cuando sea necesario</li>
+                                <li>Mantener contraste adecuado</li>
+                            </ul>
+                        </div>
+
+                        <div class="practice-category">
+                            <h3>SEO y Rendimiento</h3>
+                            <ul>
+                                <li>Title descriptivo y único por página</li>
+                                <li>Meta description relevante</li>
+                                <li>Atributo lang en &lt;html&gt;</li>
+                                <li>Optimizar imágenes para web</li>
+                            </ul>
+                        </div>
+
+                        <div class="practice-category">
+                            <h3>Mantenimiento</h3>
+                            <ul>
+                                <li>Comentarios explicativos</li>
+                                <li>Indentación consistente</li>
+                                <li>Validación regular del código</li>
+                                <li>Nombres descriptivos</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="definition-box">
+                        <p><strong>Herramientas de Validación:</strong> W3C Markup Validator, WAVE Web Accessibility, Lighthouse</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Slide 18: Resources -->
+            <div class="slide" data-slide="18">
+                <div class="slide-content">
+                    <h2>Recursos y Próximos Pasos</h2>
+                    
+                    <div class="resources-section">
+                        <div class="resource-category">
+                            <h3>Documentación</h3>
+                            <ul>
+                                <li>MDN Web Docs - Documentación completa y actualizada</li>
+                                <li>W3Schools - Tutoriales interactivos</li>
+                                <li>HTML Living Standard - Especificación oficial</li>
+                            </ul>
+                        </div>
+
+                        <div class="resource-category">
+                            <h3>Herramientas</h3>
+                            <ul>
+                                <li>Codepen.io - Editor online para experimentar</li>
+                                <li>W3C Markup Validator - Validador oficial de HTML</li>
+                                <li>htmlreference.io - Referencia visual rápida</li>
+                            </ul>
+                        </div>
+
+                        <div class="resource-category">
+                            <h3>Extensiones</h3>
+                            <ul>
+                                <li>Live Server - Servidor local con recarga automática</li>
+                                <li>HTML CSS Support - Autocompletado mejorado</li>
+                                <li>Prettier - Formateo automático del código</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Próximos Pasos</h3>
+                    <ol class="next-steps">
+                        <li><strong>Practicar con proyectos reales</strong> - Crear sitios web aplicando conceptos</li>
+                        <li><strong>Aprender CSS</strong> - Estilos y diseño visual</li>
+                        <li><strong>JavaScript para interactividad</strong> - Comportamiento dinámico</li>
+                        <li><strong>Frameworks modernos</strong> - React, Vue.js, herramientas actuales</li>
+                    </ol>
+
+                    <div class="summary">
+                        <p><strong>Resumen:</strong> HTML es la base del desarrollo web. Dominar HTML semántico permite crear sitios accesibles, optimizados y mantenibles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="slideshow-controls">
+            <button id="prev-btn" class="btn btn--secondary">
+                ← Anterior
+            </button>
+            <button id="next-btn" class="btn btn--primary">
+                Siguiente →
+            </button>
+        </div>
+
+        <!-- Index Modal -->
+        <div id="index-modal" class="modal hidden">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Índice de Contenidos</h3>
+                    <button id="close-index" class="btn btn--secondary">×</button>
+                </div>
+                <div class="modal-body">
+                    <ol class="modal-index-list">
+                        <li><a href="#" data-goto="1">Guía Completa de HTML</a></li>
+                        <li><a href="#" data-goto="2">Índice de Contenidos</a></li>
+                        <li><a href="#" data-goto="3">¿Qué es HTML y cómo funciona la web?</a></li>
+                        <li><a href="#" data-goto="4">Configuración del entorno de desarrollo</a></li>
+                        <li><a href="#" data-goto="5">Anatomía de un documento HTML</a></li>
+                        <li><a href="#" data-goto="6">Etiquetas, elementos y atributos</a></li>
+                        <li><a href="#" data-goto="7">HTML Semántico - Conceptos</a></li>
+                        <li><a href="#" data-goto="8">HTML Semántico - Etiquetas principales</a></li>
+                        <li><a href="#" data-goto="9">Títulos y Texto</a></li>
+                        <li><a href="#" data-goto="10">Listas</a></li>
+                        <li><a href="#" data-goto="11">Enlaces y Multimedia básica</a></li>
+                        <li><a href="#" data-goto="12">Formularios</a></li>
+                        <li><a href="#" data-goto="13">Multimedia Avanzada</a></li>
+                        <li><a href="#" data-goto="14">Datos Tabulares</a></li>
+                        <li><a href="#" data-goto="15">Elementos Autocerrables</a></li>
+                        <li><a href="#" data-goto="16">Ejemplo práctico completo</a></li>
+                        <li><a href="#" data-goto="17">Buenas prácticas</a></li>
+                        <li><a href="#" data-goto="18">Recursos y próximos pasos</a></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

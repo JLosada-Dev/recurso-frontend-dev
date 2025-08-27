@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es"></html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejemplo de Multimedia en HTML</title>
+  </head>
+  <body>
+    <main>
+      <!-- Sección de Imágenes -->
+      <section>
+        <h2>Imágenes en HTML</h2>
+        <!-- Etiqueta img para mostrar una imagen -->
+        <img src="./../img/Pequeño.jpg" alt="Perros en la Playa" width="300" />
+        <!-- Figura con pie de foto -->
+        <figure>
+          <img src="./../img/Pequeño.jpg" alt="Perros en la Playa" width="300" />
+          <figcaption>Perros jugando en la playa</figcaption>
+        </figure>
+      </section>
+
+      <!-- Sección de Video -->
+      <section>
+        <h2>Video en HTML</h2>
+        <!-- Etiqueta video para mostrar un video -->
+        <video width="320" height="240" controls>
+          <!-- Fuente del video en formato MP4 -->
+          <source src="./../video/ejemplo.mp4" type="video/mp4" />
+          <!-- Texto alternativo si el navegador no soporta video -->
+          Tu navegador no soporta la etiqueta de video.
+        </video>
+      </section>
+
+      <!-- Sección de Audio -->
+      <section>
+        <h2>Audio en HTML</h2>
+        <!-- Etiqueta audio para reproducir audio -->
+        <audio controls>
+          <!-- Fuente del audio en formato MP3 -->
+          <source src="./../audio/ejemplo.mp3" type="audio/mpeg" />
+          <!-- Texto alternativo si el navegador no soporta audio -->
+          Tu navegador no soporta la etiqueta de audio.
+        </audio>
+      </section>
+    </main>
+  </body>
+</html>
