@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formularios en HTML</title>
+  </head>
+  <body>
+    <main>
+      <!-- 
+        FORMULARIOS EN HTML
+        Los formularios permiten a los usuarios enviar información al servidor.
+        Se definen con la etiqueta <form> y pueden contener diferentes tipos de campos de entrada.
+      -->
+
+      <!-- Formulario con campos de fecha y hora -->
+      <form action="">
+        <!-- Campo para seleccionar una hora -->
+        <label for="hora">
+          <span>Hora</span>
+          <input type="time" name="hora" id="hora" />
+        </label>
+        <!-- Campo para seleccionar una fecha -->
+        <label for="dia">
+          <span>Día</span>
+          <input type="date" name="dia" id="dia" />
+        </label>
+        <!-- Campo para seleccionar una semana -->
+        <label for="semana">
+          <span>Semana</span>
+          <input type="week" name="semana" id="semana" />
+        </label>
+        <!-- Campo para seleccionar un mes -->
+        <label for="mes">
+          <span>Mes</span>
+          <input type="month" name="mes" id="mes" />
+        </label>
+        <!-- Botón para enviar el formulario -->
+        <input type="submit" value="Enviar fechas" />
+      </form>
+
+      <hr />
+
+      <!-- Formulario con campo de fecha y hora local -->
+      <form action="">
+        <label for="calendario">
+          <span>Calendario</span>
+          <input type="datetime-local" id="calendario" name="calendario" />
+        </label>
+        <input type="submit" value="Enviar calendario" />
+      </form>
+
+      <hr />
+
+      <!-- Formulario de datos personales -->
+      <form action="">
+        <!-- Campo de texto para el nombre, obligatorio -->
+        <label for="nombre">
+          <span>Nombre</span>
+          <input
+            type="text"
+            id="nombre"
+            name="nombre"
+            autocomplete="name"
+            required
+          />
+        </label>
+        <!-- Campo de correo electrónico, obligatorio -->
+        <label for="correo">
+          <span>Correo</span>
+          <input
+            type="email"
+            name="correo"
+            id="correo"
+            autocomplete="email"
+            required
+          />
+        </label>
+        <!-- Campo de texto para el país -->
+        <label for="pais">
+          <span>País</span>
+          <input type="text" name="pais" id="pais" autocomplete="country" />
+        </label>
+        <!-- Campo numérico para el código postal -->
+        <label for="postal">
+          <span>Postal</span>
+          <input
+            type="number"
+            name="postal"
+            id="postal"
+            autocomplete="postal-code"
+          />
+        </label>
+        <input type="submit" value="Enviar datos" />
+      </form>
+
+      <hr />
+
+      <!-- Formulario con select y datalist -->
+      <form action="">
+        <!-- Menú desplegable para seleccionar un curso -->
+        <label for="cursos-select">
+          <span>Selecciona un curso:</span>
+          <select name="cursos" id="cursos-select">
+            <option value="Js">Js</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+            <option value="WEB">WEB</option>
+          </select>
+        </label>
+        <!-- Campo de texto con sugerencias (datalist) -->
+        <label for="cursos-input">
+          <span>O escribe un curso:</span>
+          <input list="cursos" id="cursos-input" name="curso" />
+          <datalist id="cursos">
+            <option value="Js"></option>
+            <option value="HTML"></option>
+            <option value="CSS"></option>
+            <option value="WEB"></option>
+          </datalist>
+        </label>
+        <input type="submit" value="Enviar curso" />
+      </form>
+
+      <hr />
+
+      <!-- Diferencia entre input type="submit" y button -->
+      <!-- Ambos envían el formulario, pero <button> permite más contenido y personalización -->
+      <form action="">
+        <input type="submit" value="Enviar con input" />
+        <button type="submit">Enviar con button</button>
+      </form>
+    </main>
+  </body>
+</html>

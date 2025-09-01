@@ -2,32 +2,41 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Listas y Enlaces en HTML</title>
 </head>
 <body>
+  <!--
+    LISTAS Y ENLACES EN HTML
+    Este archivo demuestra cómo crear diferentes tipos de listas y enlaces
+  -->
+  
   <h1>Ejemplo de Listas y Enlaces en HTML</h1>
 
-  <!-- Lista de Frutas (Lista ordenada dentro de una lista desordenada) -->
-  <h2>Frutas</h2>
+  <!-- LISTAS NO ORDENADAS (UL) - Para elementos sin jerarquía específica -->
+  <h2>Frutas (Lista No Ordenada)</h2>
   <ul>
+    <li>Manzana 🍎</li>
+    <li>Piña 🍍</li>
+    <li>Banana 🍌</li>
+    <!-- Listas anidadas: lista ordenada dentro de lista no ordenada -->
     <li>
-      Lista de frutas:
+      Top 3 frutas favoritas:
       <ol>
-        <li>Manzana 🍎</li>
-        <li>Piña 🍍</li>
-        <li>Banana 🍌</li>
+        <li>Manzana</li>
+        <li>Piña</li>
+        <li>Banana</li>
       </ol>
     </li>
   </ul>
 
-  <!-- Lista de Carnes con un enlace en un elemento de la lista -->
-  <h2>Carnes</h2>
+  <!-- ENLACES - Para navegación y referencias externas -->
+  <h2>Carnes con Enlaces Informativos</h2>
   <ul>
     <li>
-      Lista de carnes:
-      <ol>
-        <li>
-          <a href="https://www.youtube.com/watch?v=qpSYO-QNvIY" target="_blank">
+      <a href="https://www.youtube.com/watch?v=qpSYO-QNvIY" target="_blank">
+        Receta de Carne de Res</a> <!-- target="_blank" abre en nueva pestaña -->
+    </li>
             Carne para unos Burritos de Asada 🌮
           </a>
         </li>

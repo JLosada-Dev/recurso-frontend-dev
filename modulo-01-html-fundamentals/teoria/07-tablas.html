@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejemplo de Tablas en HTML</title>
+  <!-- Se recomienda usar CSS externo para estilos, aquí solo se usa para mejor visualización -->
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 60%;
+      margin: 20px auto;
+    }
+    th, td {
+      border: 1px solid #333;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    caption {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Encabezado principal de la página -->
+  <header>
+    <h1>Ejemplo de Tablas en HTML</h1>
+    <p>Aprende cómo estructurar y utilizar tablas de manera semántica y correcta.</p>
+  </header>
+
+  <!-- Sección principal con la tabla de ejemplo -->
+  <main>
+    <!-- Tabla de ejemplo con título y estructura semántica -->
+    <table>
+      <!-- caption proporciona un título descriptivo a la tabla -->
+      <caption>Notas de los Estudiantes</caption>
+      <!-- thead agrupa la cabecera de la tabla -->
+      <thead>
+        <tr>
+          <th>Nombre</th> <!-- th define una celda de encabezado -->
+          <th>Materia</th>
+          <th>Nota</th>
+        </tr>
+      </thead>
+      <!-- tbody agrupa el contenido principal de la tabla -->
+      <tbody>
+        <tr>
+          <td>Ana López</td> <!-- td define una celda de datos -->
+          <td>Matemáticas</td>
+          <td>9.5</td>
+        </tr>
+        <tr>
+          <td>Carlos Pérez</td>
+          <td>Ciencias</td>
+          <td>8.7</td>
+        </tr>
+        <tr>
+          <td>Lucía Gómez</td>
+          <td>Historia</td>
+          <td>9.0</td>
+        </tr>
+      </tbody>
+      <!-- tfoot agrupa el pie de la tabla, útil para totales o notas -->
+      <tfoot>
+        <tr>
+          <td colspan="2"><strong>Promedio</strong></td>
+          <td>9.07</td>
+        </tr>
+      </tfoot>
+    </table>
+    <!-- Fin de la tabla de ejemplo -->
+  </main>
+
+  <!-- Pie de página -->
+  <footer>
+    <p>Ejemplo realizado para la clase de HTML - Tablas.</p>
+  </footer>
+</body>
+</html>

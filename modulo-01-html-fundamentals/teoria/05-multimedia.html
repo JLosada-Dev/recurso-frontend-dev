@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es"></html>
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,10 +11,18 @@
       <section>
         <h2>Imágenes en HTML</h2>
         <!-- Etiqueta img para mostrar una imagen -->
-        <img src="./../img/Pequeño.jpg" alt="Perros en la Playa" width="300" />
+        <img
+          src="./../multimedia/Pequeño.jpg"
+          alt="Perros en la Playa"
+          width="300"
+        />
         <!-- Figura con pie de foto -->
         <figure>
-          <img src="./../img/Pequeño.jpg" alt="Perros en la Playa" width="300" />
+          <img
+            src="./../multimedia/Pequeño.jpg"
+            alt="Perros en la Playa"
+            width="300"
+          />
           <figcaption>Perros jugando en la playa</figcaption>
         </figure>
       </section>
@@ -23,9 +31,9 @@
       <section>
         <h2>Video en HTML</h2>
         <!-- Etiqueta video para mostrar un video -->
-        <video width="320" height="240" controls>
+        <video width="320" height="240" controls preload="auto">
           <!-- Fuente del video en formato MP4 -->
-          <source src="./../video/ejemplo.mp4" type="video/mp4" />
+          <source src="./../multimedia/ejemplo.mp4" type="video/mp4" />
           <!-- Texto alternativo si el navegador no soporta video -->
           Tu navegador no soporta la etiqueta de video.
         </video>
@@ -37,7 +45,7 @@
         <!-- Etiqueta audio para reproducir audio -->
         <audio controls>
           <!-- Fuente del audio en formato MP3 -->
-          <source src="./../audio/ejemplo.mp3" type="audio/mpeg" />
+          <source src="./../multimedia/" type="audio/mpeg" />
           <!-- Texto alternativo si el navegador no soporta audio -->
           Tu navegador no soporta la etiqueta de audio.
         </audio>

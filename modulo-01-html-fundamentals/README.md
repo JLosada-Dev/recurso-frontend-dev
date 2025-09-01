@@ -1,96 +1,98 @@
-# Módulo 01: HTML Fundamentals
+# Módulo 1: Fundamentos de HTML
 
-## Descripción
-Este módulo cubre los fundamentos de HTML5, desde la estructura básica del documento hasta elementos avanzados y mejores prácticas para la creación de contenido web semántico y accesible.
+Bienvenido al módulo de fundamentos de HTML. Este módulo te llevará desde cero hasta dominar los conceptos esenciales para crear páginas web estructuradas y semánticamente correctas.
 
-## Objetivos de Aprendizaje
-Al completar este módulo, los estudiantes serán capaces de:
-- Crear documentos HTML5 válidos y bien estructurados
-- Aplicar elementos semánticos apropiados para diferentes tipos de contenido
-- Implementar formularios interactivos y accesibles
-- Utilizar elementos multimedia (imágenes, audio, video)
-- Aplicar principios básicos de accesibilidad web
+## 📚 Orden de Estudio Recomendado
 
-## Contenido del Módulo
+Para aprovechar al máximo este módulo, sigue este orden de estudio:
 
-### 1. Introducción a HTML
-- Historia y evolución de HTML
-- Estructura básica de un documento HTML5
-- DOCTYPE y elementos fundamentales
-- Herramientas de desarrollo
+1. **[01-introduccion.html](teoria/01-introduccion.html)** - Estructura básica y elementos fundamentales
+2. **[02-contenedores-contenido.html](teoria/02-contenedores-contenido.html)** - Diferencia entre contenedores y contenido
+3. **[03-elementos-texto-estructura.html](teoria/03-elementos-texto-estructura.html)** - Encabezados, párrafos y texto
+4. **[04-listas-enlaces.html](teoria/04-listas-enlaces.html)** - Listas ordenadas/desordenadas y enlaces
+5. **[05-multimedia.html](teoria/05-multimedia.html)** - Imágenes, video y audio
+6. **[06-formularios.html](teoria/06-formularios.html)** - Formularios e interactividad
+7. **[07-tablas.html](teoria/07-tablas.html)** - Estructuras de datos tabulares
 
-### 2. Elementos de Texto
-- Encabezados (h1-h6)
-- Párrafos y texto corrido
-- Elementos de énfasis y formato
-- Listas ordenadas y no ordenadas
+## ¿Qué es HTML?
 
-### 3. Enlaces y Navegación
-- Enlaces internos y externos
-- Navegación por anclas
-- Atributos de enlaces
-- Mejores prácticas de navegación
+HTML (HyperText Markup Language) es el lenguaje estándar para crear páginas web. Utiliza "etiquetas" para estructurar y dar significado semántico al contenido.
 
-### 4. Elementos Multimedia
-- Imágenes: img, picture, figure
-- Audio y video HTML5
-- Elementos gráficos: canvas, svg
-- Optimización de medios
+## Estructura básica de un documento HTML
 
-### 5. Formularios HTML
-- Elementos de formulario básicos
-- Nuevos tipos de input en HTML5
-- Validación nativa
-- Accesibilidad en formularios
-
-### 6. Elementos Semánticos
-- Header, nav, main, section, article
-- Aside, footer y elementos estructurales
-- Importancia del HTML semántico
-- SEO y accesibilidad
-
-### 7. Tablas de Datos
-- Estructura de tablas
-- Encabezados y celdas
-- Accesibilidad en tablas
-- Casos de uso apropiados
-
-## Estructura de Archivos
-```
-modulo-01-html-fundamentals/
-├── README.md
-├── 01-introduccion/
-├── 02-elementos-texto/
-├── 03-enlaces-navegacion/
-├── 04-multimedia/
-├── 05-formularios/
-├── 06-elementos-semanticos/
-├── 07-tablas/
-├── ejercicios/
-├── proyectos/
-└── recursos/
+```html
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mi primera página web</title>
+  </head>
+  <body>
+    <!-- Todo el contenido visible va aquí -->
+    <h1>¡Hola mundo!</h1>
+    <p>Este es mi primer párrafo en HTML.</p>
+  </body>
+</html>
 ```
 
-## Proyectos Prácticos
-1. **Página Personal**: Creación de un sitio web personal básico
-2. **Blog Simple**: Estructura de blog con múltiples páginas
-3. **Formulario de Contacto**: Formulario completo con validaciones
-4. **Sitio Web Institucional**: Proyecto integrador del módulo
+## Etiquetas fundamentales
 
-## Recursos Adicionales
-- [MDN HTML Reference](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [HTML5 Specification](https://html.spec.whatwg.org/)
-- [Web Accessibility Guidelines](https://www.w3.org/WAI/WCAG21/quickref/)
+| Etiqueta  | Descripción                                            |
+| --------- | ------------------------------------------------------ |
+| `<html>`  | Elemento raíz que contiene toda la página              |
+| `<head>`  | Metadatos e información para el navegador (no visible) |
+| `<title>` | Título que aparece en la pestaña del navegador         |
+| `<body>`  | Todo el contenido visible de la página                 |
+| `<meta>`  | Información adicional (codificación, responsive, etc.) |
 
-## Evaluación
-- **Ejercicios prácticos**: 40%
-- **Proyectos**: 40%
-- **Evaluación teórica**: 20%
+## Etiquetas de contenido más usadas
 
-## Prerrequisitos
-- Conocimientos básicos de navegación web
-- Editor de texto o IDE
-- Navegador web moderno
+### Texto y encabezados
 
-## Duración Estimada
-**4 semanas** (20 horas académicas)
+- `<h1>` a `<h6>`: Encabezados de diferentes niveles
+- `<p>`: Párrafos de texto
+
+### Enlaces y multimedia
+
+- `<a href="">`: Enlaces
+- `<img src="" alt="">`: Imágenes
+
+### Listas
+
+- `<ul>`: Lista no ordenada
+- `<ol>`: Lista ordenada
+- `<li>`: Elemento de lista
+
+### Tablas
+
+- `<table>`: Contenedor de tabla
+- `<tr>`: Fila de tabla
+- `<td>`: Celda de datos
+- `<th>`: Celda de encabezado
+
+### Formularios
+
+- `<form>`: Contenedor de formulario
+- `<input>`: Campo de entrada
+- `<label>`: Etiqueta para campos
+- `<button>`: Botón
+
+## Buenas prácticas
+
+- ✅ Usa sangría consistente para mejorar la legibilidad
+- ✅ Agrega comentarios usando `<!-- comentario -->`
+- ✅ Usa atributos `alt` en imágenes para accesibilidad
+- ✅ Valida tu HTML en [validator.w3.org](https://validator.w3.org/)
+- ✅ Usa etiquetas semánticamente correctas
+- ✅ Mantén la estructura jerárquica de encabezados
+
+## Recursos útiles
+
+- 📖 [MDN HTML](https://developer.mozilla.org/es/docs/Web/HTML) - Documentación oficial
+- 🎓 [W3Schools HTML](https://www.w3schools.com/html/) - Tutoriales interactivos
+- 🔍 [HTML Validator](https://validator.w3.org/) - Validador de código HTML
+
+---
+
+¡Explora los archivos de este módulo y experimenta creando tus propias páginas!

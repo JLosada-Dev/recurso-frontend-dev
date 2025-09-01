@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 3: Formulario de Registro</title>
+  </head>
+  <body>
+    <!--
+    EJERCICIO 3: FORMULARIO DE REGISTRO
+    
+    INSTRUCCIONES:
+    1. Completa los campos del formulario de registro
+    2. Usa diferentes tipos de input (text, email, password, date, etc.)
+    3. Añade labels apropiados para cada campo
+    4. Incluye un área de texto para comentarios
+    5. Añade opciones de selección (radio buttons, checkboxes, select)
+    
+    OBJETIVO: Practicar la creación de formularios interactivos
+  -->
+
+    <header>
+      <h1>Registro de Usuario</h1>
+    </header>
+
+    <main>
+      <form action="#" method="post">
+        <section>
+          <h2>Información Personal</h2>
+
+          <!-- TODO: Campo para nombre completo -->
+          <label for="nombre">
+            Nombre Completo:
+            <input type="text" id="nombre" name="nombre" required />
+          </label>
+          <br /><br />
+
+          <!-- TODO: Campo para email -->
+          <label for="email">
+            Email:
+            <input type="[tipo]" id="email" name="email" required />
+          </label>
+          <br /><br />
+
+          <!-- TODO: Campo para contraseña -->
+          <label for="password">
+            Contraseña:
+            <input type="[tipo]" id="password" name="password" required />
+          </label>
+          <br /><br />
+
+          <!-- TODO: Campo para fecha de nacimiento -->
+          <label for="fecha-nacimiento">
+            Fecha de Nacimiento:
+            <input
+              type="[tipo]"
+              id="fecha-nacimiento"
+              name="fecha-nacimiento"
+            />
+          </label>
+          <br /><br />
+        </section>
+
+        <section>
+          <h2>Preferencias</h2>
+
+          <!-- TODO: Radio buttons para género -->
+          <fieldset>
+            <legend>Género:</legend>
+            <input
+              type="radio"
+              id="masculino"
+              name="genero"
+              value="masculino"
+            />
+            <label for="masculino">Masculino</label><br />
+
+            <input type="radio" id="femenino" name="genero" value="femenino" />
+            <label for="femenino">Femenino</label><br />
+
+            <input type="[tipo]" id="otro" name="genero" value="otro" />
+            <label for="otro">Otro</label>
+          </fieldset>
+          <br />
+
+          <!-- TODO: Checkboxes para intereses -->
+          <fieldset>
+            <legend>Intereses (selecciona todos los que apliquen):</legend>
+            <input
+              type="checkbox"
+              id="programacion"
+              name="intereses"
+              value="programacion"
+            />
+            <label for="programacion">Programación</label><br />
+
+            <input type="[tipo]" id="diseño" name="intereses" value="diseño" />
+            <label for="diseño">Diseño</label><br />
+
+            <input type="[tipo]" id="musica" name="intereses" value="musica" />
+            <label for="musica">Música</label><br />
+
+            <input
+              type="[tipo]"
+              id="deportes"
+              name="intereses"
+              value="deportes"
+            />
+            <label for="deportes">Deportes</label>
+          </fieldset>
+          <br />
+
+          <!-- TODO: Select para país -->
+          <label for="pais">
+            País:
+            <select id="pais" name="pais">
+              <option value="">Selecciona un país</option>
+              <option value="colombia">Colombia</option>
+              <option value="mexico">México</option>
+              <option value="argentina">Argentina</option>
+              <option value="españa">España</option>
+            </select>
+          </label>
+          <br /><br />
+        </section>
+
+        <section>
+          <h2>Comentarios Adicionales</h2>
+
+          <!-- TODO: Área de texto para comentarios -->
+          <label for="comentarios">
+            Cuéntanos sobre ti:
+            <br />
+            <textarea
+              id="comentarios"
+              name="comentarios"
+              rows="5"
+              cols="50"
+              placeholder="Escribe aquí tus comentarios..."
+            ></textarea>
+          </label>
+          <br /><br />
+        </section>
+
+        <section>
+          <!-- TODO: Botones del formulario -->
+          <button type="submit">Registrarse</button>
+          <button type="reset">Limpiar Formulario</button>
+        </section>
+      </form>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 - Ejercicio de Formularios</p>
+    </footer>
+  </body>
+</html>
