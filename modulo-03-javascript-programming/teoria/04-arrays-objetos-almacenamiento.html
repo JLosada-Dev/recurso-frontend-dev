@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arrays, Objetos y Almacenamiento</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .resaltado {
+      background-color: yellow;
+    }
+    #resultado {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>Arrays, Objetos y Almacenamiento</h1>
+  <p>Ejemplos prácticos de arrays, objetos, almacenamiento local y fetch API.</p>
+
+  <!-- Sección de validación de formulario -->
+  <h2>Formulario con Validación</h2>
+  <form id="formulario">
+    <label for="usuario">Usuario:</label>
+    <input type="text" id="usuario" required />
+    <label for="email">Correo:</label>
+    <input type="email" id="email" required />
+    <button type="submit">Guardar</button>
+  </form>
+
+  <div id="resultado"></div>
+
+  <!-- Botón para cargar datos desde API -->
+  <h2>Datos desde API (Fetch)</h2>
+  <button id="cargarDatosBtn">Cargar usuarios</button>
+  <ul id="listaUsuarios"></ul>
+
+  <script>
+    /************************************************************
+     * 3.4 ARRAYS, OBJETOS Y ALMACENAMIENTO
+     * Temas:
+     * - Trabajo con arrays (métodos básicos)
+     * - Objetos JavaScript y notación JSON
+     * - LocalStorage y SessionStorage
+     * - Validación de formularios
+     * - Introducción a fetch para APIs básicas
+     ************************************************************/
+
+    // =============================
+    // 1. TRABAJO CON ARRAYS
+    // =============================
+
+    let numeros = [10, 20, 30, 40, 50];
+    console.log("Array original:", numeros);
+
+    // Métodos básicos
+    numeros.push(60);   // Agregar al final
+    numeros.unshift(0); // Agregar al inicio
+    console.log("Después de push/unshift:", numeros);
+
+    numeros.pop();      // Eliminar último
+    numeros.shift();    // Eliminar primero
+    console.log("Después de pop/shift:", numeros);
+
+    // Métodos de recorrido
+    numeros.forEach(n => console.log("Número:", n));
+
+    let dobles = numeros.map(n => n * 2);   // Nuevo array con cada número *2
+    console.log("Dobles:", dobles);
+
+    let mayores = numeros.filter(n => n > 25); // Filtra mayores a 25
+    console.log("Mayores a 25:", mayores);
+
+    let suma = numeros.reduce((acc, n) => acc + n, 0); // Suma acumulada
+    console.log("Suma total:", suma);
+
+    // =============================
+    // 2. OBJETOS Y JSON
+    // =============================
+
+    let persona = {
+      nombre: "Laura",
+      edad: 28,
+      activo: true,
+      direccion: {
+        ciudad: "Bogotá",
+        pais: "Colombia"
+      }
+    };
+
+    console.log("Objeto persona:", persona);
+    console.log("Nombre:", persona.nombre);
+    console.log("Ciudad:", persona.direccion.ciudad);
+
+    // JSON.stringify convierte objeto a texto JSON
+    let personaJSON = JSON.stringify(persona);
+    console.log("JSON en texto:", personaJSON);
+
+    // JSON.parse convierte texto JSON a objeto
+    let personaObjeto = JSON.parse(personaJSON);
+    console.log("JSON a objeto:", personaObjeto);
+
+    // =============================
+    // 3. LOCALSTORAGE Y SESSIONSTORAGE
+    // =============================
+
+    // Guardar datos en localStorage
+    localStorage.setItem("nombre", "Camilo");
+    localStorage.setItem("usuario", JSON.stringify(persona));
+
+    // Recuperar datos
+    console.log("Nombre desde localStorage:", localStorage.getItem("nombre"));
+    let usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
+    console.log("Usuario guardado:", usuarioGuardado);
+
+    // Guardar en sessionStorage (se elimina al cerrar pestaña)
+    sessionStorage.setItem("sesionActiva", "true");
+
+    // =============================
+    // 4. VALIDACIÓN DE FORMULARIOS
+    // =============================
+
+    const formulario = document.getElementById("formulario");
+    const resultado = document.getElementById("resultado");
+
+    formulario.addEventListener("submit", (event) => {
+      event.preventDefault(); // evitar recarga
+
+      const usuario = document.getElementById("usuario").value.trim();
+      const email = document.getElementById("email").value.trim();
+
+      if (usuario.length < 3) {
+        alert("El nombre de usuario debe tener al menos 3 caracteres");
+        return;
+      }
+
+      if (!email.includes("@")) {
+        alert("El correo debe ser válido");
+        return;
+      }
+
+      // Guardar en localStorage
+      localStorage.setItem("formUsuario", usuario);
+      localStorage.setItem("formEmail", email);
+
+      resultado.textContent = `Usuario: ${usuario}, Email: ${email}`;
+    });
+
+    // =============================
+    // 5. FETCH API (INTRODUCCIÓN)
+    // =============================
+
+    const cargarDatosBtn = document.getElementById("cargarDatosBtn");
+    const listaUsuarios = document.getElementById("listaUsuarios");
+
+    cargarDatosBtn.addEventListener("click", () => {
+      fetch("https://jsonplaceholder.typicode.com/users")
+        .then(response => response.json())
+        .then(data => {
+          listaUsuarios.innerHTML = ""; // limpiar lista
+          data.slice(0, 5).forEach(usuario => {
+            const li = document.createElement("li");
+            li.textContent = `${usuario.name} - ${usuario.email}`;
+            listaUsuarios.appendChild(li);
+          });
+        })
+        .catch(error => {
+          console.error("Error al cargar usuarios:", error);
+        });
+    });
+
+    /************************************************************
+     * Explicación:
+     * - Arrays: push, pop, map, filter, reduce
+     * - Objetos: propiedades anidadas, JSON.stringify y JSON.parse
+     * - Almacenamiento: localStorage y sessionStorage
+     * - Formulario con validación y guardado en localStorage
+     * - Fetch API para consumir datos externos
+     ************************************************************/
+  </script>
+</body>
+</html>

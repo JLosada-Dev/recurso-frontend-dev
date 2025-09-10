@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fundamentos de JavaScript</title>
+</head>
+<body>
+  <h1>Fundamentos de JavaScript</h1>
+  <p>Abre la consola del navegador (F12) para ver los resultados.</p>
+
+  <script>
+    /************************************************************
+     * 3.1 Fundamentos de JavaScript
+     * Esta guía sigue el contenido del microcurrículo:
+     * - Sintaxis básica y tipos de datos
+     * - Variables (var, let, const)
+     * - Operadores aritméticos y lógicos
+     * - Estructuras de control (if/else, bucles)
+     * - Funciones y scope
+     ************************************************************/
+
+    // =============================
+    // 1. SINTAXIS BÁSICA Y TIPOS DE DATOS
+    // =============================
+
+    // Mensaje básico en consola:
+    console.log("¡Hola desde JavaScript!");
+    // Las sentencias terminan con punto y coma (opcional pero recomendado)
+
+    // TIPOS DE DATOS PRIMITIVOS:
+    let nombre = "Laura";       // string (cadena de texto)
+    let edad = 25;              // number
+    let activo = true;          // boolean
+    let indefinido;             // undefined (no inicializado)
+    let nulo = null;            // null (intencionalmente vacío)
+
+    console.log(typeof nombre); // "string"
+    console.log(typeof edad);   // "number"
+    console.log(typeof activo); // "boolean"
+
+    // TIPOS DE REFERENCIA:
+    let colores = ["rojo", "verde", "azul"]; // Array
+    let persona = { nombre: "Carlos", edad: 30 }; // Objeto
+    console.log(colores);
+    console.log(persona);
+
+    // =============================
+    // 2. VARIABLES: var, let, const
+    // =============================
+
+    // var: Ámbito global o de función (NO recomendado en proyectos modernos)
+    var lenguaje = "JavaScript";
+    console.log("Lenguaje:", lenguaje);
+
+    // let: Alcance de bloque, se puede reasignar
+    let curso = "Frontend Básico";
+    curso = "JavaScript Básico";
+    console.log("Curso:", curso);
+
+    // const: Valor constante, no se puede reasignar
+    const PI = 3.1416;
+    console.log("PI:", PI);
+
+    // =============================
+    // 3. OPERADORES ARITMÉTICOS Y LÓGICOS
+    // =============================
+
+    let a = 10, b = 3;
+    console.log("Suma:", a + b);
+    console.log("Resta:", a - b);
+    console.log("Multiplicación:", a * b);
+    console.log("División:", a / b);
+    console.log("Módulo (resto):", a % b);
+
+    // Operadores lógicos
+    console.log("¿a > b?", a > b);
+    console.log("¿a === 10 y b === 3?", a === 10 && b === 3);
+    console.log("¿a === 5 o b === 3?", a === 5 || b === 3);
+    console.log("Negación (!true):", !true);
+
+    // =============================
+    // 4. ESTRUCTURAS DE CONTROL
+    // =============================
+
+    // Condicional if/else
+    let edadUsuario = 18;
+    if (edadUsuario >= 18) {
+      console.log("Eres mayor de edad");
+    } else {
+      console.log("Eres menor de edad");
+    }
+
+    // Condicional múltiple: switch
+    let dia = "lunes";
+    switch(dia) {
+      case "lunes":
+        console.log("Inicio de semana");
+        break;
+      case "viernes":
+        console.log("¡Casi fin de semana!");
+        break;
+      default:
+        console.log("Día normal");
+    }
+
+    // Bucle for
+    for (let i = 1; i <= 5; i++) {
+      console.log("For -> i:", i);
+    }
+
+    // Bucle while
+    let contador = 0;
+    while (contador < 3) {
+      console.log("While -> contador:", contador);
+      contador++;
+    }
+
+    // =============================
+    // 5. FUNCIONES Y SCOPE
+    // =============================
+
+    // Declaración de función tradicional
+    function saludar(nombre) {
+      return `Hola, ${nombre}`;
+    }
+    console.log(saludar("Camilo"));
+
+    // Función flecha (arrow function)
+    const sumar = (x, y) => x + y;
+    console.log("Suma con arrow:", sumar(5, 7));
+
+    // SCOPE: Alcance de variables
+    let globalVar = "Soy global";
+    function mostrarScope() {
+      let localVar = "Soy local";
+      console.log(globalVar); // Accede a variable global
+      console.log(localVar);  // Accede a variable local
+    }
+    mostrarScope();
+    // console.log(localVar); // ERROR: No se puede acceder fuera de la función
+
+    /************************************************************
+     * Fin del bloque 3.1
+     * Este archivo se construye y explica paso a paso
+     ************************************************************/
+  </script>
+</body>
+</html>

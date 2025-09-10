@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventos e Interactividad</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .caja {
+      width: 200px;
+      height: 100px;
+      background-color: lightblue;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }
+    .resaltado {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+  <h1>Eventos e Interactividad</h1>
+  <p>Este ejemplo muestra cómo manejar diferentes eventos en JavaScript.</p>
+
+  <!-- Botón simple -->
+  <button id="miBoton">Haz clic en mí</button>
+
+  <!-- Formulario -->
+  <form id="miFormulario">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required />
+    <button type="submit">Enviar</button>
+  </form>
+
+  <!-- Caja para interacciones -->
+  <div class="caja" id="miCaja">Pasa el mouse</div>
+
+  <!-- Lista para delegación de eventos -->
+  <h2>Lista de tareas</h2>
+  <ul id="lista">
+    <li>Tarea 1</li>
+    <li>Tarea 2</li>
+    <li>Tarea 3</li>
+  </ul>
+
+  <script>
+    /************************************************************
+     * 3.3 EVENTOS E INTERACTIVIDAD
+     * Temas:
+     * - Tipos de eventos
+     * - Event listeners y handlers
+     * - Objeto event
+     * - Prevención de comportamiento por defecto
+     * - Delegación de eventos
+     ************************************************************/
+
+    // =============================
+    // 1. TIPOS DE EVENTOS
+    // =============================
+
+    // Click en un botón
+    const boton = document.getElementById("miBoton");
+    boton.addEventListener("click", () => {
+      alert("¡Haz hecho clic en el botón!");
+    });
+
+    // Evento de carga de la página
+    window.addEventListener("load", () => {
+      console.log("La página ha terminado de cargar");
+    });
+
+    // Evento al pasar el mouse (mouseover y mouseout)
+    const caja = document.getElementById("miCaja");
+    caja.addEventListener("mouseover", () => {
+      caja.textContent = "¡Mouse dentro!";
+    });
+    caja.addEventListener("mouseout", () => {
+      caja.textContent = "Pasa el mouse";
+    });
+
+    // =============================
+    // 2. EVENT LISTENERS Y HANDLERS
+    // =============================
+
+    // Manejador de evento nombrado
+    function mostrarMensaje() {
+      console.log("Evento manejado por función nombrada");
+    }
+    boton.addEventListener("dblclick", mostrarMensaje); // doble clic
+
+    // =============================
+    // 3. EL OBJETO EVENT
+    // =============================
+
+    // Captura de información del evento
+    caja.addEventListener("click", (event) => {
+      console.log("Tipo de evento:", event.type);
+      console.log("Elemento que disparó el evento:", event.target);
+    });
+
+    // =============================
+    // 4. PREVENCIÓN DE COMPORTAMIENTOS POR DEFECTO
+    // =============================
+
+    const formulario = document.getElementById("miFormulario");
+    formulario.addEventListener("submit", (event) => {
+      event.preventDefault(); // evita que se recargue la página
+      const nombre = document.getElementById("nombre").value;
+      alert("Formulario enviado con el nombre: " + nombre);
+    });
+
+    // =============================
+    // 5. DELEGACIÓN DE EVENTOS
+    // =============================
+
+    // En vez de agregar un listener a cada <li>, lo hacemos al <ul>
+    const lista = document.getElementById("lista");
+    lista.addEventListener("click", (event) => {
+      if (event.target.tagName === "LI") {
+        event.target.classList.toggle("resaltado");
+        console.log("Hiciste clic en:", event.target.textContent);
+      }
+    });
+
+    /************************************************************
+     * Explicación:
+     * - Se demostraron diferentes tipos de eventos: click, mouse, submit, load
+     * - Cómo usar funciones flecha y funciones nombradas como handlers
+     * - Uso del objeto event para acceder a info del evento
+     * - Uso de preventDefault() en formularios
+     * - Delegación de eventos para listas dinámicas
+     ************************************************************/
+  </script>
+</body>
+</html>

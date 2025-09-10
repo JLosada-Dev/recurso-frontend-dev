@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manipulación del DOM</title>
+  <style>
+    /* Estilos básicos para ver cambios visuales */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    .resaltado {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    #contenedor {
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-top: 20px;
+    }
+    button {
+      margin: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Manipulación del DOM</h1>
+  <p id="descripcion">Aprenderemos a seleccionar, modificar y crear elementos en el DOM.</p>
+
+  <div id="contenedor">
+    <p>Este es un párrafo dentro del contenedor.</p>
+    <p class="parrafo">Otro párrafo con clase.</p>
+  </div>
+
+  <!-- Botones para interactividad -->
+  <button id="cambiarTextoBtn">Cambiar Texto</button>
+  <button id="agregarElementoBtn">Agregar Elemento</button>
+  <button id="eliminarElementoBtn">Eliminar Último Elemento</button>
+  <button id="modificarEstiloBtn">Modificar Estilo</button>
+
+  <script>
+    /************************************************************
+     * 3.2 MANIPULACIÓN DEL DOM
+     * Temas:
+     * - ¿Qué es el DOM?
+     * - Selección de elementos
+     * - Modificación de contenido y atributos
+     * - Creación y eliminación de elementos
+     * - Modificación de estilos
+     ************************************************************/
+
+    // =============================
+    // 1. ¿QUÉ ES EL DOM?
+    // =============================
+    // El DOM (Document Object Model) es la representación en memoria
+    // de una página web, donde cada etiqueta HTML es un nodo
+    // que podemos manipular con JavaScript.
+
+    // =============================
+    // 2. SELECCIÓN DE ELEMENTOS
+    // =============================
+
+    // getElementById: selecciona por ID
+    const descripcion = document.getElementById("descripcion");
+    console.log("Elemento por ID:", descripcion);
+
+    // querySelector: selecciona el primer elemento que coincide con el selector CSS
+    const primerParrafo = document.querySelector("p");
+    console.log("Primer párrafo:", primerParrafo);
+
+    // querySelectorAll: selecciona todos los elementos que coinciden
+    const todosParrafos = document.querySelectorAll("p");
+    console.log("Todos los párrafos:", todosParrafos);
+
+    // =============================
+    // 3. MODIFICACIÓN DE CONTENIDO Y ATRIBUTOS
+    // =============================
+
+    const cambiarTextoBtn = document.getElementById("cambiarTextoBtn");
+    cambiarTextoBtn.addEventListener("click", () => {
+      descripcion.textContent = "¡El texto ha sido cambiado desde JavaScript!";
+      // textContent: cambia el texto interno del elemento
+    });
+
+    // =============================
+    // 4. CREACIÓN Y ELIMINACIÓN DE ELEMENTOS
+    // =============================
+
+    const contenedor = document.getElementById("contenedor");
+    const agregarElementoBtn = document.getElementById("agregarElementoBtn");
+    const eliminarElementoBtn = document.getElementById("eliminarElementoBtn");
+
+    agregarElementoBtn.addEventListener("click", () => {
+      const nuevoParrafo = document.createElement("p"); // crea un elemento <p>
+      nuevoParrafo.textContent = "Soy un nuevo párrafo agregado dinámicamente.";
+      contenedor.appendChild(nuevoParrafo); // lo agrega al final del contenedor
+    });
+
+    eliminarElementoBtn.addEventListener("click", () => {
+      const ultimoElemento = contenedor.lastElementChild;
+      if (ultimoElemento) {
+        contenedor.removeChild(ultimoElemento);
+      } else {
+        alert("No hay elementos para eliminar");
+      }
+    });
+
+    // =============================
+    // 5. MODIFICACIÓN DE ESTILOS CSS
+    // =============================
+
+    const modificarEstiloBtn = document.getElementById("modificarEstiloBtn");
+    modificarEstiloBtn.addEventListener("click", () => {
+      descripcion.classList.toggle("resaltado"); 
+      // toggle: agrega o quita la clase "resaltado"
+    });
+
+    /************************************************************
+     * Explicación:
+     * - Estamos combinando selección, modificación y eventos.
+     * - Cada botón demuestra una operación distinta sobre el DOM.
+     ************************************************************/
+  </script>
+</body>
+</html>

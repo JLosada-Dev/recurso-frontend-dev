@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Unidad 3.1 - Fundamentos de JavaScript</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Unidad 3: Programación con JavaScript</h1>
+      <p><strong>Objetivo:</strong> Comprender los fundamentos de JavaScript, manipular el DOM y manejar eventos.</p>
+    </header>
+
+    <!-- Diapositivas -->
+    <div class="slides">
+      <!-- Slide 1 -->
+      <section class="slide active">
+        <h2>3.1 Fundamentos de JavaScript</h2>
+        <p>Duración: <strong>3 horas</strong></p>
+        <ul>
+          <li>Sintaxis básica y tipos de datos</li>
+          <li>Variables (var, let, const)</li>
+          <li>Operadores aritméticos y lógicos</li>
+          <li>Estructuras de control (if/else, bucles)</li>
+          <li>Funciones y scope</li>
+        </ul>
+      </section>
+
+      <!-- Slide 2 -->
+      <section class="slide">
+        <h2>Sintaxis básica y tipos de datos</h2>
+        <p>En JavaScript tenemos tipos primitivos como:</p>
+        <ul>
+          <li><code>String</code> - Texto</li>
+          <li><code>Number</code> - Números</li>
+          <li><code>Boolean</code> - true/false</li>
+          <li><code>Null</code> y <code>Undefined</code></li>
+        </ul>
+        <pre><code>// Ejemplo
+let nombre = "Camilo";
+let edad = 25;
+let activo = true;</code></pre>
+      </section>
+
+      <!-- Slide 3 -->
+      <section class="slide">
+        <h2>Variables: var, let y const</h2>
+        <p>
+          <strong>var:</strong> Ámbito global o de función.<br>
+          <strong>let:</strong> Ámbito de bloque.<br>
+          <strong>const:</strong> No se puede reasignar.
+        </p>
+        <pre><code>// Ejemplo
+var x = 10;
+let y = 20;
+const PI = 3.1416;</code></pre>
+      </section>
+
+      <!-- Slide 4 -->
+      <section class="slide">
+        <h2>Operadores</h2>
+        <p>Aritméticos: <code>+ - * / %</code></p>
+        <p>Lógicos: <code>&& || !</code></p>
+        <pre><code>// Ejemplo
+let suma = 5 + 3; // 8
+let esMayor = (10 > 5) && (5 > 2); // true</code></pre>
+      </section>
+
+      <!-- Slide 5 -->
+      <section class="slide">
+        <h2>Estructuras de control</h2>
+        <p><strong>if / else</strong> y <strong>bucles</strong> como <code>for</code>, <code>while</code>.</p>
+        <pre><code>// Ejemplo
+if (edad >= 18) {
+  console.log("Es mayor de edad");
+}
+
+for (let i = 0; i < 3; i++) {
+  console.log("Iteración " + i);
+}</code></pre>
+      </section>
+
+      <!-- Slide 6 -->
+      <section class="slide">
+        <h2>Funciones y Scope</h2>
+        <p>Las funciones son bloques reutilizables. Ejemplo:</p>
+        <pre><code>function saludar(nombre) {
+  return "Hola " + nombre;
+}
+console.log(saludar("Ana"));</code></pre>
+        <p><strong>Scope:</strong> Define dónde son accesibles las variables.</p>
+      </section>
+    </div>
+
+    <!-- Navegación -->
+    <div class="navigation">
+      <button id="prevBtn">← Anterior</button>
+      <button id="nextBtn">Siguiente →</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
