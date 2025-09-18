@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selectores Básicos CSS</title>
+    <link rel="stylesheet" href="selectores-basicos.css" />
+  </head>
+  <body>
+    <!-- Contenedor principal con ID -->
+    <div id="contenedor-principal">
+      <!-- Título principal con ID -->
+      <h1 id="titulo-principal">Título Principal con ID</h1>
+
+      <!-- Título con clase -->
+      <h1 class="titulo">Título con Clase</h1>
+
+      <!-- Divs básicos (selector de tipo) -->
+      <div>Este es un div normal</div>
+      <div class="destacado">Este div tiene la clase 'destacado'</div>
+      <div>Otro div normal</div>
+
+      <!-- Párrafo con clase destacado -->
+      <p class="destacado">Este párrafo también tiene la clase 'destacado'</p>
+
+      <!-- Enlaces con atributos específicos -->
+      <p>
+        <a href="https://fup.edu.co/"
+          >Enlace a FUP (selector de atributo específico)</a
+        ><br />
+        <a href="https://google.com"
+          >Enlace a Google (sin estilos especiales)</a
+        >
+      </p>
+
+      <!-- Formulario con input de email -->
+      <form>
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="tu@email.com" />
+
+        <label for="texto">Texto:</label>
+        <input type="text" id="texto" placeholder="Texto normal" />
+      </form>
+
+      <!-- Imágenes con y sin atributo alt -->
+      <div>
+        <img
+          src="https://picsum.photos/150/150"
+          alt="Imagen con atributo alt"
+        />
+        <img src="https://picsum.photos/150/150" />
+      </div>
+    </div>
+  </body>
+</html>

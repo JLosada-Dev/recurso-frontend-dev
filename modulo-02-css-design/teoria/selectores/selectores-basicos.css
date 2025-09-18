@@ -1,0 +1,278 @@
+/* ========================================
+  SELECTORES BÁSICOS EN CSS
+  ========================================
+  
+  Los selectores son patrones que nos permiten
+  seleccionar elementos HTML para aplicarles estilos.
+*/
+
+/* ----------------------------------------
+  1. SELECTOR UNIVERSAL (*)
+  ----------------------------------------
+  Selecciona TODOS los elementos de la página
+  Útil para: Reset de estilos, aplicar propiedades globales
+*/
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+/* ----------------------------------------
+  2. SELECTOR DE TIPO (Elemento)
+  ----------------------------------------
+  Selecciona todos los elementos de un tipo específico
+  Sintaxis: elemento { propiedades }
+  Cuándo usar: Para estilos generales de elementos
+*/
+div {
+  background-color: #f0f8ff;
+  padding: 10px;
+  margin: 5px;
+  border-radius: 8px;
+  border: 1px solid #b8d4f0;
+}
+
+h1 {
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #1a365d;
+}
+
+/* Estilos para párrafos */
+p {
+  line-height: 1.6;
+  margin-bottom: 10px;
+  color: #2d3748;
+}
+
+/* Estilos para formularios */
+form {
+  background-color: #e6f3ff;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 12px;
+  border: 2px solid #90cdf4;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #2a69ac;
+}
+
+input {
+  margin-bottom: 15px;
+  padding: 12px;
+  border: 2px solid #bee3f8;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 300px;
+  transition: border-color 0.2s ease;
+  background-color: #ffffff;
+}
+
+input:focus {
+  outline: none;
+  border-color: #3182ce;
+  box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.15);
+}
+
+/* ----------------------------------------
+  3. SELECTOR DE CLASE (.)
+  ----------------------------------------
+  Selecciona elementos con una clase específica
+  Sintaxis: .nombre-clase { propiedades }
+  HTML: <elemento class="nombre-clase">
+  Cuándo usar: Para estilos reutilizables, múltiples elementos
+*/
+.titulo {
+  color: #2b6cb0;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: #63b3ed;
+}
+
+.destacado {
+  background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
+  border: 2px solid #ed8936;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 12px;
+  font-weight: 500;
+  color: #744210;
+}
+
+/* Ejemplo de clase para botones */
+.boton {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(56, 161, 105, 0.25);
+}
+
+.boton:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(56, 161, 105, 0.35);
+  background: linear-gradient(135deg, #2f855a 0%, #276749 100%);
+}
+
+/* ----------------------------------------
+  4. SELECTOR DE ID (#)
+  ----------------------------------------
+  Selecciona UN elemento con ID específico
+  Sintaxis: #nombre-id { propiedades }
+  HTML: <elemento id="nombre-id">
+  NOTA: Los IDs deben ser únicos en la página
+  Cuándo usar: Para elementos únicos, navegación, JavaScript
+*/
+#titulo-principal {
+  color: #1a202c;
+  font-size: 3em;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 100%);
+  padding: 30px;
+  border-radius: 16px;
+  border: 2px solid #4299e1;
+}
+
+#contenedor-principal {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ----------------------------------------
+  5. SELECTOR DE ATRIBUTO ([])
+  ----------------------------------------
+  Selecciona elementos basándose en sus atributos
+  Sintaxis: elemento[atributo="valor"] { propiedades }
+  Cuándo usar: Para elementos con atributos específicos
+*/
+
+/* Selecciona enlaces que van a una URL específica */
+a[href="https://fup.edu.co/"] {
+  color: #2b6cb0;
+  font-weight: 600;
+  text-decoration: none;
+  background-color: #ebf8ff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 2px solid #4299e1;
+  transition: all 0.2s ease;
+}
+
+/* Hover para el enlace específico */
+a[href="https://fup.edu.co/"]:hover {
+  background-color: #2b6cb0;
+  color: white;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(43, 108, 176, 0.3);
+}
+
+/* Selecciona inputs de tipo email */
+input[type="email"] {
+  border: 2px solid #38a169;
+  background-color: #f0fff4;
+}
+
+/* Selecciona inputs de tipo text */
+input[type="text"] {
+  border: 2px solid #4299e1;
+  background-color: #f7fafc;
+}
+
+/* Selecciona elementos con un atributo específico (sin importar el valor) */
+img[alt] {
+  border: 3px solid #9ca3af;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+/* Selecciona imágenes SIN atributo alt */
+img:not([alt]) {
+  border: 3px solid #e53e3e;
+  border-radius: 8px;
+  margin: 10px;
+  opacity: 0.7;
+}
+
+/* ----------------------------------------
+  EJEMPLOS ADICIONALES DE SELECTORES DE ATRIBUTO
+  ---------------------------------------- */
+
+/* Selecciona elementos que CONTIENEN un valor en el atributo */
+a[href*="google"] {
+  color: #c53030;
+  font-style: italic;
+  background-color: #fed7d7;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Selecciona elementos que EMPIEZAN con un valor */
+a[href^="https://"] {
+  padding-left: 20px;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="%2338a169" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm3.5 6L7 10.5 4.5 8 6 6.5l1 1 3.5-3.5L12 5.5z"/></svg>') no-repeat left center;
+}
+
+/* ----------------------------------------
+  ORDEN DE ESPECIFICIDAD (De mayor a menor):
+  1. Estilos inline (style="...")     - 1000 puntos
+  2. IDs (#)                          - 100 puntos  
+  3. Clases (.), atributos ([]),      - 10 puntos
+    pseudo-clases (:hover, :focus)
+  4. Elementos (div, h1, p, etc.)     - 1 punto
+  5. Selector universal (*)           - 0 puntos
+  
+  REGLA IMPORTANTE: !important sobrescribe todo
+  (pero evitar usarlo, es mala práctica)
+  ---------------------------------------- */
+
+/* ----------------------------------------
+  BUENAS PRÁCTICAS:
+  ----------------------------------------
+  
+  1. USA CLASES para estilos reutilizables
+    ✅ .boton, .destacado, .contenedor
+  
+  2. USA IDs para elementos únicos
+    ✅ #header, #footer, #contenido-principal
+  
+  3. USA selectores de tipo para estilos generales
+    ✅ body, h1, p, a
+  
+  4. USA selectores de atributo para casos específicos
+    ✅ input[type="email"], a[target="_blank"]
+  
+  5. EVITA el selector universal (*) excepto para reset
+    ❌ * { color: red; } (afecta TODO)
+  ---------------------------------------- */
+
+/* Estilos adicionales para mejorar la presentación */
+body {
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  color: #2d3748;
+  line-height: 1.6;
+}
+
+/* Estilo para los enlaces normales */
+a {
+  color: #2b6cb0;
+  text-decoration: underline;
+  text-decoration-color: #63b3ed;
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: #2c5282;
+  text-decoration-color: #2b6cb0;
+}

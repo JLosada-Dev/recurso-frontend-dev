@@ -1,0 +1,105 @@
+/**
+ * ANATOMÍA DE CSS - GUÍA DE ESTUDIO
+ * 
+ * ESTRUCTURA BÁSICA DE UNA REGLA CSS:
+ * =====================================
+ * 
+ * Selector {
+ *   propiedad: valor;
+ * }
+ * 
+ * COMPONENTES:
+ * ------------
+ * 
+ * 1. SELECTOR (h1):
+ *    - Elemento HTML al que se aplicarán los estilos
+ *    - Puede ser: etiquetas, clases, IDs, atributos, etc.
+ *    - Ejemplos: h1, .clase, #id, [atributo]
+ * 
+ * 2. PROPIEDAD (color):
+ *    - Característica visual que queremos modificar
+ *    - Define QUÉ aspecto del elemento cambiaremos
+ *    - Ejemplos: color, background, font-size, margin, padding
+ * 
+ * 3. VALOR (blue):
+ *    - Especificación concreta de cómo queremos que se vea
+ *    - Define CÓMO será la propiedad
+ *    - Ejemplos: blue, #FF0000, 16px, bold, center
+ * 
+ * SINTAXIS IMPORTANTE:
+ * -------------------
+ * - Las llaves {} delimitan el bloque de declaraciones
+ * - Cada declaración termina con punto y coma ;
+ * - Propiedad y valor se separan con dos puntos :
+ * 
+ * EJEMPLO PRÁCTICO:
+ * ----------------
+ * h1 { color: blue; }
+ * │    │      │
+ * │    │      └── Valor (azul)
+ * │    └────────── Propiedad (color del texto)
+ * └────────────── Selector (todos los h1)
+ */
+/* Anamotima de CSS */
+h1{
+  color: blue;
+}
+/* h1: Selector
+ Color: Propiedad
+ blue: Valor */
+
+/* EJEMPLOS CON DIFERENTES TIPOS DE SELECTORES */
+
+/* 1. SELECTOR DE ETIQUETA */
+p {
+  font-size: 16px;
+  color: #333;
+}
+
+/* 2. SELECTOR DE CLASE */
+.destacado {
+  background-color: yellow;
+  font-weight: bold;
+}
+
+/* 3. SELECTOR DE ID */
+#encabezado-principal {
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* 4. SELECTOR DE ATRIBUTO */
+input[type="email"] {
+  border: 2px solid green;
+  padding: 10px;
+}
+
+/* 5. SELECTOR DESCENDIENTE */
+nav ul li {
+  list-style: none;
+  display: inline-block;
+}
+
+/* 6. SELECTOR DE HIJO DIRECTO */
+article > h2 {
+  color: darkblue;
+  border-bottom: 1px solid #ccc;
+}
+
+/* 7. SELECTOR UNIVERSAL */
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* 8. PSEUDOCLASE */
+a:hover {
+  color: red;
+  text-decoration: underline;
+}
+
+/* 9. SELECTOR MÚLTIPLE (agrupado) */
+h1, h2, h3 {
+  font-family: Arial, sans-serif;
+  color: #2c3e50;
+}

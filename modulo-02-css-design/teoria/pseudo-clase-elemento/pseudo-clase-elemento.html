@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo-clases y Pseudo-elementos CSS - Guía Completa</title>
+    <link rel="stylesheet" href="pseudo-clase-elemento.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <h1>Pseudo-clases y Pseudo-elementos CSS</h1>
+        <p class="subtitle">
+          Guía Completa para Estudiantes - Teoría, Práctica y Casos de Uso
+        </p>
+      </header>
+
+      <!-- INTRODUCCIÓN -->
+      <section class="section">
+        <h2 class="section-title">
+          🎯 ¿Qué son las Pseudo-clases y Pseudo-elementos?
+        </h2>
+
+        <div class="explanation">
+          <h3>Diferencias Fundamentales:</h3>
+          <p>
+            <strong>Pseudo-clases (:)</strong> - Seleccionan elementos basándose
+            en su estado o posición. Usan UN solo dos puntos (:).
+          </p>
+          <p>
+            <strong>Pseudo-elementos (::)</strong> - Crean o seleccionan partes
+            específicas de un elemento. Usan DOS dos puntos (::).
+          </p>
+        </div>
+
+        <table class="comparison-table">
+          <tr>
+            <th>Característica</th>
+            <th>Pseudo-clases (:)</th>
+            <th>Pseudo-elementos (::)</th>
+          </tr>
+          <tr>
+            <td>Sintaxis</td>
+            <td>elemento:pseudo-clase</td>
+            <td>elemento::pseudo-elemento</td>
+          </tr>
+          <tr>
+            <td>Función</td>
+            <td>Selecciona estados o posiciones</td>
+            <td>Crea o estiliza partes del elemento</td>
+          </tr>
+          <tr>
+            <td>Ejemplos</td>
+            <td>:hover, :focus, :nth-child</td>
+            <td>::before, ::after, ::first-letter</td>
+          </tr>
+          <tr>
+            <td>Límite por elemento</td>
+            <td>Sin límite</td>
+            <td>Generalmente uno por tipo</td>
+          </tr>
+        </table>
+      </section>
+
+      <!-- PSEUDO-CLASES -->
+      <section class="section">
+        <h2 class="section-title">🎭 Pseudo-clases - Estados y Posiciones</h2>
+
+        <!-- :hover -->
+        <h3>1. :hover - Interacción con el cursor</h3>
+        <div class="explanation">
+          <p>
+            <strong>¿Cuándo usar?</strong> Para crear efectos visuales cuando el
+            usuario pasa el cursor sobre un elemento.
+          </p>
+          <p>
+            <strong>Buenas prácticas:</strong> Siempre incluir transition para
+            suavizar el efecto.
+          </p>
+        </div>
+
+        <div class="demo-box">
+          <div class="demo-label">Demo: :hover</div>
+          <div class="hover-example">¡Pasa el cursor sobre mí!</div>
+        </div>
+
+        <pre class="code-block">
+.elemento:hover {
+    background: #667eea;
+    color: white;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+            </pre
+        >
+
+        <!-- :focus -->
+        <h3>2. :focus - Elementos enfocados</h3>
+        <div class="explanation">
+          <p>
+            <strong>¿Cuándo usar?</strong> Para mejorar la accesibilidad en
+            formularios y elementos interactivos.
+          </p>
+          <p>
+            <strong>Buenas prácticas:</strong> Nunca usar outline: none sin
+            proporcionar una alternativa visual.
+          </p>
+        </div>
+
+        <div class="demo-box">
+          <div class="demo-label">Demo: :focus</div>
+          <input
+            type="text"
+            class="focus-example"
+            placeholder="Haz clic aquí para enfocar"
+          />
+        </div>
+
+        <pre class="code-block">
+input:focus {
+    border-color: #4ecdc4;
+    box-shadow: 0 0 10px rgba(78, 205, 196, 0.3);
+    outline: none; /* Solo si proporcionas alternativa visual */
+}
+            </pre
+        >
+
+        <!-- :active -->
+        <h3>3. :active - Elementos siendo activados</h3>
+        <div class="demo-box">
+          <div class="demo-label">Demo: :active</div>
+          <button class="active-example">¡Manténme presionado!</button>
+        </div>
+
+        <!-- :nth-child -->
+        <h3>4. :nth-child() - Selección por posición</h3>
+        <div class="explanation">
+          <p><strong>Patrones útiles:</strong></p>
+          <ul>
+            <li><code>:nth-child(odd)</code> - Elementos impares</li>
+            <li><code>:nth-child(even)</code> - Elementos pares</li>
+            <li><code>:nth-child(3n)</code> - Cada tercer elemento</li>
+            <li><code>:nth-child(3n+1)</code> - 1º, 4º, 7º... elementos</li>
+          </ul>
+        </div>
+
+        <div class="demo-box">
+          <div class="demo-label">Demo: :nth-child</div>
+          <div class="nth-child-demo">
+            <div class="nth-item">1</div>
+            <div class="nth-item">2</div>
+            <div class="nth-item">3</div>
+            <div class="nth-item">4</div>
+            <div class="nth-item">5</div>
+            <div class="nth-item">6</div>
+          </div>
+        </div>
+
+        <!-- :first-child y :last-child -->
+        <h3>5. :first-child y :last-child</h3>
+        <div class="demo-box">
+          <div class="demo-label">Demo: first/last-child</div>
+          <div class="child-demo">
+            <div class="child-item">Primero</div>
+            <div class="child-item">Medio</div>
+            <div class="child-item">Último</div>
+          </div>
+        </div>
+
+        <!-- :not() -->
+        <h3>6. :not() - Negación</h3>
+        <div class="demo-box">
+          <div class="demo-label">Demo: :not()</div>
+          <div class="not-demo">
+            <span class="not-item">Normal</span>
+            <span class="not-item special">Especial</span>
+            <span class="not-item">Normal</span>
+            <span class="not-item">Normal</span>
+          </div>
+        </div>
+
+        <pre class="code-block">
+/* Estiliza todos excepto los que tienen clase "special" */
+.item:not(.special) {
+    background: #c8e6c9;
+}
+            </pre
+        >
+      </section>
+
+      <!-- PSEUDO-ELEMENTOS -->
+      <section class="section">
+        <h2 class="section-title">✨ Pseudo-elementos - Creando Contenido</h2>
+
+        <!-- ::before y ::after -->
+        <h3>1. ::before y ::after - Contenido generado</h3>
+        <div class="explanation">
+          <p>
+            <strong>¿Para qué sirven?</strong> Insertar contenido decorativo sin
+            modificar el HTML.
+          </p>
+          <p>
+            <strong>Requisito obligatorio:</strong> La propiedad
+            <code>content</code> es necesaria, aunque esté vacía.
+          </p>
+        </div>
+
+        <div class="demo-box">
+          <div class="demo-label">Demo: ::before y ::after</div>
+          <div class="before-after-example">
+            ¡Contenido con decoración automática!
+          </div>
+        </div>
+
+        <pre class="code-block">
+.elemento::before {
+    content: "👉 ";  /* content es obligatorio */
+    position: absolute;
+    left: 10px;
+}
+
+.elemento::after {
+    content: " 👈";
+    position: absolute;
+    right: 10px;
+}
+            </pre
+        >
+
+        <!-- ::first-letter -->
+        <h3>2. ::first-letter - Primera letra</h3>
+        <div class="demo-box">
+          <div class="demo-label">Demo: ::first-letter</div>
+          <p class="first-letter-example">
+            Esta es una demostración de cómo se puede estilizar la primera letra
+            de un párrafo para crear efectos tipográficos elegantes, similar a
+            las capitulares en libros y revistas tradicionales.
+          </p>
+        </div>
+
+        <!-- ::first-line -->
+        <h3>3. ::first-line - Primera línea</h3>
+        <div class="demo-box">
+          <div class="demo-label">Demo: ::first-line</div>
+          <p class="first-line-example">
+            La primera línea de este párrafo está estilizada de manera diferente
+            al resto del texto. Esto es útil para crear énfasis en la
+            introducción de artículos o secciones importantes del contenido.
+          </p>
+        </div>
+
+        <!-- ::selection -->
+        <h3>4. ::selection - Texto seleccionado</h3>
+        <div class="demo-box">
+          <div class="demo-label">Demo: ::selection</div>
+          <p class="selection-example">
+            Selecciona este texto para ver el efecto personalizado de selección.
+            Puedes cambiar el color de fondo y texto cuando el usuario
+            selecciona contenido.
+          </p>
+        </div>
+
+        <!-- ::placeholder -->
+        <h3>5. ::placeholder - Texto de marcador</h3>
+        <div class="demo-box">
+          <div class="demo-label">Demo: ::placeholder</div>
+          <input
+            type="text"
+            class="placeholder-example"
+            placeholder="Este placeholder tiene estilo personalizado"
+          />
+        </div>
+      </section>
+
+      <!-- CASOS DE USO PRÁCTICOS -->
+      <section class="section">
+        <h2 class="section-title">🚀 Casos de Uso Prácticos</h2>
+
+        <h3>1. Navegación Interactiva</h3>
+        <div class="demo-box">
+          <div class="demo-label">Navegación con :hover y ::after</div>
+          <nav class="nav-example">
+            <ul>
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Sobre</a></li>
+              <li><a href="#">Servicios</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <pre class="code-block">
+.nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background: #3498db;
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav a:hover::after {
+    width: 80%;
+}
+            </pre
+        >
+
+        <h3>2. Formulario Elegante</h3>
+        <div class="demo-box">
+          <div class="demo-label">Labels flotantes con :focus</div>
+          <form class="elegant-form">
+            <div class="form-group">
+              <input type="text" class="elegant-input" placeholder=" " />
+              <label class="elegant-label">Nombre completo</label>
+            </div>
+            <div class="form-group">
+              <input type="email" class="elegant-input" placeholder=" " />
+              <label class="elegant-label">Correo electrónico</label>
+            </div>
+          </form>
+        </div>
+
+        <h3>3. Cards con Efectos Avanzados</h3>
+        <div class="practical-card">
+          <h4>Card con borde animado</h4>
+          <p>
+            Esta tarjeta utiliza ::before para crear un borde lateral colorido y
+            :hover para efectos de elevación.
+          </p>
+        </div>
+      </section>
+
+      <!-- BUENAS PRÁCTICAS -->
+      <section class="section">
+        <h2 class="section-title">💡 Buenas Prácticas y Consejos</h2>
+
+        <div class="best-practices">
+          <h3>✅ Buenas Prácticas</h3>
+          <ul>
+            <li>
+              <strong>Accesibilidad:</strong> Siempre proporciona alternativas
+              visuales al quitar outline
+            </li>
+            <li>
+              <strong>Rendimiento:</strong> Usa transform en lugar de cambiar
+              position para animaciones
+            </li>
+            <li>
+              <strong>Transiciones:</strong> Incluye transition para suavizar
+              todos los efectos hover
+            </li>
+            <li>
+              <strong>Contenido:</strong> Los pseudo-elementos ::before y
+              ::after necesitan la propiedad content
+            </li>
+            <li>
+              <strong>Especificidad:</strong> Las pseudo-clases tienen la misma
+              especificidad que las clases
+            </li>
+          </ul>
+        </div>
+
+        <div class="warning">
+          <h3>⚠️ Errores Comunes</h3>
+          <ul>
+            <li>
+              Olvidar la propiedad <code>content</code> en ::before y ::after
+            </li>
+            <li>Usar <code>outline: none</code> sin alternativa visual</li>
+            <li>No incluir transiciones en efectos hover</li>
+            <li>Confundir :: (pseudo-elementos) con : (pseudo-clases)</li>
+            <li>Sobrecargar con demasiados efectos visuales</li>
+          </ul>
+        </div>
+
+        <div class="tip">
+          <h3>💡 Tips Profesionales</h3>
+          <ul>
+            <li>
+              <strong>Debugging:</strong> Usa las DevTools para ver
+              pseudo-elementos en el inspector
+            </li>
+            <li>
+              <strong>Responsive:</strong> Los pseudo-elementos se adaptan al
+              contenedor padre
+            </li>
+            <li>
+              <strong>Performance:</strong> Usa will-change: transform para
+              animaciones complejas
+            </li>
+            <li>
+              <strong>Compatibilidad:</strong> ::before y ::after funcionan
+              desde IE8
+            </li>
+            <li>
+              <strong>SEO:</strong> El contenido de pseudo-elementos no es
+              indexado por buscadores
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CUÁNDO USAR CADA UNO -->
+      <section class="section">
+        <h2 class="section-title">🎯 Cuándo Usar Cada Uno</h2>
+
+        <h3>Pseudo-clases - Estados e Interacciones</h3>
+        <ul>
+          <li>
+            <strong>:hover, :focus, :active</strong> → Interacciones de usuario
+          </li>
+          <li>
+            <strong>:nth-child(), :first-child, :last-child</strong> →
+            Estilizado de listas y tablas
+          </li>
+          <li><strong>:not()</strong> → Excepciones en estilos</li>
+          <li>
+            <strong>:checked, :disabled, :required</strong> → Estados de
+            formularios
+          </li>
+        </ul>
+
+        <h3>Pseudo-elementos - Contenido y Decoración</h3>
+        <ul>
+          <li>
+            <strong>::before, ::after</strong> → Iconos, decoraciones, tooltips
+          </li>
+          <li>
+            <strong>::first-letter</strong> → Capitulares en artículos y blogs
+          </li>
+          <li>
+            <strong>::first-line</strong> → Énfasis en párrafos introductorios
+          </li>
+          <li><strong>::selection</strong> → Personalización de marca</li>
+          <li><strong>::placeholder</strong> → Mejor UX en formularios</li>
+        </ul>
+      </section>
+
+      <!-- EJEMPLOS AVANZADOS -->
+      <section class="section">
+        <h2 class="section-title">🔥 Ejemplos Avanzados</h2>
+
+        <h3>1. Tooltip con ::before y ::after</h3>
+        <div class="demo-box">
+          <div class="demo-label">Tooltip Avanzado</div>
+          <div class="tooltip-container">
+            <span class="tooltip-trigger">Pasa el cursor aquí</span>
+          </div>
+        </div>
+
+        <pre class="code-block">
+.tooltip-trigger {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dotted #666;
+}
+
+.tooltip-trigger::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.tooltip-trigger::after {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.tooltip-trigger:hover::before,
+.tooltip-trigger:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+            </pre
+        >
+
+        <h3>2. Loading Spinner con ::before</h3>
+        <div class="demo-box">
+          <div class="demo-label">Spinner CSS</div>
+          <div class="spinner-container">
+            <div class="spinner">Cargando...</div>
+          </div>
+        </div>
+
+        <pre class="code-block">
+.spinner {
+    position: relative;
+    display: inline-block;
+    padding-left: 30px;
+}
+
+.spinner::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #667eea;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+            </pre
+        >
+
+        <h3>3. Breadcrumb con ::after</h3>
+        <div class="demo-box">
+          <div class="demo-label">Breadcrumb Navigation</div>
+          <nav class="breadcrumb">
+            <a href="#" class="breadcrumb-item">Inicio</a>
+            <a href="#" class="breadcrumb-item">Productos</a>
+            <a href="#" class="breadcrumb-item">Electrónicos</a>
+            <span class="breadcrumb-item current">Laptop</span>
+          </nav>
+        </div>
+
+        <pre class="code-block">
+.breadcrumb-item:not(:last-child)::after {
+    content: ' / ';
+    color: #666;
+    margin: 0 8px;
+}
+
+.breadcrumb-item.current {
+    color: #667eea;
+    font-weight: bold;
+}
+            </pre
+        >
+
+        <h3>4. Acordeón con :checked</h3>
+        <div class="demo-box">
+          <div class="demo-label">Acordeón CSS Puro</div>
+          <div class="accordion">
+            <div class="accordion-item">
+              <input
+                type="radio"
+                name="accordion"
+                id="accordion1"
+                class="accordion-input"
+              />
+              <label for="accordion1" class="accordion-label"
+                >¿Qué son las pseudo-clases?</label
+              >
+              <div class="accordion-content">
+                <p>
+                  Las pseudo-clases son selectores que permiten aplicar estilos
+                  a elementos basándose en su estado o posición en el DOM, sin
+                  necesidad de agregar clases adicionales en el HTML.
+                </p>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <input
+                type="radio"
+                name="accordion"
+                id="accordion2"
+                class="accordion-input"
+              />
+              <label for="accordion2" class="accordion-label"
+                >¿Cuál es la diferencia entre : y ::?</label
+              >
+              <div class="accordion-content">
+                <p>
+                  Los dos puntos (:) se usan para pseudo-clases que seleccionan
+                  estados, mientras que los dobles dos puntos (::) se usan para
+                  pseudo-elementos que crean o seleccionan partes específicas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <pre class="code-block">
+.accordion-input {
+    display: none;
+}
+
+.accordion-label {
+    display: block;
+    padding: 15px;
+    background: #f8f9fa;
+    cursor: pointer;
+    border: 1px solid #dee2e6;
+    position: relative;
+}
+
+.accordion-label::after {
+    content: '+';
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: white;
+}
+
+.accordion-input:checked + .accordion-label::after {
+    transform: translateY(-50%) rotate(45deg);
+}
+
+.accordion-input:checked ~ .accordion-content {
+    max-height: 200px;
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-top: none;
+}
+            </pre
+        >
+      </section>
+
+      <!-- COMPATIBILIDAD Y SOPORTE -->
+      <section class="section">
+        <h2 class="section-title">🌐 Compatibilidad y Soporte</h2>
+
+        <table class="comparison-table">
+          <tr>
+            <th>Pseudo-selector</th>
+            <th>IE</th>
+            <th>Chrome</th>
+            <th>Firefox</th>
+            <th>Safari</th>
+          </tr>
+          <tr>
+            <td>:hover, :focus, :active</td>
+            <td>IE4+</td>
+            <td>1+</td>
+            <td>1+</td>
+            <td>1+</td>
+          </tr>
+          <tr>
+            <td>:nth-child()</td>
+            <td>IE9+</td>
+            <td>1+</td>
+            <td>3.5+</td>
+            <td>3+</td>
+          </tr>
+          <tr>
+            <td>::before, ::after</td>
+            <td>IE8+ (con :)</td>
+            <td>1+</td>
+            <td>1+</td>
+            <td>1+</td>
+          </tr>
+          <tr>
+            <td>::first-letter, ::first-line</td>
+            <td>IE5.5+</td>
+            <td>1+</td>
+            <td>1+</td>
+            <td>1+</td>
+          </tr>
+          <tr>
+            <td>::selection</td>
+            <td>IE9+</td>
+            <td>1+</td>
+            <td>1+</td>
+            <td>1.1+</td>
+          </tr>
+          <tr>
+            <td>::placeholder</td>
+            <td>IE10+</td>
+            <td>57+</td>
+            <td>51+</td>
+            <td>10.1+</td>
+          </tr>
+        </table>
+
+        <div class="tip">
+          <h3>💡 Tips de Compatibilidad</h3>
+          <ul>
+            <li>
+              Para IE8, usa la sintaxis de un solo dos puntos (:before en lugar
+              de ::before)
+            </li>
+            <li>
+              Algunos navegadores necesitan prefijos (-webkit-, -moz-) para
+              ::placeholder
+            </li>
+            <li>
+              Siempre prueba en diferentes navegadores, especialmente efectos
+              complejos
+            </li>
+            <li>Usa herramientas como Can I Use para verificar soporte</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- EJERCICIOS PRÁCTICOS -->
+      <section class="section">
+        <h2 class="section-title">📚 Ejercicios para Practicar</h2>
+
+        <div class="exercise-box">
+          <h3>Ejercicio 1: Crear un botón interactivo</h3>
+          <p>
+            <strong>Objetivo:</strong> Crear un botón que cambie de color al
+            hacer hover, tenga un efecto de presión con :active, y muestre un
+            borde al recibir focus.
+          </p>
+
+          <div class="practice-button">Mi Botón Interactivo</div>
+        </div>
+
+        <div class="exercise-box">
+          <h3>Ejercicio 2: Lista zebra</h3>
+          <p>
+            <strong>Objetivo:</strong> Crear una lista donde las filas impares
+            tengan un color de fondo diferente.
+          </p>
+
+          <ul class="zebra-list">
+            <li>Elemento 1</li>
+            <li>Elemento 2</li>
+            <li>Elemento 3</li>
+            <li>Elemento 4</li>
+            <li>Elemento 5</li>
+          </ul>
+        </div>
+
+        <div class="exercise-box">
+          <h3>Ejercicio 3: Crear una cita con comillas decorativas</h3>
+          <p>
+            <strong>Objetivo:</strong> Usar ::before y ::after para agregar
+            comillas grandes y decorativas.
+          </p>
+
+          <blockquote class="decorative-quote">
+            "El diseño no es solo cómo se ve o se siente. El diseño es cómo
+            funciona."
+            <cite>- Steve Jobs</cite>
+          </blockquote>
+        </div>
+      </section>
+
+      <!-- RECURSOS ADICIONALES -->
+      <section class="section">
+        <h2 class="section-title">📖 Recursos para Seguir Aprendiendo</h2>
+
+        <div class="resources-grid">
+          <div class="resource-card">
+            <h3>🔗 Enlaces Útiles</h3>
+            <ul>
+              <li>MDN Web Docs - Pseudo-clases</li>
+              <li>MDN Web Docs - Pseudo-elementos</li>
+              <li>Can I Use - Compatibilidad</li>
+              <li>CSS Tricks - Guías completas</li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <h3>🛠️ Herramientas</h3>
+            <ul>
+              <li>DevTools del navegador</li>
+              <li>CodePen para experimentar</li>
+              <li>Sass/SCSS para organización</li>
+              <li>PostCSS para compatibilidad</li>
+            </ul>
+          </div>
+
+          <div class="resource-card">
+            <h3>📚 Temas Relacionados</h3>
+            <ul>
+              <li>Flexbox y Grid</li>
+              <li>CSS Animations</li>
+              <li>Responsive Design</li>
+              <li>Accessibility (a11y)</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer
+        style="
+          text-align: center;
+          margin-top: 50px;
+          padding: 30px;
+          background: linear-gradient(45deg, #667eea, #764ba2);
+          color: white;
+          border-radius: 10px;
+        "
+      >
+        <h3>🎉 ¡Felicidades!</h3>
+        <p>Has completado la guía de pseudo-clases y pseudo-elementos CSS</p>
+        <p style="margin-top: 10px; opacity: 0.9">
+          Sigue practicando y experimentando para dominar estas poderosas
+          herramientas
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

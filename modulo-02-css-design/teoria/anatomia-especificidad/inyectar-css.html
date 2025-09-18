@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formas de Inyectar CSS en HTML</title>
+  
+  <!-- 1. CSS EXTERNO - Enlace a archivo CSS externo -->
+  <link rel="stylesheet" href="estilos.css">
+  
+  <!-- 2. CSS INTERNO - Dentro del <head> -->
+  <style>
+    .css-interno {
+      background-color: lightblue;
+      padding: 20px;
+      margin: 10px 0;
+      border: 2px solid blue;
+    }
+    
+    #titulo-interno {
+      color: darkblue;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>Métodos para Inyectar CSS en HTML</h1>
+  
+  <!-- 3. CSS INLINE - Directamente en el elemento -->
+  <div style="background-color: lightcoral; padding: 15px; border-radius: 5px; margin: 10px 0;">
+    <h2 style="color: darkred; margin: 0;">1. CSS Inline (En línea)</h2>
+    <p style="color: #333; font-size: 14px;">
+      Este CSS se aplica directamente en el atributo "style" del elemento HTML.
+      Tiene la mayor especificidad pero es difícil de mantener.
+    </p>
+  </div>
+  
+  <!-- CSS INTERNO aplicado -->
+  <div class="css-interno">
+    <h2 id="titulo-interno">2. CSS Interno</h2>
+    <p>
+      Este CSS se define en la etiqueta &lt;style&gt; dentro del &lt;head&gt;.
+      Se aplica solo a esta página HTML.
+    </p>
+  </div>
+  
+  <!-- CSS EXTERNO aplicado (requiere archivo estilos.css) -->
+  <div class="css-externo">
+    <h2 class="titulo-externo">3. CSS Externo</h2>
+    <p>
+      Este CSS se carga desde un archivo externo usando &lt;link&gt;.
+      Permite reutilizar estilos en múltiples páginas.
+    </p>
+  </div>
+  
+  <!-- Ejemplo de especificidad -->
+  <div class="css-interno" style="border-color: red;">
+    <h2>Ejemplo de Especificidad</h2>
+    <p>
+      Este div tiene tanto CSS interno como inline. 
+      El borde será rojo (inline) pero el fondo azul (interno).
+    </p>
+  </div>
+  
+  <!-- Tabla comparativa -->
+  <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+    <thead>
+      <tr style="background-color: #f0f0f0;">
+        <th style="border: 1px solid #ccc; padding: 10px;">Método</th>
+        <th style="border: 1px solid #ccc; padding: 10px;">Especificidad</th>
+        <th style="border: 1px solid #ccc; padding: 10px;">Ventajas</th>
+        <th style="border: 1px solid #ccc; padding: 10px;">Desventajas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">Inline</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Muy Alta</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Rápido, específico</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Difícil mantener</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">Interno</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Media</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Una sola página</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">No reutilizable</td>
+      </tr>
+      <tr>
+        <td style="border: 1px solid #ccc; padding: 8px;">Externo</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Baja</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Reutilizable, organizado</td>
+        <td style="border: 1px solid #ccc; padding: 8px;">Archivo adicional</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html></div>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selectores Combinadores en CSS</title>
+  <link rel="stylesheet" href="selectores-combinadores.css">
+</head>
+<body>
+  <h1>Selectores Combinadores en CSS</h1>
+
+  <!-- 1. SELECTOR DESCENDIENTE (espacio) -->
+  <div class="ejemplo descendiente">
+    <h2>1. Selector Descendiente (espacio)</h2>
+    <p>Sintaxis: <code>A B</code> - Selecciona TODOS los elementos B dentro de A (cualquier nivel)</p>
+    
+    <div class="contenedor">
+      <p>✅ Este párrafo está dentro del div (NIVEL 1) - Se aplica el estilo</p>
+      
+      <article>
+        <p>✅ Este párrafo está dentro del div → article (NIVEL 2) - Se aplica el estilo</p>
+        
+        <section>
+          <p>✅ Este párrafo está dentro del div → article → section (NIVEL 3) - Se aplica el estilo</p>
+        </section>
+      </article>
+      
+      <div>
+        <p>✅ Este párrafo está dentro del div → div (NIVEL 2) - Se aplica el estilo</p>
+      </div>
+    </div>
+    
+    <p>❌ Este párrafo NO está dentro de ningún div - NO se aplica el estilo</p>
+  </div>
+
+  <!-- 2. SELECTOR HIJO DIRECTO (>) -->
+  <div class="ejemplo hijo-directo">
+    <h2>2. Selector Hijo Directo (>)</h2>
+    <p>Sintaxis: <code>A > B</code> - Selecciona SOLO los elementos B que son hijos DIRECTOS de A</p>
+    
+    <div class="contenedor">
+      <p>✅ Este párrafo es HIJO DIRECTO del div - Se aplica el estilo</p>
+      <p>✅ Este párrafo también es HIJO DIRECTO del div - Se aplica el estilo</p>
+      
+      <article>
+        <p>❌ Este párrafo NO es hijo directo del div (está dentro de article) - NO se aplica el estilo</p>
+        <p>❌ Este párrafo tampoco es hijo directo del div - NO se aplica el estilo</p>
+      </article>
+      
+      <p>✅ Este párrafo SÍ es hijo directo del div - Se aplica el estilo</p>
+    </div>
+  </div>
+
+  <!-- 3. SELECTOR HERMANO ADYACENTE (+) -->
+  <div class="ejemplo hermano-adyacente">
+    <h2>3. Selector Hermano Adyacente (+)</h2>
+    <p>Sintaxis: <code>A + B</code> - Selecciona SOLO el primer elemento B inmediatamente después de A</p>
+    
+    <div class="contenedor">
+      <p>❌ Este párrafo aparece ANTES del h3 - NO se aplica el estilo</p>
+      
+      <h3>Título H3 - Elemento de referencia</h3>
+      <p>✅ Este párrafo es el PRIMERO inmediatamente después del h3 - Se aplica el estilo</p>
+      <p>❌ Este párrafo es el segundo después del h3 - NO se aplica el estilo</p>
+      <p>❌ Este párrafo es el tercero después del h3 - NO se aplica el estilo</p>
+      
+      <div>Elemento div entre medias</div>
+      <p>❌ Este párrafo viene después de un div, no del h3 - NO se aplica el estilo</p>
+      
+      <h3>Otro título H3</h3>
+      <p>✅ Este párrafo es el PRIMERO después del segundo h3 - Se aplica el estilo</p>
+      <p>❌ Este párrafo es el segundo después del segundo h3 - NO se aplica el estilo</p>
+    </div>
+  </div>
+
+  <!-- 4. SELECTOR HERMANOS GENERALES (~) -->
+  <div class="ejemplo hermanos-generales">
+    <h2>4. Selector Hermanos Generales (~)</h2>
+    <p>Sintaxis: <code>A ~ B</code> - Selecciona TODOS los elementos B hermanos que aparecen DESPUÉS de A</p>
+    
+    <div class="contenedor">
+      <p>❌ Este párrafo aparece ANTES del h4 - NO se aplica el estilo</p>
+      <div>Este div también aparece antes del h4</div>
+      
+      <h4>Título H4 - Elemento de referencia</h4>
+      
+      <p>✅ Este párrafo es hermano y aparece DESPUÉS del h4 - Se aplica el estilo</p>
+      <div>Este div es hermano del h4 pero no es un párrafo</div>
+      <p>✅ Este párrafo también es hermano y aparece después del h4 - Se aplica el estilo</p>
+      <span>Este span es hermano pero no es un párrafo</span>
+      <p>✅ Este párrafo también es hermano después del h4 - Se aplica el estilo</p>
+      
+      <section>
+        <p>❌ Este párrafo NO es hermano del h4 (está dentro de section) - NO se aplica el estilo</p>
+      </section>
+      
+      <p>✅ Este párrafo SÍ es hermano del h4 - Se aplica el estilo</p>
+    </div>
+  </div>
+
+  <!-- RESUMEN DE CONCEPTOS -->
+  <div class="ejemplo">
+    <h2>📋 Resumen de Selectores Combinadores</h2>
+    <div class="contenedor">
+      <p><strong>Descendiente (espacio)</strong>: <code>div p</code> → Cualquier p dentro de div</p>
+      <p><strong>Hijo directo (>)</strong>: <code>div > p</code> → Solo p hijos directos de div</p>
+      <p><strong>Hermano adyacente (+)</strong>: <code>h3 + p</code> → Solo el primer p después de h3</p>
+      <p><strong>Hermanos generales (~)</strong>: <code>h4 ~ p</code> → Todos los p hermanos después de h4</p>
+    </div>
+  </div>
+</body>
+</html>

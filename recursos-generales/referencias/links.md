@@ -21,6 +21,7 @@
 - **MDN Web Docs:** https://developer.mozilla.org/es/docs/Web/HTML - Referencia completa de HTML
 - **W3Schools HTML:** https://www.w3schools.com/html/ - Tutoriales y ejemplos prácticos
 - **HTML Standard:** https://html.spec.whatwg.org/ - Especificación oficial
+- **HTML Reference:** https://htmlreference.io/ - Referencia visual de elementos HTML
 
 ### Herramientas de Validación
 
@@ -93,3 +94,4 @@
 
 - **HTML5 UP:** https://html5up.net/ - Plantillas HTML5 gratuitas
 - **Start Bootstrap:** https://startbootstrap.com/ - Plantillas Bootstrap gratuitas
+

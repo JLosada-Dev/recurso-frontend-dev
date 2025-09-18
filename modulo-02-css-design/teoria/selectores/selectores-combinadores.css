@@ -1,0 +1,315 @@
+/* ========================================
+  SELECTORES COMBINADORES EN CSS
+  ========================================
+  
+  Los selectores combinadores nos permiten seleccionar
+  elementos basándose en su relación con otros elementos
+  en el árbol DOM (descendientes, hijos, hermanos).
+*/
+
+/* ----------------------------------------
+  ESTILOS BASE Y RESET
+  ---------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+  color: #2d3748;
+  line-height: 1.6;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #1a365d;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #2c5282;
+  font-size: 1.5em;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #4299e1;
+  padding-bottom: 5px;
+}
+
+.ejemplo {
+  background: white;
+  margin: 30px 0;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e2e8f0;
+}
+
+.contenedor {
+  background-color: #f8fafc;
+  border: 2px dashed #a0aec0;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  position: relative;
+}
+
+/* Etiqueta para identificar el contenedor */
+.contenedor::before {
+  content: "Contenedor";
+  position: absolute;
+  top: -10px;
+  left: 15px;
+  background: #4299e1;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ----------------------------------------
+  1. SELECTOR DESCENDIENTE (espacio)
+  ----------------------------------------
+  Sintaxis: A B { propiedades }
+  Selecciona TODOS los elementos B que están 
+  dentro de A (sin importar el nivel de anidación)
+*/
+
+/* Selecciona TODOS los párrafos dentro de divs */
+.descendiente div p {
+  background: linear-gradient(135deg, #e6fffa 0%, #b2f5ea 100%);
+  border-left: 4px solid #38b2ac;
+  padding: 12px;
+  margin: 8px 0;
+  border-radius: 6px;
+  font-weight: 500;
+  color: #234e52;
+}
+
+/* Efecto hover para párrafos descendientes */
+.descendiente div p:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 8px rgba(56, 178, 172, 0.3);
+  transition: all 0.3s ease;
+}
+
+/* ----------------------------------------
+  2. SELECTOR HIJO DIRECTO (>)
+  ----------------------------------------
+  Sintaxis: A > B { propiedades }
+  Selecciona SOLO los elementos B que son
+  hijos DIRECTOS de A (un nivel únicamente)
+*/
+
+/* Selecciona SOLO párrafos hijos directos del div */
+.hijo-directo div > p {
+  background: linear-gradient(135deg, #fef5e7 0%, #fed7aa 100%);
+  border: 2px solid #ed8936;
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #744210;
+  position: relative;
+}
+
+/* Indicador visual de hijo directo */
+.hijo-directo div > p::before {
+  content: "HIJO DIRECTO";
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  background: #ed8936;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Los párrafos dentro de article NO se ven afectados */
+.hijo-directo article p {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  color: #718096;
+  font-style: italic;
+}
+
+/* ----------------------------------------
+  3. SELECTOR HERMANO ADYACENTE (+)
+  ----------------------------------------
+  Sintaxis: A + B { propiedades }
+  Selecciona SOLO el primer elemento B que
+  aparece INMEDIATAMENTE después de A
+*/
+
+/* Selecciona el primer párrafo inmediatamente después de h3 */
+.hermano-adyacente h3 + p {
+  background: linear-gradient(135deg, #fed7e2 0%, #fbb6ce 100%);
+  border: 2px solid #e53e3e;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 8px;
+  font-weight: 600;
+  color: #742a2a;
+  position: relative;
+}
+
+/* Indicador visual de hermano adyacente */
+.hermano-adyacente h3 + p::before {
+  content: "HERMANO ADYACENTE";
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  background: #e53e3e;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Estilos para los h3 */
+.hermano-adyacente h3 {
+  background: #4299e1;
+  color: white;
+  padding: 10px;
+  border-radius: 6px;
+  margin: 15px 0 5px 0;
+  font-size: 1.1em;
+}
+
+/* Párrafos que NO son hermanos adyacentes */
+.hermano-adyacente div + p,
+.hermano-adyacente p:not(h3 + p) {
+  background: #f7fafc;
+  border: 1px solid #e2e8f0;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  color: #718096;
+}
+
+/* ----------------------------------------
+  4. SELECTOR HERMANOS GENERALES (~)
+  ----------------------------------------
+  Sintaxis: A ~ B { propiedades }
+  Selecciona TODOS los elementos B que son
+  hermanos de A y aparecen DESPUÉS de A
+*/
+
+/* Selecciona TODOS los párrafos hermanos que siguen a h4 */
+.hermanos-generales h4 ~ p {
+  background: linear-gradient(135deg, #e6fffa 0%, #81e6d9 100%);
+  border: 2px solid #319795;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 8px;
+  font-weight: 500;
+  color: #234e52;
+  position: relative;
+}
+
+/* Indicador visual de hermanos generales */
+.hermanos-generales h4 ~ p::after {
+  content: "HERMANO GENERAL";
+  position: absolute;
+  top: -8px;
+  right: 10px;
+  background: #319795;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: 600;
+}
+
+/* Estilos para h4 */
+.hermanos-generales h4 {
+  background: #319795;
+  color: white;
+  padding: 12px;
+  border-radius: 6px;
+  margin: 15px 0;
+  font-size: 1.2em;
+}
+
+/* Párrafo que aparece ANTES del h4 (no se aplica) */
+.hermanos-generales p:not(h4 ~ p) {
+  background: #fed7d7;
+  border: 1px solid #e53e3e;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 4px;
+  color: #742a2a;
+  font-style: italic;
+}
+
+/* Otros elementos hermanos para mostrar que no se ven afectados */
+.hermanos-generales div,
+.hermanos-generales span {
+  background: #edf2f7;
+  border: 1px solid #a0aec0;
+  padding: 8px;
+  margin: 5px 0;
+  border-radius: 4px;
+  color: #4a5568;
+  font-size: 0.9em;
+}
+
+/* ----------------------------------------
+  ESTILOS ADICIONALES PARA MEJORES EXPLICACIONES
+  ---------------------------------------- */
+
+/* Estilos para el código inline */
+code {
+  background: #2d3748;
+  color: #68d391;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-family: 'Monaco', 'Consolas', monospace;
+  font-weight: 600;
+}
+
+/* Estilos para texto strong */
+strong {
+  color: #2c5282;
+  font-weight: 700;
+}
+
+/* Animación sutil para todos los elementos de ejemplo */
+.ejemplo p,
+.ejemplo div,
+.ejemplo article,
+.ejemplo section,
+.ejemplo span {
+  transition: all 0.3s ease;
+}
+
+/* ----------------------------------------
+  NOTAS IMPORTANTES SOBRE COMBINADORES:
+  ----------------------------------------
+  
+  1. DESCENDIENTE (espacio): Selecciona en cualquier nivel
+     ✅ div p (todos los p dentro de div)
+  
+  2. HIJO DIRECTO (>): Solo un nivel hacia abajo
+     ✅ div > p (solo p hijos directos de div)
+  
+  3. HERMANO ADYACENTE (+): Solo el siguiente elemento
+     ✅ h3 + p (solo el primer p después de h3)
+  
+  4. HERMANOS GENERALES (~): Todos los hermanos siguientes
+     ✅ h4 ~ p (todos los p hermanos después de h4)
+     
+  ESPECIFICIDAD: Los combinadores NO añaden especificidad,
+  solo cuentan los selectores individuales que los forman.
+  ---------------------------------------- */
