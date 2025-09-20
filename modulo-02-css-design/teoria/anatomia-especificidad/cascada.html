@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS: Especificidad y Cascada - Guía Completa</title>
+    <style>
+      /* ===========================================
+       GUÍA COMPLETA: ESPECIFICIDAD Y CASCADA CSS
+       ===========================================
+       
+       ¿QUÉ ES LA ESPECIFICIDAD?
+       La especificidad determina qué regla CSS se aplica cuando
+       múltiples reglas afectan al mismo elemento.
+       
+       JERARQUÍA DE ESPECIFICIDAD (de menor a mayor):
+       1. Selectores de elemento (h1, p, div) = 1 punto
+       2. Selectores de clase (.clase) = 10 puntos
+       3. Selectores de ID (#id) = 100 puntos
+       4. Estilos inline (style="...") = 1000 puntos
+       5. !important = 10000 puntos (evitar usar)
+       
+       ¿QUÉ ES LA CASCADA?
+       Es el proceso por el cual CSS determina qué estilos
+       aplicar cuando hay conflictos, considerando:
+       1. Especificidad
+       2. Orden de aparición (último gana si hay empate)
+       3. Herencia
+    */
+
+      /* EJEMPLO 1: Selectores de ELEMENTO (1 punto cada uno) */
+      h1 {
+        color: black;
+        background: lightgray;
+      }
+
+      p {
+        color: gray;
+        font-size: 14px;
+      }
+
+      /* EJEMPLO 2: Selectores de CLASE (10 puntos cada uno) */
+      .texto-azul {
+        color: blue; /* 10 puntos - GANA sobre elemento */
+      }
+
+      .texto-verde {
+        color: green; /* 10 puntos */
+      }
+
+      .grande {
+        font-size: 20px;
+      }
+
+      /* EJEMPLO 3: Selectores de ID (100 puntos cada uno) */
+      #titulo-principal {
+        color: red; /* 100 puntos - GANA sobre clase */
+        font-weight: bold;
+      }
+
+      #parrafo-especial {
+        color: purple; /* 100 puntos - GANA sobre clase */
+      }
+
+      /* EJEMPLO 4: Combinación de selectores (suma de puntos) */
+      div.contenedor p {
+        color: orange; /* 1 + 10 + 1 = 12 puntos */
+      }
+
+      .contenedor .texto-azul {
+        color: navy; /* 10 + 10 = 20 puntos - GANA sobre anterior */
+      }
+
+      #contenido p.texto-azul {
+        color: darkblue; /* 100 + 1 + 10 = 111 puntos - GANA */
+      }
+
+      /* EJEMPLO 5: Especificidad alta con múltiples selectores */
+      body div#contenido .contenedor p.importante {
+        color: maroon; /* 1 + 1 + 100 + 10 + 1 + 10 = 123 puntos */
+        background: lightyellow;
+      }
+
+      /* EJEMPLO 6: !important (usar con precaución) */
+      .forzado {
+        color: hotpink !important; /* 10000+ puntos - SIEMPRE GANA */
+      }
+
+      /* EJEMPLO 7: Cascada - orden importa en empates */
+      .empate-uno {
+        color: cyan; /* 10 puntos */
+      }
+
+      .empate-dos {
+        color: magenta; /* 10 puntos - GANA por aparecer después */
+      }
+
+      /* ESTILOS PARA LA DEMOSTRACIÓN */
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+        line-height: 1.6;
+      }
+
+      .seccion {
+        border: 2px solid #333;
+        margin: 20px 0;
+        padding: 15px;
+        border-radius: 5px;
+      }
+
+      .explicacion {
+        background: #f0f0f0;
+        padding: 10px;
+        margin: 10px 0;
+        border-left: 4px solid #007acc;
+        font-style: italic;
+      }
+
+      .codigo {
+        background: #f8f8f8;
+        padding: 10px;
+        font-family: 'Courier New', monospace;
+        border: 1px solid #ddd;
+        margin: 10px 0;
+      }
+
+      .puntos {
+        font-weight: bold;
+        color: #d63384;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="titulo-principal" class="texto-azul grande">
+      CSS: Especificidad y Cascada
+    </h1>
+
+    <div class="explicacion">
+      <strong>CONCEPTO CLAVE:</strong> La especificidad es como un sistema de
+      puntos que determina qué estilo CSS "gana" cuando hay conflictos. La
+      cascada es el proceso completo de resolución de estos conflictos.
+    </div>
+
+    <!-- SECCIÓN 1: Elementos básicos -->
+    <section class="seccion">
+      <h2>1. Selectores de Elemento (1 punto)</h2>
+      <p>Este párrafo usa selector de elemento.</p>
+      <div class="codigo">
+        p { color: gray; } = <span class="puntos">1 punto</span>
+      </div>
+    </section>
+
+    <!-- SECCIÓN 2: Clases -->
+    <section class="seccion">
+      <h2>2. Selectores de Clase (10 puntos)</h2>
+      <p class="texto-azul">Este párrafo tiene clase .texto-azul</p>
+      <p class="texto-verde">Este párrafo tiene clase .texto-verde</p>
+      <div class="codigo">
+        .texto-azul { color: blue; } = <span class="puntos">10 puntos</span
+        ><br />
+        ↑ GANA sobre selector de elemento (1 punto)
+      </div>
+    </section>
+
+    <!-- SECCIÓN 3: IDs -->
+    <section class="seccion">
+      <h2>3. Selectores de ID (100 puntos)</h2>
+      <p id="parrafo-especial" class="texto-azul">
+        Este párrafo tiene ID y clase, pero el ID gana
+      </p>
+      <div class="codigo">
+        #parrafo-especial { color: purple; } =
+        <span class="puntos">100 puntos</span><br />
+        ↑ GANA sobre .texto-azul (10 puntos)
+      </div>
+    </section>
+
+    <!-- SECCIÓN 4: Combinaciones -->
+    <div id="contenido">
+      <section class="seccion">
+        <h2>4. Combinación de Selectores (suma de puntos)</h2>
+        <div class="contenedor">
+          <p class="texto-azul importante">
+            Este párrafo demuestra cómo se suman los puntos de especificidad
+          </p>
+        </div>
+        <div class="codigo">
+          div.contenedor p = 1 + 10 + 1 = <span class="puntos">12 puntos</span
+          ><br />
+          .contenedor .texto-azul = 10 + 10 =
+          <span class="puntos">20 puntos</span><br />
+          #contenido p.texto-azul = 100 + 1 + 10 =
+          <span class="puntos">111 puntos</span><br />
+          body div#contenido .contenedor p.importante =
+          <span class="puntos">123 puntos ¡GANA!</span>
+        </div>
+      </section>
+    </div>
+
+    <!-- SECCIÓN 5: Estilos inline -->
+    <section class="seccion">
+      <h2>5. Estilos Inline (1000 puntos)</h2>
+      <p style="color: orange" class="texto-azul" id="parrafo-especial">
+        Este párrafo tiene estilo inline que supera ID y clases
+      </p>
+      <div class="codigo">
+        style="color: orange;" = <span class="puntos">1000 puntos</span><br />
+        ↑ GANA sobre ID (100 puntos) y clases (10 puntos)
+      </div>
+    </section>
+
+    <!-- SECCIÓN 6: !important -->
+    <section class="seccion">
+      <h2>6. !important (evitar usar)</h2>
+      <p style="color: orange" class="forzado">
+        Este párrafo muestra !important superando estilo inline
+      </p>
+      <div class="codigo">
+        .forzado { color: hotpink !important; } =
+        <span class="puntos">~10000 puntos</span><br />
+        ↑ GANA incluso sobre estilos inline (1000 puntos)
+      </div>
+    </section>
+
+    <!-- SECCIÓN 7: Cascada - orden importa -->
+    <section class="seccion">
+      <h2>7. Cascada: Orden de Aparición</h2>
+      <p class="empate-uno empate-dos">
+        Cuando hay empate en especificidad, gana el último definido
+      </p>
+      <div class="codigo">
+        .empate-uno { color: cyan; } = <span class="puntos">10 puntos</span
+        ><br />
+        .empate-dos { color: magenta; } = <span class="puntos">10 puntos</span
+        ><br />
+        ↑ GANA por aparecer después en el CSS
+      </div>
+    </section>
+
+    <!-- CONSEJOS PRÁCTICOS -->
+    <section class="seccion" style="background: #e7f3ff">
+      <h2>💡 Consejos Prácticos</h2>
+      <ul>
+        <li>
+          <strong>Usa clases principalmente:</strong> Son reutilizables y tienen
+          buena especificidad
+        </li>
+        <li>
+          <strong>Evita IDs para estilos:</strong> Son muy específicos y
+          difíciles de sobrescribir
+        </li>
+        <li>
+          <strong>Evita !important:</strong> Rompe la cascada natural y es
+          difícil de mantener
+        </li>
+        <li><strong>Organiza tu CSS:</strong> De general a específico</li>
+        <li>
+          <strong>Usa metodologías:</strong> Como BEM para mantener
+          especificidad baja y consistente
+        </li>
+      </ul>
+    </section>
+
+    <!-- HERRAMIENTAS PARA CALCULAR ESPECIFICIDAD -->
+    <section class="seccion" style="background: #f0f8e7">
+      <h2>🛠️ Herramientas Útiles</h2>
+      <p><strong>Para calcular especificidad:</strong></p>
+      <ul>
+        <li>DevTools del navegador (F12 → Elements → Computed)</li>
+        <li>Calculadora online: specificity.keegan.st</li>
+        <li>Extensión de navegador: CSS Specificity Calculator</li>
+      </ul>
+    </section>
+  </body>
+</html>
