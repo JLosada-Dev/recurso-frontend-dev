@@ -1,0 +1,1132 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS - Presentación Interactiva</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="presentation-container">
+      <!-- Navigation Controls -->
+      <div class="nav-controls">
+        <button id="prevBtn" class="nav-btn">‹ Anterior</button>
+        <button id="indexBtn" class="nav-btn">Índice</button>
+        <span id="slideCounter" class="slide-counter">1 / 24</span>
+        <button id="nextBtn" class="nav-btn">Siguiente ›</button>
+      </div>
+
+      <!-- Slide 1: Title -->
+      <div class="slide active" data-slide="1">
+        <div class="slide-content title-slide">
+          <h1>CSS</h1>
+          <h2>Cascading Style Sheets</h2>
+          <p>Guía Completa de Conceptos Fundamentales</p>
+          <div class="subtitle">
+            Material de estudio para desarrollo web moderno
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2: Index -->
+      <div class="slide" data-slide="2">
+        <div class="slide-content">
+          <h1>Índice de Contenidos</h1>
+          <div class="index-grid">
+            <div class="index-column">
+              <ul>
+                <li>1. Introducción a CSS</li>
+                <li>2. Sintaxis CSS</li>
+                <li>3. Métodos de Inclusión</li>
+                <li>4. Selectores Básicos</li>
+                <li>5. Selectores Avanzados</li>
+                <li>6. Modelo de Caja</li>
+                <li>7. Unidades de Medida</li>
+                <li>8. Tipografía y Colores</li>
+              </ul>
+            </div>
+            <div class="index-column">
+              <ul>
+                <li>9. Fondos y Sombras</li>
+                <li>10. Display y Posicionamiento</li>
+                <li>11. Posicionamiento Detallado</li>
+                <li>12. Z-index y Float</li>
+                <li>13. Flexbox Básico</li>
+                <li>14. Flexbox Avanzado</li>
+                <li>15. CSS Grid Básico</li>
+                <li>16. CSS Grid Avanzado</li>
+              </ul>
+            </div>
+            <div class="index-column">
+              <ul>
+                <li>17. Meta Viewport</li>
+                <li>18. Responsive Design</li>
+                <li>19. Media Queries</li>
+                <li>20. Animaciones CSS</li>
+                <li>21. Ejercicios Prácticos</li>
+                <li>22. Troubleshooting</li>
+                <li>23. Buenas Prácticas</li>
+                <li>24. Resumen Final</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3: Introducción a CSS -->
+      <div class="slide" data-slide="3">
+        <div class="slide-content">
+          <h1>¿Qué es CSS?</h1>
+          <div class="concept-definition">
+            <p>
+              <strong>CSS (Cascading Style Sheets)</strong> es el lenguaje usado
+              para describir la presentación de documentos HTML
+            </p>
+          </div>
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <h3>🎨 Presentación</h3>
+              <p>Controla la apariencia visual</p>
+            </div>
+            <div class="benefit-card">
+              <h3>🔄 Reutilización</h3>
+              <p>Estilos compartidos</p>
+            </div>
+            <div class="benefit-card">
+              <h3>🔧 Mantenimiento</h3>
+              <p>Cambios centralizados</p>
+            </div>
+            <div class="benefit-card">
+              <h3>⚡ Performance</h3>
+              <p>Carga más rápida</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 4: Sintaxis CSS -->
+      <div class="slide" data-slide="4">
+        <div class="slide-content">
+          <h1>Sintaxis CSS Básica</h1>
+          <div class="syntax-demo">
+            <div class="code-example">
+              <pre><code>selector {
+    property: value;
+    property: value;
+}</code></pre>
+            </div>
+            <div class="syntax-explanation">
+              <div class="syntax-part">
+                <span class="syntax-label">Selector:</span>
+                <span>Define el elemento a estilizar</span>
+              </div>
+              <div class="syntax-part">
+                <span class="syntax-label">Property:</span>
+                <span>Aspecto a modificar</span>
+              </div>
+              <div class="syntax-part">
+                <span class="syntax-label">Value:</span>
+                <span>Valor de la propiedad</span>
+              </div>
+            </div>
+          </div>
+          <div class="example-demo">
+            <h3>Ejemplo Práctico:</h3>
+            <div class="code-example">
+              <pre><code>h1 {
+    color: blue;
+    font-size: 24px;
+    text-align: center;
+}</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 5: Métodos de Inclusión -->
+      <div class="slide" data-slide="5">
+        <div class="slide-content">
+          <h1>Métodos de Inclusión CSS</h1>
+          <div class="methods-grid">
+            <div class="method-card">
+              <h3>CSS Externo</h3>
+              <div class="code-example">
+                <pre><code>&lt;link rel="stylesheet" href="style.css"&gt;</code></pre>
+              </div>
+              <p>
+                <span class="recommended">✅ Recomendado</span> - Archivo
+                separado
+              </p>
+            </div>
+            <div class="method-card">
+              <h3>CSS Interno</h3>
+              <div class="code-example">
+                <pre><code>&lt;style&gt;
+  body { color: red; }
+&lt;/style&gt;</code></pre>
+              </div>
+              <p>Dentro del &lt;head&gt;</p>
+            </div>
+            <div class="method-card">
+              <h3>CSS Inline</h3>
+              <div class="code-example">
+                <pre><code>&lt;p style="color: blue;"&gt;Texto&lt;/p&gt;</code></pre>
+              </div>
+              <p><span class="caution">⚠️</span> Usar con moderación</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 6: Selectores Básicos -->
+      <div class="slide" data-slide="6">
+        <div class="slide-content">
+          <h1>Selectores Básicos</h1>
+          <div class="selectors-grid">
+            <div class="selector-example">
+              <h3>Elemento</h3>
+              <div class="code-example">
+                <pre><code>p {
+    color: red;
+}</code></pre>
+              </div>
+              <p>Selecciona todos los elementos &lt;p&gt;</p>
+            </div>
+            <div class="selector-example">
+              <h3>Clase</h3>
+              <div class="code-example">
+                <pre><code>.destacado {
+    font-weight: bold;
+}</code></pre>
+              </div>
+              <p>Selecciona elementos con class="destacado"</p>
+            </div>
+            <div class="selector-example">
+              <h3>ID</h3>
+              <div class="code-example">
+                <pre><code>#titulo {
+    font-size: 32px;
+}</code></pre>
+              </div>
+              <p>Selecciona elemento con id="titulo"</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 7: Selectores Avanzados -->
+      <div class="slide" data-slide="7">
+        <div class="slide-content">
+          <h1>Selectores Avanzados</h1>
+          <div class="advanced-selectors">
+            <div class="selector-row">
+              <div class="selector-code">
+                <code>div p</code>
+              </div>
+              <div class="selector-desc">
+                Descendiente - &lt;p&gt; dentro de &lt;div&gt;
+              </div>
+            </div>
+            <div class="selector-row">
+              <div class="selector-code">
+                <code>div > p</code>
+              </div>
+              <div class="selector-desc">
+                Hijo directo - &lt;p&gt; hijo inmediato de &lt;div&gt;
+              </div>
+            </div>
+            <div class="selector-row">
+              <div class="selector-code">
+                <code>h1 + p</code>
+              </div>
+              <div class="selector-desc">
+                Hermano adyacente - &lt;p&gt; después de &lt;h1&gt;
+              </div>
+            </div>
+            <div class="selector-row">
+              <div class="selector-code">
+                <code>a:hover</code>
+              </div>
+              <div class="selector-desc">
+                Pseudo-clase - &lt;a&gt; al pasar el mouse
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 8: Modelo de Caja -->
+      <div class="slide" data-slide="8">
+        <div class="slide-content">
+          <h1>Modelo de Caja (Box Model)</h1>
+          <div class="box-model-demo">
+            <div class="box-model-visual">
+              <div class="margin-layer">
+                <div class="margin-label">Margin</div>
+                <div class="border-layer">
+                  <div class="border-label">Border</div>
+                  <div class="padding-layer">
+                    <div class="padding-label">Padding</div>
+                    <div class="content-layer">
+                      <div class="content-label">Content</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="box-model-code">
+              <pre><code>.elemento {
+    width: 200px;
+    height: 100px;
+    padding: 20px;
+    border: 5px solid #333;
+    margin: 15px;
+}</code></pre>
+              <p><strong>Ancho total:</strong> 200 + 40 + 10 + 30 = 280px</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 9: Unidades de Medida -->
+      <div class="slide" data-slide="9">
+        <div class="slide-content">
+          <h1>Unidades de Medida</h1>
+          <div class="units-comparison">
+            <div class="units-section">
+              <h3>Unidades Absolutas</h3>
+              <div class="units-list">
+                <div class="unit-item">
+                  <span class="unit-name">px</span>
+                  <span class="unit-desc">Píxeles - Más común</span>
+                </div>
+                <div class="unit-item">
+                  <span class="unit-name">pt</span>
+                  <span class="unit-desc">Puntos - Para impresión</span>
+                </div>
+                <div class="unit-item">
+                  <span class="unit-name">cm/mm</span>
+                  <span class="unit-desc">Centímetros/Milímetros</span>
+                </div>
+              </div>
+            </div>
+            <div class="units-section">
+              <h3>Unidades Relativas</h3>
+              <div class="units-list">
+                <div class="unit-item">
+                  <span class="unit-name">em</span>
+                  <span class="unit-desc">Relativo al elemento padre</span>
+                </div>
+                <div class="unit-item">
+                  <span class="unit-name">rem</span>
+                  <span class="unit-desc">Relativo al elemento raíz</span>
+                </div>
+                <div class="unit-item">
+                  <span class="unit-name">%</span>
+                  <span class="unit-desc">Porcentaje del contenedor</span>
+                </div>
+                <div class="unit-item">
+                  <span class="unit-name">vw/vh</span>
+                  <span class="unit-desc">Viewport width/height</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 10: Tipografía y Colores -->
+      <div class="slide" data-slide="10">
+        <div class="slide-content">
+          <h1>Tipografía y Colores</h1>
+          <div class="typography-colors">
+            <div class="typography-section">
+              <h3>Propiedades de Texto</h3>
+              <div class="code-example">
+                <pre><code>.texto {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    line-height: 1.5;
+}</code></pre>
+              </div>
+            </div>
+            <div class="colors-section">
+              <h3>Formatos de Color</h3>
+              <div class="color-examples">
+                <div class="color-item">
+                  <div class="color-sample" style="background: #ff6b35"></div>
+                  <code>#ff6b35</code> - Hexadecimal
+                </div>
+                <div class="color-item">
+                  <div
+                    class="color-sample"
+                    style="background: rgb(255, 107, 53)"
+                  ></div>
+                  <code>rgb(255, 107, 53)</code> - RGB
+                </div>
+                <div class="color-item">
+                  <div
+                    class="color-sample"
+                    style="background: hsl(15, 100%, 60%)"
+                  ></div>
+                  <code>hsl(15, 100%, 60%)</code> - HSL
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 11: Fondos y Sombras -->
+      <div class="slide" data-slide="11">
+        <div class="slide-content">
+          <h1>Fondos y Sombras</h1>
+          <div class="backgrounds-shadows">
+            <div class="bg-section">
+              <h3>Propiedades de Fondo</h3>
+              <div class="code-example">
+                <pre><code>.elemento {
+    background-color: #f0f0f0;
+    background-image: url('imagen.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}</code></pre>
+              </div>
+            </div>
+            <div class="shadows-section">
+              <h3>Sombras</h3>
+              <div class="shadow-examples">
+                <div class="shadow-demo text-shadow">
+                  <span>text-shadow: 2px 2px 4px rgba(0,0,0,0.5);</span>
+                </div>
+                <div class="shadow-demo box-shadow">
+                  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 12: Display y Posicionamiento -->
+      <div class="slide" data-slide="12">
+        <div class="slide-content">
+          <h1>Display y Posicionamiento</h1>
+          <div class="display-position">
+            <div class="display-section">
+              <h3>Tipos de Display</h3>
+              <div class="display-examples">
+                <div class="display-item">
+                  <code>display: block;</code> - Ocupa todo el ancho
+                </div>
+                <div class="display-item">
+                  <code>display: inline;</code> - En línea con el texto
+                </div>
+                <div class="display-item">
+                  <code>display: inline-block;</code> - Híbrido
+                </div>
+              </div>
+            </div>
+            <div class="position-section">
+              <h3>Posicionamiento</h3>
+              <div class="position-examples">
+                <div class="position-item">
+                  <code>position: static;</code> - Flujo normal
+                </div>
+                <div class="position-item">
+                  <code>position: relative;</code> - Relativo a posición
+                  original
+                </div>
+                <div class="position-item">
+                  <code>position: absolute;</code> - Relativo al contenedor
+                </div>
+                <div class="position-item">
+                  <code>position: fixed;</code> - Relativo al viewport
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 13: Posicionamiento Detallado -->
+      <div class="slide" data-slide="13">
+        <div class="slide-content">
+          <h1>Posicionamiento CSS - Tipos</h1>
+          <div class="positioning-types">
+            <div class="position-grid">
+              <div class="position-example">
+                <h3>Static (Predeterminado)</h3>
+                <div class="code-example">
+                  <pre><code>position: static;
+/* Flujo normal del documento */</code></pre>
+                </div>
+                <p>No se puede mover con top, right, bottom, left</p>
+              </div>
+              <div class="position-example">
+                <h3>Relative</h3>
+                <div class="code-example">
+                  <pre><code>position: relative;
+top: 10px;
+left: 20px;</code></pre>
+                </div>
+                <p>Se mueve relativo a su posición original</p>
+              </div>
+              <div class="position-example">
+                <h3>Absolute</h3>
+                <div class="code-example">
+                  <pre><code>position: absolute;
+top: 0;
+right: 0;</code></pre>
+                </div>
+                <p>
+                  Se posiciona relativo al contenedor más cercano con position
+                </p>
+              </div>
+              <div class="position-example">
+                <h3>Fixed</h3>
+                <div class="code-example">
+                  <pre><code>position: fixed;
+bottom: 20px;
+right: 20px;</code></pre>
+                </div>
+                <p>
+                  Se posiciona relativo al viewport, queda fijo al hacer scroll
+                </p>
+              </div>
+              <div class="position-example">
+                <h3>Sticky</h3>
+                <div class="code-example">
+                  <pre><code>position: sticky;
+top: 0;</code></pre>
+                </div>
+                <p>Híbrido: relativo hasta llegar a cierto punto, luego fijo</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 14: Z-index y Float -->
+      <div class="slide" data-slide="14">
+        <div class="slide-content">
+          <h1>Z-index y Float (Conceptos Históricos)</h1>
+          <div class="zindex-float">
+            <div class="zindex-section">
+              <h3>Z-index - Control de Capas</h3>
+              <div class="code-example">
+                <pre><code>.modal {
+    position: absolute;
+    z-index: 1000;  /* Encima de otros elementos */
+}
+
+.overlay {
+    position: fixed;
+    z-index: 999;   /* Debajo del modal */
+}</code></pre>
+              </div>
+              <div class="zindex-rules">
+                <h4>Reglas importantes:</h4>
+                <ul>
+                  <li>Solo funciona con elementos posicionados</li>
+                  <li>Valores más altos = más arriba</li>
+                  <li>Se crean contextos de apilamiento</li>
+                </ul>
+              </div>
+            </div>
+            <div class="float-section">
+              <h3>Float y Clear (Método Histórico)</h3>
+              <div class="code-example">
+                <pre><code>/* Antes de Flexbox/Grid */
+.sidebar {
+    float: left;
+    width: 200px;
+}
+
+.content {
+    float: right;
+    width: calc(100% - 220px);
+}
+
+.clearfix::after {
+    content: "";
+    display: table;
+    clear: both;
+}</code></pre>
+              </div>
+              <p class="historical-note">
+                ⚠️ <strong>Nota histórica:</strong> Float se usaba para layouts
+                antes de Flexbox y Grid. Hoy se usa principalmente para envolver
+                texto alrededor de imágenes.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 15: Flexbox Básico -->
+      <div class="slide" data-slide="15">
+        <div class="slide-content">
+          <h1>Flexbox - Conceptos Básicos</h1>
+          <div class="flexbox-intro">
+            <div class="flex-concept">
+              <h3>Contenedor Flex</h3>
+              <div class="code-example">
+                <pre><code>.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}</code></pre>
+              </div>
+            </div>
+            <div class="flex-visual">
+              <div class="flex-demo-container">
+                <div class="flex-item">1</div>
+                <div class="flex-item">2</div>
+                <div class="flex-item">3</div>
+              </div>
+              <p>Los elementos se distribuyen automáticamente</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 16: Flexbox Avanzado -->
+      <div class="slide" data-slide="16">
+        <div class="slide-content">
+          <h1>Flexbox - Propiedades Avanzadas</h1>
+          <div class="flex-advanced">
+            <div class="flex-properties">
+              <h3>Propiedades del Contenedor</h3>
+              <ul>
+                <li><code>flex-wrap</code> - Permite envolver elementos</li>
+                <li><code>gap</code> - Espacio entre elementos</li>
+                <li><code>align-content</code> - Alineación de líneas</li>
+              </ul>
+            </div>
+            <div class="flex-items">
+              <h3>Propiedades de los Items</h3>
+              <div class="code-example">
+                <pre><code>.item {
+    flex: 1;      /* flex-grow: 1 */
+    flex-shrink: 0;
+    align-self: flex-end;
+    order: 2;
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 17: CSS Grid Básico -->
+      <div class="slide" data-slide="17">
+        <div class="slide-content">
+          <h1>CSS Grid - Fundamentos</h1>
+          <div class="grid-basics">
+            <div class="grid-code">
+              <h3>Definición de Grid</h3>
+              <div class="code-example">
+                <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 100px auto;
+    gap: 20px;
+}</code></pre>
+              </div>
+            </div>
+            <div class="grid-visual">
+              <div class="grid-demo">
+                <div class="grid-cell">1</div>
+                <div class="grid-cell">2</div>
+                <div class="grid-cell">3</div>
+                <div class="grid-cell">4</div>
+                <div class="grid-cell">5</div>
+                <div class="grid-cell">6</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 18: CSS Grid Avanzado -->
+      <div class="slide" data-slide="18">
+        <div class="slide-content">
+          <h1>CSS Grid - Áreas y Posicionamiento</h1>
+          <div class="grid-advanced">
+            <div class="grid-areas-code">
+              <div class="code-example">
+                <pre><code>.grid {
+    grid-template-areas:
+        "header header header"
+        "sidebar main aside"
+        "footer footer footer";
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }</code></pre>
+              </div>
+            </div>
+            <div class="grid-areas-visual">
+              <div class="grid-layout-demo">
+                <div class="grid-header">Header</div>
+                <div class="grid-sidebar">Sidebar</div>
+                <div class="grid-main">Main</div>
+                <div class="grid-aside">Aside</div>
+                <div class="grid-footer">Footer</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 19: Meta Viewport y Fundamentos Responsive -->
+      <div class="slide" data-slide="19">
+        <div class="slide-content">
+          <h1>Meta Viewport y Unidades Responsive</h1>
+          <div class="viewport-fundamentals">
+            <div class="viewport-section">
+              <h3>Meta Viewport - Base del Responsive</h3>
+              <div class="code-example">
+                <pre><code>&lt;!-- En el &lt;head&gt; del HTML --&gt;
+&lt;meta name="viewport" 
+      content="width=device-width, initial-scale=1"&gt;</code></pre>
+              </div>
+              <div class="viewport-explanation">
+                <h4>¿Por qué es importante?</h4>
+                <ul>
+                  <li>
+                    <code>width=device-width</code> - Usa el ancho real del
+                    dispositivo
+                  </li>
+                  <li><code>initial-scale=1</code> - Zoom inicial al 100%</li>
+                  <li>Sin esto, los móviles simulan pantallas de escritorio</li>
+                </ul>
+              </div>
+            </div>
+            <div class="responsive-units">
+              <h3>Unidades Responsive Avanzadas</h3>
+              <div class="units-comparison">
+                <div class="unit-examples">
+                  <div class="unit-item">
+                    <span class="unit-name">vw</span>
+                    <span class="unit-desc">1% del ancho del viewport</span>
+                  </div>
+                  <div class="unit-item">
+                    <span class="unit-name">vh</span>
+                    <span class="unit-desc">1% del alto del viewport</span>
+                  </div>
+                  <div class="unit-item">
+                    <span class="unit-name">vmin</span>
+                    <span class="unit-desc">1% de la dimensión menor</span>
+                  </div>
+                  <div class="unit-item">
+                    <span class="unit-name">vmax</span>
+                    <span class="unit-desc">1% de la dimensión mayor</span>
+                  </div>
+                  <div class="unit-item">
+                    <span class="unit-name">clamp()</span>
+                    <span class="unit-desc">clamp(min, preferido, max)</span>
+                  </div>
+                </div>
+              </div>
+              <div class="code-example">
+                <pre><code>/* Ejemplo práctico de clamp() */
+.responsive-text {
+    font-size: clamp(1rem, 4vw, 2.5rem);
+    /* Mínimo 1rem, preferido 4vw, máximo 2.5rem */
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 20: Responsive Design -->
+      <div class="slide" data-slide="20">
+        <div class="slide-content">
+          <h1>Responsive Design</h1>
+          <div class="responsive-content">
+            <div class="responsive-principles">
+              <h3>Principios Fundamentales</h3>
+              <ul>
+                <li>🔄 Diseño fluido y flexible</li>
+                <li>📱 Mobile-first approach</li>
+                <li>📐 Unidades relativas</li>
+                <li>🖼️ Imágenes adaptables</li>
+              </ul>
+            </div>
+            <div class="viewport-meta">
+              <h3>Meta Viewport</h3>
+              <div class="code-example">
+                <pre><code>&lt;meta name="viewport" 
+      content="width=device-width, 
+               initial-scale=1.0"&gt;</code></pre>
+              </div>
+              <p>Esencial para responsive design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 21: Media Queries -->
+      <div class="slide" data-slide="21">
+        <div class="slide-content">
+          <h1>Media Queries</h1>
+          <div class="media-queries">
+            <div class="mq-syntax">
+              <h3>Sintaxis y Breakpoints</h3>
+              <div class="code-example">
+                <pre><code>/* Mobile First */
+.container { width: 100%; }
+
+/* Tablet */
+@media (min-width: 768px) {
+    .container { width: 750px; }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+    .container { width: 1000px; }
+}</code></pre>
+              </div>
+            </div>
+            <div class="breakpoints-visual">
+              <h3>Breakpoints Comunes</h3>
+              <div class="breakpoint-list">
+                <div class="bp-item">📱 320px+ - Mobile</div>
+                <div class="bp-item">📱 768px+ - Tablet</div>
+                <div class="bp-item">💻 1024px+ - Desktop</div>
+                <div class="bp-item">🖥️ 1440px+ - Large</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 22: Animaciones CSS -->
+      <div class="slide" data-slide="22">
+        <div class="slide-content">
+          <h1>Animaciones y Transiciones</h1>
+          <div class="animations-content">
+            <div class="transitions-section">
+              <h3>Transiciones</h3>
+              <div class="code-example">
+                <pre><code>.boton {
+    background: blue;
+    transition: background 0.3s ease;
+}
+
+.boton:hover {
+    background: red;
+}</code></pre>
+              </div>
+              <div class="transition-demo">
+                <div class="animated-button">Hover me!</div>
+              </div>
+            </div>
+            <div class="keyframes-section">
+              <h3>Keyframes</h3>
+              <div class="code-example">
+                <pre><code>@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+.elemento {
+    animation: fadeIn 2s ease-in-out;
+}</code></pre>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 23: Ejercicios Prácticos -->
+      <div class="slide" data-slide="23">
+        <div class="slide-content">
+          <h1>Ejercicios Prácticos y Troubleshooting</h1>
+          <div class="practical-exercises">
+            <div class="exercises-section">
+              <h3>🎯 Mini-Proyectos para Practicar</h3>
+              <div class="exercise-list">
+                <div class="exercise-item">
+                  <h4>1. Card Component</h4>
+                  <p>
+                    Crear una tarjeta con imagen, título, texto y botón usando
+                    Flexbox
+                  </p>
+                </div>
+                <div class="exercise-item">
+                  <h4>2. Layout Responsive</h4>
+                  <p>
+                    Header, sidebar, main, footer usando CSS Grid + Media
+                    Queries
+                  </p>
+                </div>
+                <div class="exercise-item">
+                  <h4>3. Menú de Navegación</h4>
+                  <p>
+                    Menú horizontal en desktop, hamburger en mobile con
+                    animaciones
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="troubleshooting-section">
+              <h3>🔧 Problemas Comunes y Soluciones</h3>
+              <div class="troubleshooting-list">
+                <div class="problem-solution">
+                  <h4>Problema: Elementos no se centran</h4>
+                  <div class="code-example">
+                    <pre><code>/* ❌ No funciona */
+.container { text-align: center; }
+
+/* ✅ Solución con Flexbox */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}</code></pre>
+                  </div>
+                </div>
+                <div class="problem-solution">
+                  <h4>Problema: Grid items se solapan</h4>
+                  <div class="code-example">
+                    <pre><code>/* ✅ Solución */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+}</code></pre>
+                  </div>
+                </div>
+                <div class="problem-solution">
+                  <h4>Problema: Z-index no funciona</h4>
+                  <p>
+                    <strong>Solución:</strong> Asegúrate de que el elemento
+                    tenga <code>position: relative</code> o superior
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 24: Buenas Prácticas -->
+      <div class="slide" data-slide="24">
+        <div class="slide-content">
+          <h1>Buenas Prácticas CSS</h1>
+          <div class="best-practices">
+            <div class="practices-grid">
+              <div class="practice-card">
+                <h3>📝 Organización</h3>
+                <ul>
+                  <li>Comentarios descriptivos</li>
+                  <li>Estructura lógica</li>
+                  <li>Nomenclatura consistente</li>
+                </ul>
+              </div>
+              <div class="practice-card">
+                <h3>⚡ Performance</h3>
+                <ul>
+                  <li>Minimizar selectores complejos</li>
+                  <li>Usar clases específicas</li>
+                  <li>Evitar !important</li>
+                </ul>
+              </div>
+              <div class="practice-card">
+                <h3>🔧 Mantenimiento</h3>
+                <ul>
+                  <li>Variables CSS</li>
+                  <li>Reutilizar estilos</li>
+                  <li>Documentar cambios</li>
+                </ul>
+              </div>
+              <div class="practice-card">
+                <h3>♿ Accesibilidad</h3>
+                <ul>
+                  <li>Contraste adecuado</li>
+                  <li>Focus visible</li>
+                  <li>Texto legible</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Index Modal -->
+    <div id="indexModal" class="modal hidden">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Navegación Rápida</h2>
+          <button id="closeModal" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="index-navigation">
+            <button class="index-nav-btn" data-slide="1">1. Título</button>
+            <button class="index-nav-btn" data-slide="2">2. Índice</button>
+            <button class="index-nav-btn" data-slide="3">
+              3. Introducción a CSS
+            </button>
+            <button class="index-nav-btn" data-slide="4">
+              4. Sintaxis CSS
+            </button>
+            <button class="index-nav-btn" data-slide="5">
+              5. Métodos de Inclusión
+            </button>
+            <button class="index-nav-btn" data-slide="6">
+              6. Selectores Básicos
+            </button>
+            <button class="index-nav-btn" data-slide="7">
+              7. Selectores Avanzados
+            </button>
+            <button class="index-nav-btn" data-slide="8">
+              8. Modelo de Caja
+            </button>
+            <button class="index-nav-btn" data-slide="9">
+              9. Unidades de Medida
+            </button>
+            <button class="index-nav-btn" data-slide="10">
+              10. Tipografía y Colores
+            </button>
+            <button class="index-nav-btn" data-slide="11">
+              11. Fondos y Sombras
+            </button>
+            <button class="index-nav-btn" data-slide="12">
+              12. Display y Posicionamiento
+            </button>
+            <button class="index-nav-btn" data-slide="13">
+              13. Posicionamiento Detallado
+            </button>
+            <button class="index-nav-btn" data-slide="14">
+              14. Z-index y Float
+            </button>
+            <button class="index-nav-btn" data-slide="15">
+              15. Flexbox Básico
+            </button>
+            <button class="index-nav-btn" data-slide="16">
+              16. Flexbox Avanzado
+            </button>
+            <button class="index-nav-btn" data-slide="17">
+              17. CSS Grid Básico
+            </button>
+            <button class="index-nav-btn" data-slide="18">
+              18. CSS Grid Avanzado
+            </button>
+            <button class="index-nav-btn" data-slide="19">
+              19. Meta Viewport
+            </button>
+            <button class="index-nav-btn" data-slide="20">
+              20. Responsive Design
+            </button>
+            <button class="index-nav-btn" data-slide="21">
+              21. Media Queries
+            </button>
+            <button class="index-nav-btn" data-slide="22">
+              22. Animaciones CSS
+            </button>
+            <button class="index-nav-btn" data-slide="23">
+              23. Ejercicios Prácticos
+            </button>
+            <button class="index-nav-btn" data-slide="24">
+              24. Buenas Prácticas
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal del Índice -->
+    <div id="indexModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Navegación de la Presentación</h2>
+          <button id="closeModal" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="index-navigation">
+            <button class="index-nav-btn" data-slide="1">1. Título</button>
+            <button class="index-nav-btn" data-slide="2">2. Índice</button>
+            <button class="index-nav-btn" data-slide="3">
+              3. Introducción a CSS
+            </button>
+            <button class="index-nav-btn" data-slide="4">
+              4. Sintaxis CSS
+            </button>
+            <button class="index-nav-btn" data-slide="5">
+              5. Métodos de Inclusión
+            </button>
+            <button class="index-nav-btn" data-slide="6">
+              6. Selectores Básicos
+            </button>
+            <button class="index-nav-btn" data-slide="7">
+              7. Selectores Avanzados
+            </button>
+            <button class="index-nav-btn" data-slide="8">
+              8. Modelo de Caja
+            </button>
+            <button class="index-nav-btn" data-slide="9">
+              9. Unidades de Medida
+            </button>
+            <button class="index-nav-btn" data-slide="10">
+              10. Tipografía y Colores
+            </button>
+            <button class="index-nav-btn" data-slide="11">
+              11. Fondos y Sombras
+            </button>
+            <button class="index-nav-btn" data-slide="12">
+              12. Display y Posicionamiento
+            </button>
+            <button class="index-nav-btn" data-slide="13">
+              13. Posicionamiento Detallado
+            </button>
+            <button class="index-nav-btn" data-slide="14">
+              14. Z-index y Float
+            </button>
+            <button class="index-nav-btn" data-slide="15">
+              15. Flexbox Básico
+            </button>
+            <button class="index-nav-btn" data-slide="16">
+              16. Flexbox Avanzado
+            </button>
+            <button class="index-nav-btn" data-slide="17">
+              17. CSS Grid Básico
+            </button>
+            <button class="index-nav-btn" data-slide="18">
+              18. CSS Grid Avanzado
+            </button>
+            <button class="index-nav-btn" data-slide="19">
+              19. Meta Viewport
+            </button>
+            <button class="index-nav-btn" data-slide="20">
+              20. Responsive Design
+            </button>
+            <button class="index-nav-btn" data-slide="21">
+              21. Media Queries
+            </button>
+            <button class="index-nav-btn" data-slide="22">
+              22. Animaciones CSS
+            </button>
+            <button class="index-nav-btn" data-slide="23">
+              23. Ejercicios Prácticos
+            </button>
+            <button class="index-nav-btn" data-slide="24">
+              24. Buenas Prácticas
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
