@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pseudo-clases y Pseudo-elementos - Guía Completa</title>
+    <link rel="stylesheet" href="pseudo-guia.css" />
+  </head>
+  <body>
+    <!--
+        PSEUDO-CLASES Y PSEUDO-ELEMENTOS - GUÍA COMPLETA
+        
+        CONCEPTOS CLAVE:
+        - Pseudo-clases: Seleccionan elementos en estados específicos (:hover, :focus, :nth-child)
+        - Pseudo-elementos: Crean elementos virtuales o seleccionan partes específicas (::before, ::after, ::first-letter)
+        
+        DIFERENCIAS:
+        - Pseudo-clases: Un solo dos puntos (:)
+        - Pseudo-elementos: Dos dos puntos (::)
+    -->
+
+    <div class="container">
+      <!-- ENCABEZADO PRINCIPAL -->
+      <header class="main-header">
+        <h1>Pseudo-clases y Pseudo-elementos en CSS</h1>
+        <p class="subtitle">
+          Guía completa con ejemplos prácticos y buenas prácticas
+        </p>
+      </header>
+
+      <!-- SECCIÓN: PSEUDO-CLASES -->
+      <section class="section">
+        <h2>1. Pseudo-clases</h2>
+        <p class="description">
+          Las pseudo-clases permiten seleccionar elementos basándose en su
+          estado o posición. Se escriben con un solo dos puntos (:).
+        </p>
+
+        <!-- Ejemplo: Estados de interacción -->
+        <div class="example-box">
+          <h3>Estados de Interacción</h3>
+          <div class="interactive-buttons">
+            <button class="btn primary">Pasa el mouse aquí</button>
+            <button class="btn secondary">Botón con focus</button>
+            <button class="btn danger">Botón activo</button>
+          </div>
+          <p class="code-explanation">
+            <strong>Uso:</strong> :hover, :focus, :active
+            <br />
+            <strong>Cuándo usar:</strong> Para mejorar la experiencia del
+            usuario y proporcionar feedback visual
+          </p>
+        </div>
+
+        <!-- Ejemplo: Pseudo-clases estructurales -->
+        <div class="example-box">
+          <h3>Pseudo-clases Estructurales</h3>
+          <ul class="structural-list">
+            <li>Primer elemento</li>
+            <li>Segundo elemento</li>
+            <li>Tercer elemento</li>
+            <li>Cuarto elemento</li>
+            <li>Quinto elemento</li>
+            <li>Último elemento</li>
+          </ul>
+          <p class="code-explanation">
+            <strong>Uso:</strong> :first-child, :last-child, :nth-child(n),
+            :nth-of-type(n)
+            <br />
+            <strong>Cuándo usar:</strong> Para estilizar elementos específicos
+            sin añadir clases HTML
+          </p>
+        </div>
+
+        <!-- Ejemplo: Estados de formulario -->
+        <div class="example-box">
+          <h3>Estados de Formulario</h3>
+          <form class="demo-form">
+            <div class="form-group">
+              <label for="email">Email (requerido):</label>
+              <input
+                type="email"
+                id="email"
+                required
+                placeholder="ejemplo@correo.com"
+              />
+            </div>
+            <div class="form-group">
+              <label for="password">Contraseña:</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Mínimo 8 caracteres"
+              />
+            </div>
+            <div class="form-group">
+              <label>
+                <input type="checkbox" required /> Acepto los términos y
+                condiciones
+              </label>
+            </div>
+            <button type="submit">Enviar</button>
+          </form>
+          <p class="code-explanation">
+            <strong>Uso:</strong> :valid, :invalid, :required, :checked,
+            :disabled
+            <br />
+            <strong>Cuándo usar:</strong> Para validación visual y mejorar la UX
+            en formularios
+          </p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: PSEUDO-ELEMENTOS -->
+      <section class="section">
+        <h2>2. Pseudo-elementos</h2>
+        <p class="description">
+          Los pseudo-elementos permiten estilizar partes específicas de un
+          elemento o crear contenido virtual. Se escriben con doble dos puntos
+          (::).
+        </p>
+
+        <!-- Ejemplo: ::before y ::after -->
+        <div class="example-box">
+          <h3>Contenido Generado (::before y ::after)</h3>
+          <div class="cards-container">
+            <div class="card featured">
+              <h4>Artículo Destacado</h4>
+              <p>
+                Este artículo tiene contenido generado con pseudo-elementos.
+              </p>
+            </div>
+            <div class="card new">
+              <h4>Artículo Nuevo</h4>
+              <p>Observa las etiquetas generadas automáticamente.</p>
+            </div>
+            <div class="card quote">
+              <p>
+                Esta es una cita importante que necesita comillas decorativas.
+              </p>
+            </div>
+          </div>
+          <p class="code-explanation">
+            <strong>Uso:</strong> ::before, ::after
+            <br />
+            <strong>Cuándo usar:</strong> Para decoraciones, iconos, etiquetas
+            sin contaminar el HTML
+          </p>
+        </div>
+
+        <!-- Ejemplo: Selección de texto -->
+        <div class="example-box">
+          <h3>Selección de Texto (::selection)</h3>
+          <p class="selectable-text">
+            Selecciona este texto para ver el estilo personalizado de selección.
+            Los pseudo-elementos te permiten controlar cómo se ve el texto
+            seleccionado.
+          </p>
+          <p class="code-explanation">
+            <strong>Uso:</strong> ::selection
+            <br />
+            <strong>Cuándo usar:</strong> Para mantener consistencia visual en
+            la selección de texto
+          </p>
+        </div>
+
+        <!-- Ejemplo: Primera letra y primera línea -->
+        <div class="example-box">
+          <h3>Estilización Tipográfica</h3>
+          <p class="drop-cap">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+            pariatur.
+          </p>
+          <p class="code-explanation">
+            <strong>Uso:</strong> ::first-letter, ::first-line
+            <br />
+            <strong>Cuándo usar:</strong> Para efectos tipográficos elegantes
+            sin JavaScript
+          </p>
+        </div>
+      </section>
+
+      <!-- SECCIÓN: CASOS PRÁCTICOS -->
+      <section class="section">
+        <h2>3. Casos Prácticos y Buenas Prácticas</h2>
+
+        <!-- Navegación con pseudo-clases -->
+        <div class="example-box">
+          <h3>Navegación Interactiva</h3>
+          <nav class="demo-nav">
+            <ul>
+              <li><a href="#" class="active">Inicio</a></li>
+              <li><a href="#">Productos</a></li>
+              <li><a href="#">Servicios</a></li>
+              <li><a href="#">Contacto</a></li>
+            </ul>
+          </nav>
+          <p class="code-explanation">
+            <strong>Combinación:</strong> :hover, :focus, :active con
+            pseudo-elementos
+            <br />
+            <strong>Beneficio:</strong> Navegación accesible y atractiva sin
+            JavaScript
+          </p>
+        </div>
+
+        <!-- Lista con contadores automáticos -->
+        <div class="example-box">
+          <h3>Lista con Numeración Personalizada</h3>
+          <ol class="custom-list">
+            <li>Planificar el proyecto</li>
+            <li>Diseñar la interfaz</li>
+            <li>Desarrollar funcionalidades</li>
+            <li>Realizar pruebas</li>
+            <li>Lanzar el producto</li>
+          </ol>
+          <p class="code-explanation">
+            <strong>Técnica:</strong> counter() con ::before
+            <br />
+            <strong>Ventaja:</strong> Numeración automática y personalizable
+          </p>
+        </div>
+
+        <!-- Tooltips con CSS puro -->
+        <div class="example-box">
+          <h3>Tooltips Puros CSS</h3>
+          <p>
+            Pasa el mouse sobre estos elementos para ver tooltips:
+            <span class="tooltip" data-tooltip="¡Esto es un tooltip superior!"
+              >Tooltip Arriba</span
+            >,
+            <span
+              class="tooltip tooltip-right"
+              data-tooltip="Tooltip en el lado derecho"
+              >Tooltip Derecha</span
+            >,
+            <span
+              class="tooltip tooltip-bottom"
+              data-tooltip="Tooltip en la parte inferior"
+              >Tooltip Abajo</span
+            >.
+          </p>
+          <p class="code-explanation">
+            <strong>Técnica:</strong> :hover + ::after + attr()
+            <br />
+            <strong>Beneficio:</strong> Tooltips sin JavaScript, accesibles y
+            ligeros
+          </p>
+        </div>
+      </section>
+
+      
+      <!-- SECCIÓN: MEJORES PRÁCTICAS -->
+      <section class="section best-practices">
+        <h2>4. Mejores Prácticas y Recomendaciones</h2>
+
+        <div class="practices-grid">
+          <div class="practice-item do">
+            <h4>✅ Sí hacer</h4>
+            <ul>
+              <li>Usar :focus para accesibilidad</li>
+              <li>Combinar :hover con transiciones</li>
+              <li>Usar ::before/::after para decoraciones</li>
+              <li>Aplicar :nth-child para patrones</li>
+              <li>Usar ::selection para consistencia</li>
+            </ul>
+          </div>
+
+          <div class="practice-item dont">
+            <h4>❌ No hacer</h4>
+            <ul>
+              <li>Abusar de pseudo-elementos complejos</li>
+              <li>Olvidar estados de focus</li>
+              <li>Usar solo :hover sin :focus</li>
+              <li>Crear layouts con pseudo-elementos</li>
+              <li>Ignorar la especificidad</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="performance-tip">
+          <h4>💡 Consejo de Rendimiento</h4>
+          <p>
+            Los pseudo-elementos ::before y ::after son elementos reales en el
+            DOM. Úsalos con moderación en listas muy largas para mantener buen
+            rendimiento.
+          </p>
+        </div>
+      </section>
+
+      <!-- EJERCICIO PRÁCTICO -->
+      <section class="section exercise">
+        <h2>5. Ejercicio Práctico</h2>
+        <div class="exercise-box">
+          <h3>🎯 Reto: Crea una tarjeta de perfil</h3>
+          <p>Usando pseudo-clases y pseudo-elementos, crea una tarjeta que:</p>
+          <ul>
+            <li>Cambie de color al pasar el mouse (:hover)</li>
+            <li>Muestre un badge "En línea" con ::before</li>
+            <li>Tenga efectos en el primer elemento (:first-child)</li>
+            <li>Incluya un tooltip con información adicional</li>
+          </ul>
+
+          <!-- Ejemplo de resultado esperado -->
+          <div class="profile-card">
+            <div class="avatar">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face"
+                alt="Avatar"
+              />
+            </div>
+            <div class="profile-info">
+              <h4>Juan Pérez</h4>
+              <p>Desarrollador Frontend</p>
+              <span
+                class="status online"
+                data-tooltip="Conectado hace 5 minutos"
+                >En línea</span
+              >
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- Nota sobre compatibilidad -->
+    <footer class="compatibility-note">
+      <p>
+        <strong>Nota de Compatibilidad:</strong>
+        Todos los pseudo-selectores mostrados tienen excelente soporte en
+        navegadores modernos. Para IE8-, usa un solo dos puntos (:) para
+        pseudo-elementos.
+      </p>
+    </footer>
+  </body>
+</html>

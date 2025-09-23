@@ -1,0 +1,922 @@
+/* =============================================================================
+   PSEUDO-CLASES Y PSEUDO-ELEMENTOS - HOJA DE ESTILOS EDUCATIVA
+   
+   Esta hoja de estilos demuestra el uso práctico de pseudo-clases y pseudo-elementos
+   con comentarios explicativos para fines educativos.
+   ============================================================================= */
+
+/* RESET Y CONFIGURACIÓN BASE */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: white;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 15px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================================
+   ENCABEZADO PRINCIPAL CON PSEUDO-ELEMENTOS
+   ============================================================================= */
+
+.main-header {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 40px 20px;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  color: white;
+  border-radius: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* PSEUDO-ELEMENTO: Efecto de brillo animado */
+.main-header::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transform: rotate(45deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) translateY(-100%) rotate(45deg);
+  }
+  100% {
+    transform: translateX(100%) translateY(100%) rotate(45deg);
+  }
+}
+
+.main-header h1 {
+  position: relative;
+  z-index: 1;
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  position: relative;
+  z-index: 1;
+  opacity: 0.9;
+  font-size: 1.1em;
+}
+
+/* =============================================================================
+   SECCIONES Y ESTRUCTURA
+   ============================================================================= */
+
+.section {
+  margin-bottom: 50px;
+  padding: 30px;
+  border-radius: 10px;
+  background: #f8f9fa;
+  border-left: 5px solid #007bff;
+}
+
+.section h2 {
+  color: #007bff;
+  margin-bottom: 20px;
+  font-size: 2em;
+}
+
+/* PSEUDO-ELEMENTO: Numeración automática de secciones */
+.section h2::before {
+  content: '📚 ';
+  margin-right: 10px;
+}
+
+.description {
+  font-size: 1.1em;
+  margin-bottom: 25px;
+  color: #555;
+  line-height: 1.7;
+}
+
+.example-box {
+  background: white;
+  padding: 25px;
+  margin: 20px 0;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e9ecef;
+}
+
+.example-box h3 {
+  color: #495057;
+  margin-bottom: 20px;
+  font-size: 1.3em;
+}
+
+/* =============================================================================
+   PSEUDO-CLASES: ESTADOS DE INTERACCIÓN
+   ============================================================================= */
+
+.interactive-buttons {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* PSEUDO-CLASE: Estado normal */
+.btn.primary {
+  background: #007bff;
+  color: white;
+}
+
+/* PSEUDO-CLASE: Estado hover */
+.btn.primary:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* PSEUDO-CLASE: Estado focus (accesibilidad) */
+.btn.primary:focus {
+  outline: 3px solid rgba(0, 123, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* PSEUDO-CLASE: Estado active */
+.btn.primary:active {
+  transform: translateY(0);
+  background: #004085;
+}
+
+.btn.secondary {
+  background: #6c757d;
+  color: white;
+}
+
+.btn.secondary:hover {
+  background: #545b62;
+  transform: scale(1.05);
+}
+
+.btn.secondary:focus {
+  outline: 3px solid rgba(108, 117, 125, 0.5);
+  outline-offset: 2px;
+}
+
+.btn.danger {
+  background: #dc3545;
+  color: white;
+}
+
+.btn.danger:hover {
+  background: #c82333;
+}
+
+.btn.danger:active {
+  background: #bd2130;
+  transform: scale(0.98);
+}
+
+/* =============================================================================
+   PSEUDO-CLASES ESTRUCTURALES
+   ============================================================================= */
+
+.structural-list {
+  list-style: none;
+  padding: 0;
+}
+
+.structural-list li {
+  padding: 12px 20px;
+  margin: 5px 0;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+/* PSEUDO-CLASE: Primer elemento */
+.structural-list li:first-child {
+  background: #d4edda;
+  border-left: 4px solid #28a745;
+  font-weight: bold;
+}
+
+/* PSEUDO-CLASE: Último elemento */
+.structural-list li:last-child {
+  background: #f8d7da;
+  border-left: 4px solid #dc3545;
+  font-weight: bold;
+}
+
+/* PSEUDO-CLASE: Elementos pares */
+.structural-list li:nth-child(even) {
+  background: #e2e3e5;
+}
+
+/* PSEUDO-CLASE: Elementos impares (excepto primero y último) */
+.structural-list li:nth-child(odd):not(:first-child):not(:last-child) {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+}
+
+/* PSEUDO-CLASE: Hover en elementos de lista */
+.structural-list li:hover {
+  transform: translateX(10px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* =============================================================================
+   PSEUDO-CLASES DE FORMULARIO
+   ============================================================================= */
+
+.demo-form {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: #495057;
+}
+
+.form-group input[type='email'],
+.form-group input[type='password'] {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* PSEUDO-CLASE: Estado focus en inputs */
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.1);
+}
+
+/* PSEUDO-CLASE: Estado válido */
+.form-group input:valid {
+  border-color: #28a745;
+}
+
+/* PSEUDO-CLASE: Estado inválido */
+.form-group input:invalid:not(:placeholder-shown) {
+  border-color: #dc3545;
+}
+
+/* PSEUDO-ELEMENTO: Iconos de validación */
+.form-group input:valid::after {
+  content: '✓';
+  color: #28a745;
+}
+
+/* PSEUDO-CLASE: Checkbox checked */
+.form-group input[type='checkbox']:checked + label::before {
+  content: '✓ ';
+  color: #28a745;
+  font-weight: bold;
+}
+
+.demo-form button {
+  background: #28a745;
+  color: white;
+  padding: 12px 30px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.demo-form button:hover {
+  background: #218838;
+  transform: translateY(-1px);
+}
+
+/* PSEUDO-CLASE: Botón disabled */
+.demo-form button:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =============================================================================
+   PSEUDO-ELEMENTOS: CONTENIDO GENERADO
+   ============================================================================= */
+
+.cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* PSEUDO-ELEMENTO: Badge "Destacado" */
+.card.featured::before {
+  content: '⭐ DESTACADO';
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  z-index: 1;
+}
+
+/* PSEUDO-ELEMENTO: Badge "Nuevo" */
+.card.new::after {
+  content: 'NUEVO';
+  position: absolute;
+  top: 15px;
+  right: -10px;
+  background: #4ecdc4;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: bold;
+  transform: rotate(15deg);
+}
+
+/* PSEUDO-ELEMENTO: Comillas decorativas */
+.card.quote::before {
+  content: '\201C';
+  font-size: 4em;
+  color: #e9ecef;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  font-family: Georgia, serif;
+  z-index: 0;
+}
+
+.card.quote::after {
+  content: '\201D';
+  font-size: 4em;
+  color: #e9ecef;
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+  font-family: Georgia, serif;
+  z-index: 0;
+}
+
+.card.quote p {
+  position: relative;
+  z-index: 1;
+  font-style: italic;
+  font-size: 1.1em;
+}
+
+/* =============================================================================
+   PSEUDO-ELEMENTO: SELECCIÓN DE TEXTO
+   ============================================================================= */
+
+.selectable-text::selection {
+  background: #ff6b6b;
+  color: white;
+}
+
+.selectable-text::-moz-selection {
+  background: #ff6b6b;
+  color: white;
+}
+
+/* =============================================================================
+   PSEUDO-ELEMENTOS TIPOGRÁFICOS
+   ============================================================================= */
+
+/* PSEUDO-ELEMENTO: Primera letra (drop cap) */
+.drop-cap::first-letter {
+  font-size: 3.5em;
+  float: left;
+  line-height: 1;
+  margin: 0.05em 0.1em 0 0;
+  color: #007bff;
+  font-weight: bold;
+  font-family: Georgia, serif;
+}
+
+/* PSEUDO-ELEMENTO: Primera línea */
+.drop-cap::first-line {
+  font-weight: 600;
+  color: #495057;
+}
+
+/* =============================================================================
+   NAVEGACIÓN CON PSEUDO-CLASES
+   ============================================================================= */
+
+.demo-nav ul {
+  list-style: none;
+  display: flex;
+  background: #343a40;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.demo-nav li {
+  flex: 1;
+}
+
+.demo-nav a {
+  display: block;
+  padding: 15px 20px;
+  color: white;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  text-align: center;
+}
+
+/* PSEUDO-CLASE: Estado hover en navegación */
+.demo-nav a:hover {
+  background: #495057;
+  color: #4ecdc4;
+}
+
+/* PSEUDO-CLASE: Estado activo en navegación */
+.demo-nav a.active {
+  background: #007bff;
+}
+
+/* PSEUDO-ELEMENTO: Indicador de página activa */
+.demo-nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid white;
+}
+
+/* PSEUDO-CLASE: Focus en navegación */
+.demo-nav a:focus {
+  outline: 3px solid #4ecdc4;
+  outline-offset: -3px;
+}
+
+/* =============================================================================
+   LISTA CON CONTADORES PERSONALIZADOS
+   ============================================================================= */
+
+.custom-list {
+  list-style: none;
+  counter-reset: step-counter;
+}
+
+.custom-list li {
+  counter-increment: step-counter;
+  margin-bottom: 15px;
+  padding: 15px 15px 15px 60px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+/* PSEUDO-ELEMENTO: Contador personalizado */
+.custom-list li::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #007bff;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.custom-list li:hover {
+  background: #e3f2fd;
+  transform: translateX(10px);
+}
+
+/* PSEUDO-CLASE: Cambio de color en elementos específicos */
+.custom-list li:nth-child(2)::before {
+  background: #28a745;
+}
+
+.custom-list li:nth-child(4)::before {
+  background: #ffc107;
+  color: #333;
+}
+
+/* =============================================================================
+   TOOLTIPS CON CSS PURO
+   ============================================================================= */
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  background: #007bff;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: help;
+  margin: 0 5px;
+}
+
+/* PSEUDO-ELEMENTO: Contenido del tooltip */
+.tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+/* PSEUDO-ELEMENTO: Flecha del tooltip */
+.tooltip::before {
+  content: '';
+  position: absolute;
+  bottom: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #333;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+/* PSEUDO-CLASE: Mostrar tooltip en hover */
+.tooltip:hover::after,
+.tooltip:hover::before {
+  opacity: 1;
+}
+
+/* Variante: Tooltip a la derecha */
+.tooltip-right::after {
+  bottom: auto;
+  left: 125%;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.tooltip-right::before {
+  bottom: auto;
+  left: 115%;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top-color: transparent;
+  border-right-color: #333;
+}
+
+/* Variante: Tooltip abajo */
+.tooltip-bottom::after {
+  bottom: auto;
+  top: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.tooltip-bottom::before {
+  bottom: auto;
+  top: 115%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-top-color: transparent;
+  border-bottom-color: #333;
+}
+
+/* =============================================================================
+   SECCIÓN DE MEJORES PRÁCTICAS
+   ============================================================================= */
+
+.best-practices {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  border-left: 5px solid #fff;
+}
+
+.practices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 30px;
+}
+
+.practice-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.practice-item h4 {
+  margin-bottom: 15px;
+  font-size: 1.3em;
+}
+
+.practice-item ul {
+  list-style: none;
+}
+
+.practice-item li {
+  margin-bottom: 8px;
+  padding-left: 25px;
+  position: relative;
+}
+
+/* PSEUDO-ELEMENTO: Iconos para buenas prácticas */
+.practice-item.do li::before {
+  content: '✅';
+  position: absolute;
+  left: 0;
+}
+
+.practice-item.dont li::before {
+  content: '❌';
+  position: absolute;
+  left: 0;
+}
+
+.performance-tip {
+  background: rgba(255, 255, 255, 0.15);
+  padding: 20px;
+  border-radius: 8px;
+  border-left: 5px solid #ffc107;
+}
+
+/* =============================================================================
+   EJERCICIO PRÁCTICO
+   ============================================================================= */
+
+.exercise {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-left: 5px solid #fff;
+}
+
+.exercise-box {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 25px;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.exercise-box ul {
+  margin: 20px 0;
+  padding-left: 25px;
+}
+
+.exercise-box li {
+  margin-bottom: 8px;
+}
+
+/* Ejemplo de tarjeta de perfil */
+.profile-card {
+  background: white;
+  color: #333;
+  padding: 25px;
+  border-radius: 15px;
+  max-width: 300px;
+  margin: 20px auto;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.profile-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.avatar {
+  text-align: center;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.avatar img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 4px solid #4ecdc4;
+  transition: all 0.3s ease;
+}
+
+.profile-card:hover .avatar img {
+  transform: scale(1.1);
+  border-color: #ff6b6b;
+}
+
+.profile-info {
+  text-align: center;
+}
+
+.profile-info h4 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.profile-info p {
+  color: #666;
+  margin-bottom: 15px;
+}
+
+.status {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+  position: relative;
+}
+
+.status.online {
+  background: #d4edda;
+  color: #155724;
+}
+
+/* PSEUDO-ELEMENTO: Indicador de estado */
+.status.online::before {
+  content: '●';
+  color: #28a745;
+  margin-right: 5px;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Tooltip para el estado */
+.status::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.status:hover::after {
+  opacity: 1;
+}
+
+/* =============================================================================
+   EXPLICACIONES DE CÓDIGO
+   ============================================================================= */
+
+.code-explanation {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 6px;
+  border-left: 4px solid #007bff;
+  margin-top: 15px;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+.code-explanation strong {
+  color: #007bff;
+}
+
+/* =============================================================================
+   NOTA DE COMPATIBILIDAD
+   ============================================================================= */
+
+.compatibility-note {
+  background: #fff3cd;
+  color: #856404;
+  padding: 20px;
+  margin: 20px;
+  border-radius: 8px;
+  border: 1px solid #ffeaa7;
+  text-align: center;
+}
+
+.compatibility-note strong {
+  color: #533f03;
+}
+
+/* =============================================================================
+   RESPONSIVE DESIGN CON PSEUDO-CLASES
+   ============================================================================= */
+
+@media (max-width: 768px) {
+  .interactive-buttons {
+    flex-direction: column;
+  }
+
+  .practices-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-nav ul {
+    flex-direction: column;
+  }
+
+  .cards-container {
+    grid-template-columns: 1fr;
+  }
+
+  .main-header h1 {
+    font-size: 2em;
+  }
+}
+
+/* Pseudo-clase para dispositivos táctiles */
+@media (hover: none) {
+  .tooltip:active::after,
+  .tooltip:active::before {
+    opacity: 1;
+  }
+}
