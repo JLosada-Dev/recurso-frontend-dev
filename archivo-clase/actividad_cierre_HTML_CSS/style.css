@@ -1,0 +1,450 @@
+/* ============================================
+   ESTILOS BASE Y GENERALES
+   ============================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+
+.hero {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  opacity: 0.95;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+/* ============================================
+   CONTENEDORES DE PUZZLES
+   ============================================ */
+
+.puzzle-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+  padding: 30px;
+}
+
+.puzzle-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 3px solid #667eea;
+}
+
+.puzzle-header h2 {
+  font-size: 1.8rem;
+  color: #2a5298;
+}
+
+.difficulty {
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.difficulty.easy {
+  background: #d4edda;
+  color: #155724;
+}
+
+.difficulty.medium {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.difficulty.hard {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+.puzzle-description {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border-left: 4px solid #667eea;
+}
+
+.puzzle-description p {
+  margin-bottom: 10px;
+}
+
+.puzzle-description ul {
+  margin-left: 25px;
+  margin-top: 10px;
+}
+
+.puzzle-description li {
+  margin-bottom: 5px;
+}
+
+.puzzle-description code {
+  background: #e9ecef;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-family: "Courier New", monospace;
+  color: #d63384;
+}
+
+.puzzle-demo {
+  background: #f1f3f5;
+  padding: 30px;
+  border-radius: 10px;
+  min-height: 300px;
+}
+
+/* ============================================
+   PUZZLE 1: FLEXBOX GALLERY
+   ============================================ */
+
+.flex-gallery {
+  /* MODIFICA ESTAS PROPIEDADES: */
+  display: block; /* Cambiar a flex */
+  /* Agregar propiedades para centrar y espaciar */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  min-height: 250px;
+}
+
+.card {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 30px 20px;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  width: 150px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================
+   PUZZLE 2: GRID DASHBOARD
+   ============================================ */
+
+.grid-dashboard {
+  /* MODIFICA ESTAS PROPIEDADES: */
+  display: block; /* Cambiar a grid */
+  /* Definir columnas y filas */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  gap: 15px;
+  min-height: 400px;
+}
+
+.dashboard-item {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  color: white;
+  padding: 30px;
+  border-radius: 8px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* MODIFICA ESTAS CLASES PARA POSICIONAR EN EL GRID: */
+.header {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.sidebar {
+  background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.main {
+  background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
+
+.stats {
+  background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);
+}
+
+/* ============================================
+   PUZZLE 3: BOX MODEL MYSTERY
+   ============================================ */
+
+.box-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.box-item {
+  /* MODIFICA ESTA PROPIEDAD: */
+  /* box-sizing: ??; */
+  width: 200px;
+  padding: 20px;
+  border: 5px solid;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.box1 {
+  background: #ffadad;
+  border-color: #ff6b6b;
+}
+
+.box2 {
+  background: #ffd6a5;
+  border-color: #ffa94d;
+}
+
+.box3 {
+  background: #caffbf;
+  border-color: #5dd39e;
+}
+
+/* ============================================
+   PUZZLE 4: POSITION MASTER
+   ============================================ */
+
+.position-container {
+  padding: 20px;
+}
+
+.position-box {
+  /* Esta caja ya tiene position: relative */
+  position: relative;
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 10px;
+  padding: 40px;
+  margin-bottom: 20px;
+}
+
+/* MODIFICA ESTAS CLASES: */
+.badge-top-right {
+  /* Agregar position y coordenadas */
+  background: #ff6b6b;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.badge-bottom-left {
+  /* Agregar position y coordenadas */
+  background: #ffd43b;
+  color: #333;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.floating-button {
+  /* MODIFICA ESTA CLASE - debe estar fijo en la esquina inferior derecha de la PANTALLA */
+  background: #667eea;
+  color: white;
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   PUZZLE 5: RESPONSIVE CARDS
+   ============================================ */
+
+.responsive-grid {
+  /* MODIFICA ESTAS PROPIEDADES: */
+  display: block; /* Cambiar a grid */
+  /* Agregar grid-template-columns con auto-fit/auto-fill y minmax */
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.product-card {
+  background: white;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.product-image {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.product-card h3 {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.price {
+  font-size: 1.5rem;
+  color: #667eea;
+  font-weight: bold;
+}
+
+/* ============================================
+   PUZZLE 6: Z-INDEX LAYERS
+   ============================================ */
+
+.zindex-container {
+  position: relative;
+  height: 300px;
+  background: #f8f9fa;
+  border-radius: 10px;
+}
+
+.layer {
+  position: absolute;
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* MODIFICA LOS Z-INDEX DE ESTAS CLASES: */
+.layer-back {
+  background: #4facfe;
+  top: 50px;
+  left: 50px;
+  z-index: 1; /* Modificar */
+}
+
+.layer-middle {
+  background: #43e97b;
+  top: 80px;
+  left: 120px;
+  z-index: 1; /* Modificar */
+}
+
+.layer-front {
+  background: #fa709a;
+  top: 110px;
+  left: 190px;
+  z-index: 1; /* Modificar */
+}
+
+/* ============================================
+   PUZZLE 7: CSS ANIMATION
+   ============================================ */
+
+.animation-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 300px;
+}
+
+.animated-card {
+  /* AGREGAR TRANSITION AQUÍ */
+  background: white;
+  border: 2px solid #dee2e6;
+  border-radius: 15px;
+  padding: 40px;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.animated-card:hover {
+  /* AGREGAR TRANSFORM Y BOX-SHADOW AQUÍ */
+}
+
+.card-icon {
+  font-size: 4rem;
+  margin-bottom: 15px;
+}
+
+.animated-card h3 {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.animated-card p {
+  color: #6c757d;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+.page-footer {
+  background: white;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.page-footer p {
+  margin-bottom: 10px;
+  color: #495057;
+}
+
+.page-footer strong {
+  color: #667eea;
+}

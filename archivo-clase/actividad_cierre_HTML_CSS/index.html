@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puzzles HTML & CSS - Desafío Interactivo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <header class="hero">
+      <div class="hero-content">
+        <h1>🎯 Desafío HTML & CSS</h1>
+        <p>
+          Resuelve los puzzles modificando el código CSS. ¡Pon a prueba tus
+          habilidades!
+        </p>
+        <div class="hero-stats">
+          <span>7 Puzzles</span>
+          <span>•</span>
+          <span>Dificultad: Progresiva</span>
+          <span>•</span>
+          <span>Tiempo estimado: 90 min</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Puzzle 1: Flexbox Gallery -->
+    <section class="puzzle-container">
+      <div class="puzzle-header">
+        <h2>Puzzle 1: Galería Flexbox</h2>
+        <span class="difficulty easy">Fácil</span>
+      </div>
+      <div class="puzzle-description">
+        <p>
+          <strong>Objetivo:</strong> Las tarjetas deben estar centradas
+          horizontal y verticalmente, con espacio uniforme entre ellas.
+        </p>
+        <p>
+          <strong>Instrucciones:</strong> Modifica la clase
+          <code>.flex-gallery</code> en el CSS para:
+        </p>
+        <ul>
+          <li>Usar Flexbox</li>
+          <li>Centrar los elementos vertical y horizontalmente</li>
+          <li>Agregar espacio de 20px entre tarjetas</li>
+          <li>Permitir que las tarjetas se envuelvan en múltiples líneas</li>
+        </ul>
+      </div>
+      <div class="puzzle-demo">
+        <div class="flex-gallery">
+          <div class="card">📱 App 1</div>
+          <div class="card">💻 App 2</div>
+          <div class="card">🎮 App 3</div>
+          <div class="card">🎨 App 4</div>
+          <div class="card">🎵 App 5</div>
+          <div class="card">📷 App 6</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Puzzle 2: Grid Dashboard -->
+    <section class="puzzle-container">
+      <div class="puzzle-header">
+        <h2>Puzzle 2: Dashboard Grid Desordenado</h2>
+        <span class="difficulty medium">Medio</span>
+      </div>
+      <div class="puzzle-description">
+        <p>
+          <strong>Objetivo:</strong> Organizar el dashboard en una estructura de
+          grid específica.
+        </p>
+        <p>
+          <strong>Instrucciones:</strong> Modifica
+          <code>.grid-dashboard</code> y las clases de sus hijos para lograr
+          este layout:
+        </p>
+        <ul>
+          <li>
+            Header debe ocupar todo el ancho (2 columnas) en la primera fila
+          </li>
+          <li>Sidebar ocupa la columna izquierda (2 filas de alto)</li>
+          <li>Main Content ocupa la posición central derecha</li>
+          <li>Stats ocupa la posición inferior derecha</li>
+        </ul>
+      </div>
+      <div class="puzzle-demo">
+        <div class="grid-dashboard">
+          <div class="dashboard-item header">📊 Header</div>
+          <div class="dashboard-item sidebar">📋 Sidebar</div>
+          <div class="dashboard-item main">📈 Main Content</div>
+          <div class="dashboard-item stats">📉 Stats</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Puzzle 3: Box Model Mystery -->
+    <section class="puzzle-container">
+      <div class="puzzle-header">
+        <h2>Puzzle 3: Misterio del Box Model</h2>
+        <span class="difficulty easy">Fácil</span>
+      </div>
+      <div class="puzzle-description">
+        <p>
+          <strong>Objetivo:</strong> Las tres cajas deben tener exactamente
+          200px de ancho TOTAL (incluyendo padding y borde).
+        </p>
+        <p>
+          <strong>Instrucciones:</strong> Modifica <code>.box-item</code> para:
+        </p>
+        <ul>
+          <li>Asegurar que el ancho de 200px incluya padding y borde</li>
+          <li>Usar la propiedad adecuada de box-sizing</li>
+        </ul>
+        <p><em>Nota: Cada caja tiene padding: 20px y border: 5px</em></p>
+      </div>
+      <div class="puzzle-demo">
+        <div class="box-container">
+          <div class="box-item box1">
+            Caja 1<br /><small>Debería medir 200px total</small>
+          </div>
+          <div class="box-item box2">
+            Caja 2<br /><small>Debería medir 200px total</small>
+          </div>
+          <div class="box-item box3">
+            Caja 3<br /><small>Debería medir 200px total</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Puzzle 4: Position Master -->
+    <section class="puzzle-container">
+      <div class="puzzle-header">
+        <h2>Puzzle 4: Maestro del Posicionamiento</h2>
+        <span class="difficulty medium">Medio</span>
+      </div>
+      <div class="puzzle-description">
+        <p>
+          <strong>Objetivo:</strong> Posicionar correctamente los elementos
+          flotantes.
+        </p>
+        <p><strong>Instrucciones:</strong> Modifica las clases para lograr:</p>
+        <ul>
+          <li>
+            <code>.badge-top-right</code> → Esquina superior derecha (position:
+            absolute)
+          </li>
+          <li>
+            <code>.badge-bottom-left</code> → Esquina inferior izquierda
+            (position: absolute)
+          </li>
+          <li>
+            <code>.floating-button</code> → Botón fijo en la esquina inferior
+            derecha de la pantalla
+          </li>
+        </ul>
+      </div>
+      <div class="puzzle-demo">
+        <div class="position-container">
+          <div class="position-box">
+            <span class="badge-top-right">🔔 Nuevo</span>
+            <span class="badge-bottom-left">⭐ Premium</span>
+            <h3>Tarjeta con Badges</h3>
+            <p>
+              Los badges deben estar en las esquinas correctas de esta tarjeta.
+            </p>
+          </div>
+          <button class="floating-button">➕</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Puzzle 5: Responsive Cards -->
+    <section class="puzzle-container">
+      <div class="puzzle-header">
+        <h2>Puzzle 5: Tarjetas Responsive</h2>
+        <span class="difficulty medium">Medio</span>
+      </div>
+      <div class="puzzle-description">
+        <p>
+          <strong>Objetivo:</strong> Crear un grid responsive que se adapte
+          automáticamente.
+        </p>
+        <p>
+          <strong>Instrucciones:</strong> Modifica
+          <code>.responsive-grid</code> para:
+        </p>
+        <ul>
+          <li>Usar CSS Grid con columnas que se ajusten automáticamente</li>
+          <li>Cada columna debe tener un mínimo de 250px y máximo de 1fr</li>
+          <li>Gap de 20px entre elementos</li>
+          <li>NO usar media queries (usa auto-fit o auto-fill con minmax)</li>
+        </ul>
+      </div>
+      <div class="puzzle-demo">
+        <div class="responsive-grid">
+          <div class="product-card">
+            <div class="product-image">🖥️</div>
+            <h3>Producto 1</h3>
+            <p class="price">$299</p>
+          </div>
+          <div class="product-card">
+            <div class="product-image">⌚</div>
+            <h3>Producto 2</h3>
+            <p class="price">$199</p>
+          </div>
+          <div class="product-card">
+            <div class="product-image">🎧</div>
+            <h3>Producto 3</h3>
+            <p class="price">$149</p>
+          </div>
+          <div class="product-card">
+            <div class="product-image">📱</div>
+            <h3>Producto 4</h3>
+            <p class="price">$899</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Puzzle 6: Z-index Layers -->
+    <section class="puzzle-container">
+      <div class="puzzle-header">
+        <h2>Puzzle 6: Capas y Z-index</h2>
+        <span class="difficulty hard">Difícil</span>
+      </div>
+      <div class="puzzle-description">
+        <p>
+          <strong>Objetivo:</strong> Organizar las capas en el orden correcto
+          usando z-index.
+        </p>
+        <p><strong>Orden deseado (de atrás hacia adelante):</strong></p>
+        <ul>
+          <li>Fondo azul (atrás)</li>
+          <li>Capa media verde</li>
+          <li>Capa frontal roja (adelante)</li>
+        </ul>
+        <p>
+          <strong>Instrucciones:</strong> Modifica los z-index de
+          <code>.layer-back</code>, <code>.layer-middle</code>,
+          <code>.layer-front</code>
+        </p>
+      </div>
+      <div class="puzzle-demo">
+        <div class="zindex-container">
+          <div class="layer layer-back">Capa Fondo (Debe estar atrás)</div>
+          <div class="layer layer-middle">Capa Media (En el medio)</div>
+          <div class="layer layer-front">
+            Capa Frontal (Debe estar adelante)
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Puzzle 7: CSS Animation -->
+    <section class="puzzle-container">
+      <div class="puzzle-header">
+        <h2>Puzzle 7: Completar la Animación</h2>
+        <span class="difficulty medium">Medio</span>
+      </div>
+      <div class="puzzle-description">
+        <p>
+          <strong>Objetivo:</strong> Hacer que la tarjeta tenga una animación
+          suave al hacer hover.
+        </p>
+        <p>
+          <strong>Instrucciones:</strong> Modifica <code>.animated-card</code> y
+          <code>.animated-card:hover</code> para:
+        </p>
+        <ul>
+          <li>Agregar transition de 0.3s en todas las propiedades</li>
+          <li>Al hacer hover: transformar con scale(1.05)</li>
+          <li>
+            Al hacer hover: agregar una sombra más pronunciada (box-shadow: 0
+            10px 30px rgba(0,0,0,0.3))
+          </li>
+          <li>Al hacer hover: rotar levemente (rotate: 2deg)</li>
+        </ul>
+      </div>
+      <div class="puzzle-demo">
+        <div class="animation-demo">
+          <div class="animated-card">
+            <div class="card-icon">🚀</div>
+            <h3>Pasa el mouse sobre mí</h3>
+            <p>Debería crecer, rotar levemente y tener más sombra</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+      <p>
+        💡 <strong>Consejo:</strong> Usa las herramientas de desarrollador (F12)
+        para experimentar con el código antes de modificar los archivos.
+      </p>
+      <p>🎓 Curso de Desarrollo Web - HTML, CSS & JavaScript</p>
+    </footer>
+  </body>
+</html>
