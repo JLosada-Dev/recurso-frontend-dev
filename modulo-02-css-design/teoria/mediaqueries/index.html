@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Laboratorio: Media Queries Avanzadas</title>
+    <style>
+      /* ===== RESET Y CONFIGURACIÓN BASE ===== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        font-size: 62.5%; /* 1rem = 10px */
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.6;
+        color: #333;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        min-height: 100vh;
+        padding: 2rem;
+        transition: all 0.3s ease;
+      }
+
+      /* ===== LAYOUT PRINCIPAL ===== */
+      .header {
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95);
+        padding: 3rem 2rem;
+        border-radius: 20px;
+        margin-bottom: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .header h1 {
+        font-size: 3rem;
+        color: #2c3e50;
+        margin-bottom: 1rem;
+        background: linear-gradient(45deg, #3498db, #e74c3c);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .status-indicator {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border-radius: 50px;
+        font-weight: bold;
+        font-size: 1.6rem;
+        margin-top: 1rem;
+        transition: all 0.3s ease;
+        background: #e74c3c;
+        color: white;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 20px;
+        padding: 3rem;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(10px);
+      }
+
+      .welcome-text {
+        text-align: center;
+        font-size: 1.8rem;
+        color: #2c3e50;
+        margin-bottom: 3rem;
+        padding: 2rem;
+        background: linear-gradient(135deg, #74b9ff, #0984e3);
+        color: white;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(116, 185, 255, 0.3);
+      }
+
+      .features-grid {
+        display: grid;
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .feature {
+        background: #f8f9fa;
+        padding: 2rem;
+        border-radius: 15px;
+        border-left: 5px solid #3498db;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .feature h3 {
+        color: #2c3e50;
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .feature p {
+        color: #555;
+        font-size: 1.4rem;
+      }
+
+      .demo-box {
+        background: linear-gradient(135deg, #ff7675, #fd79a8);
+        color: white;
+        padding: 3rem;
+        border-radius: 20px;
+        text-align: center;
+        margin: 3rem 0;
+        box-shadow: 0 8px 25px rgba(255, 118, 117, 0.4);
+        transition: all 0.3s ease;
+      }
+
+      .demo-box h2 {
+        font-size: 2.4rem;
+        margin-bottom: 1rem;
+      }
+
+      .responsive-info {
+        background: #e8f4fd;
+        border: 2px solid #3498db;
+        padding: 2rem;
+        border-radius: 15px;
+        margin: 2rem 0;
+      }
+
+      .responsive-info h4 {
+        color: #2980b9;
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+      }
+
+      .responsive-info ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .responsive-info li {
+        padding: 0.8rem 0;
+        border-bottom: 1px solid #bdc3c7;
+        font-size: 1.4rem;
+      }
+
+      .responsive-info li:last-child {
+        border-bottom: none;
+      }
+
+      /* ===== MEDIA QUERIES DEMOSTRACIÓN ===== */
+
+      /* 📱 MÓVIL PEQUEÑO: max-width: 480px */
+      @media (max-width: 480px) {
+        body {
+          background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+          padding: 1rem;
+        }
+
+        .status-indicator {
+          background: #e74c3c;
+        }
+
+        .status-indicator::before {
+          content: '📱 Móvil Pequeño';
+        }
+
+        .header h1 {
+          font-size: 2.4rem;
+        }
+
+        .welcome-text {
+          font-size: 1.5rem;
+        }
+
+        .features-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .demo-box {
+          background: linear-gradient(135deg, #e74c3c, #c0392b);
+        }
+
+        .demo-box::after {
+          content: 'Diseño optimizado para móviles pequeños. Una sola columna, texto más grande para facilitar la lectura en pantallas pequeñas.';
+          display: block;
+          margin-top: 1rem;
+          font-size: 1.3rem;
+          opacity: 0.9;
+        }
+      }
+
+      /* 📱 MÓVIL GRANDE: 481px - 768px */
+      @media (min-width: 481px) and (max-width: 768px) {
+        body {
+          background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+        }
+
+        .status-indicator {
+          background: #f39c12;
+        }
+
+        .status-indicator::before {
+          content: '📱 Móvil Grande / Tablet';
+        }
+
+        .header h1 {
+          font-size: 2.8rem;
+        }
+
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .demo-box {
+          background: linear-gradient(135deg, #f39c12, #e67e22);
+        }
+
+        .demo-box::after {
+          content: 'Diseño para tablets y móviles grandes. Layout en 2 columnas para aprovechar mejor el espacio disponible.';
+          display: block;
+          margin-top: 1rem;
+          font-size: 1.4rem;
+          opacity: 0.9;
+        }
+      }
+
+      /* 💻 DESKTOP: min-width: 769px */
+      @media (min-width: 769px) {
+        body {
+          background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);
+        }
+
+        .status-indicator {
+          background: #27ae60;
+        }
+
+        .status-indicator::before {
+          content: '💻 Desktop';
+        }
+
+        .header h1 {
+          font-size: 3.5rem;
+        }
+
+        .features-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        .demo-box {
+          background: linear-gradient(135deg, #27ae60, #2ecc71);
+        }
+
+        .demo-box::after {
+          content: 'Diseño completo para desktop. Layout en 3 columnas para maximizar el contenido visible y la experiencia de usuario.';
+          display: block;
+          margin-top: 1rem;
+          font-size: 1.5rem;
+          opacity: 0.9;
+        }
+      }
+
+      /* 🖥️ PANTALLA GRANDE: min-width: 1200px */
+      @media (min-width: 1200px) {
+        .container {
+          max-width: 1400px;
+          padding: 4rem;
+        }
+
+        .features-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+
+        .header h1 {
+          font-size: 4rem;
+        }
+
+        .status-indicator::before {
+          content: '🖥️ Pantalla Grande';
+        }
+      }
+
+      /* 📐 ORIENTACIÓN HORIZONTAL */
+      @media (orientation: landscape) and (max-width: 768px) {
+        .header {
+          padding: 2rem;
+        }
+
+        .container {
+          padding: 2rem;
+        }
+
+        .features-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      /* 🌙 MODO OSCURO */
+      @media (prefers-color-scheme: dark) {
+        body {
+          color: #e0e0e0;
+        }
+
+        .container,
+        .header {
+          background: rgba(45, 55, 72, 0.95);
+          color: #e0e0e0;
+        }
+
+        .feature {
+          background: #4a5568;
+          color: #e0e0e0;
+        }
+
+        .responsive-info {
+          background: #2d3748;
+          border-color: #4299e1;
+          color: #e0e0e0;
+        }
+
+        .responsive-info h4 {
+          color: #63b3ed;
+        }
+      }
+
+      /* ⚡ MOVIMIENTO REDUCIDO */
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
+
+      /* 🎯 ALTA RESOLUCIÓN */
+      @media (min-resolution: 2dppx) {
+        .demo-box,
+        .feature,
+        .container,
+        .header {
+          box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
+        }
+      }
+
+      /* Breakpoints específicos comunes */
+      /* iPhone SE */
+      @media (max-width: 375px) {
+        .header {
+          padding: 1.5rem 1rem;
+        }
+
+        .container {
+          padding: 1.5rem;
+        }
+      }
+
+      /* iPad */
+      @media (min-width: 768px) and (max-width: 1024px) {
+        .status-indicator::after {
+          content: ' (iPad)';
+          opacity: 0.7;
+        }
+      }
+
+      /* Desktop estándar */
+      @media (min-width: 1024px) and (max-width: 1440px) {
+        .status-indicator::after {
+          content: ' (Desktop estándar)';
+          opacity: 0.7;
+        }
+      }
+
+      /* Pantallas 4K */
+      @media (min-width: 2560px) {
+        html {
+          font-size: 75%; /* 1rem = 12px en 4K */
+        }
+
+        .status-indicator::before {
+          content: '🖥️ 4K / Ultra Wide';
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <h1>🎯 Media Queries Avanzadas</h1>
+      <p>Redimensiona tu ventana del navegador para ver la magia en acción</p>
+      <div class="status-indicator"></div>
+    </header>
+
+    <div class="container">
+      <div class="welcome-text">
+        <strong>¡Bienvenido al laboratorio interactivo!</strong><br />
+        Este ejemplo demuestra cómo las media queries transforman completamente
+        el diseño según el dispositivo y las preferencias del usuario.
+      </div>
+
+      <div class="demo-box">
+        <h2>🎨 Demostración Visual</h2>
+        <p>Observa cómo cambian los colores, layouts y contenido</p>
+      </div>
+
+      <div class="responsive-info">
+        <h4>📊 Información de Responsive Design</h4>
+        <ul>
+          <li><strong>Breakpoints:</strong> Puntos donde el diseño cambia</li>
+          <li><strong>Mobile First:</strong> Diseñar primero para móviles</li>
+          <li><strong>Flexible Layout:</strong> Usar grid y flexbox</li>
+          <li>
+            <strong>Fluid Typography:</strong> Tamaños de texto adaptativos
+          </li>
+          <li>
+            <strong>Touch Targets:</strong> Elementos táctiles de 44px mínimo
+          </li>
+        </ul>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature">
+          <h3>🎯 Precisión</h3>
+          <p>
+            Diseños exactos para cada tipo de dispositivo y tamaño de pantalla.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>⚡ Performance</h3>
+          <p>Optimización automática según las capacidades del dispositivo.</p>
+        </div>
+
+        <div class="feature">
+          <h3>🎨 Estética</h3>
+          <p>Colores y layouts que se adaptan al contexto de uso.</p>
+        </div>
+
+        <div class="feature">
+          <h3>♿ Accesibilidad</h3>
+          <p>
+            Respeta las preferencias del usuario como modo oscuro y movimiento
+            reducido.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>📱 Mobile First</h3>
+          <p>
+            Estrategia que prioriza la experiencia móvil y expande hacia
+            desktop.
+          </p>
+        </div>
+
+        <div class="feature">
+          <h3>🔄 Flexibilidad</h3>
+          <p>
+            Layouts que se reorganizan inteligentemente según el espacio
+            disponible.
+          </p>
+        </div>
+      </div>
+
+      <div class="responsive-info">
+        <h4>🛠️ Técnicas Utilizadas en este Ejemplo</h4>
+        <ul>
+          <li>
+            <strong>max-width:</strong> Para móviles pequeños (máximo 480px)
+          </li>
+          <li>
+            <strong>min-width y max-width:</strong> Para rangos específicos
+          </li>
+          <li><strong>orientation:</strong> Detección de paisaje/retrato</li>
+          <li><strong>prefers-color-scheme:</strong> Modo oscuro automático</li>
+          <li>
+            <strong>prefers-reduced-motion:</strong> Respeto a preferencias de
+            animación
+          </li>
+          <li>
+            <strong>min-resolution:</strong> Optimización para pantallas Retina
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>
