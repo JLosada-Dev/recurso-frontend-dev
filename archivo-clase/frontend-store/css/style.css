@@ -64,3 +64,44 @@ h2 {
 h3 {
   font-size: 2.4rem;
 }
+
+/* hedder */
+header {
+  display: flex;
+  justify-content: center;
+}
+.header__logo {
+  margin: 3rem 0;
+}
+
+/* Navegacion */
+.navegacion {
+  background-color: var(--primarioOscuro);
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.navegacion__enlace {
+  color: var(--blanco);
+  font-family: var(--fuentePrincipal);
+  font-size: 3rem;
+}
+
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+  color: var(--secundario);
+}
+
+/* grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
