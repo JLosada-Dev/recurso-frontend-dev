@@ -1,3 +1,4 @@
+/* Variables */
 :root {
   --primario: #9c27b0;
   --primarioOscuro: #89119d;
@@ -18,4 +19,48 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+}
+
+/* Globales */
+body {
+  background-color: var(--primario);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}
+
+p {
+  font-size: 1.8rem;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--blanco);
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+.contenedor {
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+h1,
+h2,
+h3 {
+  text-align: center;
+  color: var(--secundario);
+  font-family: var(--fuentePrincipal);
+}
+
+h1 {
+  font-size: 4rem;
+}
+h2 {
+  font-size: 3.2rem;
+}
+h3 {
+  font-size: 2.4rem;
 }
