@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Metodologías CSS: BEM, Módulos y Utilidades</title>
+  <style>
+    /* ===== RESET Y BASE ===== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: #f8f9fa;
+    }
+
+    /* ===== METODOLOGÍA BEM ===== */
+    /* 
+    BEM = Block, Element, Modifier
+    Ventajas:
+    - Nomenclatura clara y predecible
+    - Evita conflictos de CSS
+    - Fácil mantenimiento
+    - Componentes reutilizables
+    
+    Desventajas:
+    - Nombres de clases largos
+    - Puede ser verboso
+    - Curva de aprendizaje inicial
+    
+    Cuándo usar:
+    - Proyectos grandes
+    - Equipos de desarrollo
+    - Componentes complejos
+    - Cuando necesitas escalabilidad
+    */
+
+    /* BLOCK: Componente independiente y reutilizable */
+    .producto {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 24px;
+      margin: 20px 0;
+      transition: transform 0.3s ease;
+    }
+
+    /* ELEMENTS: Partes del bloque, no pueden existir sin él */
+    .producto__imagen {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 16px;
+    }
+
+    .producto__titulo {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #2c3e50;
+      margin-bottom: 8px;
+    }
+
+    .producto__descripcion {
+      color: #666;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .producto__precio {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #e74c3c;
+      margin-bottom: 16px;
+    }
+
+    .producto__acciones {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .producto__boton {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      text-align: center;
+    }
+
+    .producto__etiqueta {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    /* MODIFIERS: Variaciones del bloque o elemento */
+    .producto--destacado {
+      border: 3px solid #3498db;
+      transform: scale(1.02);
+      position: relative;
+    }
+
+    .producto--agotado {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+
+    .producto__boton--primario {
+      background: #3498db;
+      color: white;
+    }
+
+    .producto__boton--primario:hover {
+      background: #2980b9;
+    }
+
+    .producto__boton--secundario {
+      background: transparent;
+      color: #3498db;
+      border: 2px solid #3498db;
+    }
+
+    .producto__boton--secundario:hover {
+      background: #3498db;
+      color: white;
+    }
+
+    .producto__boton--pequeno {
+      padding: 8px 16px;
+      font-size: 0.9rem;
+    }
+
+    .producto__boton--grande {
+      padding: 16px 32px;
+      font-size: 1.1rem;
+    }
+
+    .producto__etiqueta--nuevo {
+      background: #2ecc71;
+      color: white;
+    }
+
+    .producto__etiqueta--oferta {
+      background: #e74c3c;
+      color: white;
+    }
+
+    /* ===== METODOLOGÍA DE MÓDULOS ===== */
+    /*
+    Ventajas:
+    - Organización clara por funcionalidad
+    - Fácil localización de estilos
+    - Reutilización eficiente
+    - Mantenimiento simplificado
+    
+    Desventajas:
+    - Puede generar muchos archivos
+    - Requiere estructura de carpetas
+    - Necesita bundler para producción
+    
+    Cuándo usar:
+    - Proyectos medianos a grandes
+    - Cuando trabajas con preprocesadores
+    - Equipos que necesitan organización
+    - Aplicaciones con muchos componentes
+    */
+
+    /* MÓDULO: Navegación */
+    .navbar {
+      background: #2c3e50;
+      padding: 16px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .navbar-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: white;
+      text-decoration: none;
+    }
+
+    .navbar-menu {
+      display: flex;
+      list-style: none;
+      gap: 32px;
+    }
+
+    .navbar-link {
+      color: #bdc3c7;
+      text-decoration: none;
+      transition: color 0.3s ease;
+      font-weight: 500;
+    }
+
+    .navbar-link:hover,
+    .navbar-link--active {
+      color: white;
+    }
+
+    /* MÓDULO: Modal */
+    .modal {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    .modal--visible {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 12px;
+      padding: 32px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      animation: modalSlideIn 0.3s ease;
+    }
+
+    .modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 16px;
+    }
+
+    .modal-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: #666;
+    }
+
+    .modal-body {
+      margin-bottom: 20px;
+    }
+
+    .modal-footer {
+      display: flex;
+      gap: 12px;
+      justify-content: flex-end;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* MÓDULO: Formulario */
+    .formulario {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: 32px auto;
+    }
+
+    .formulario-grupo {
+      margin-bottom: 24px;
+    }
+
+    .formulario-etiqueta {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 500;
+      color: #2c3e50;
+    }
+
+    .formulario-campo {
+      width: 100%;
+      padding: 12px 16px;
+      border: 2px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+    }
+
+    .formulario-campo:focus {
+      outline: none;
+      border-color: #3498db;
+    }
+
+    .formulario-campo--error {
+      border-color: #e74c3c;
+    }
+
+    .formulario-mensaje {
+      margin-top: 4px;
+      font-size: 0.875rem;
+    }
+
+    .formulario-mensaje--error {
+      color: #e74c3c;
+    }
+
+    .formulario-mensaje--exito {
+      color: #2ecc71;
+    }
+
+    /* ===== METODOLOGÍA DE UTILIDADES ===== */
+    /*
+    Ventajas:
+    - Desarrollo rápido
+    - Consistencia visual
+    - Tamaño de CSS predecible
+    - Ideal para prototipado
+    
+    Desventajas:
+    - HTML puede verse desordenado
+    - Muchas clases en elementos
+    - Curva de aprendizaje
+    - Puede ser difícil mantener
+    
+    Cuándo usar:
+    - Prototipado rápido
+    - Proyectos pequeños a medianos
+    - Cuando necesitas velocidad
+    - Equipos que conocen la metodología
+    */
+
+    /* ESPACIADO */
+    .u-m-0 { margin: 0 !important; }
+    .u-m-1 { margin: 8px !important; }
+    .u-m-2 { margin: 16px !important; }
+    .u-m-3 { margin: 24px !important; }
+    .u-m-4 { margin: 32px !important; }
+
+    .u-mt-0 { margin-top: 0 !important; }
+    .u-mt-1 { margin-top: 8px !important; }
+    .u-mt-2 { margin-top: 16px !important; }
+    .u-mt-3 { margin-top: 24px !important; }
+    .u-mt-4 { margin-top: 32px !important; }
+
+    .u-mb-0 { margin-bottom: 0 !important; }
+    .u-mb-1 { margin-bottom: 8px !important; }
+    .u-mb-2 { margin-bottom: 16px !important; }
+    .u-mb-3 { margin-bottom: 24px !important; }
+    .u-mb-4 { margin-bottom: 32px !important; }
+
+    .u-p-0 { padding: 0 !important; }
+    .u-p-1 { padding: 8px !important; }
+    .u-p-2 { padding: 16px !important; }
+    .u-p-3 { padding: 24px !important; }
+    .u-p-4 { padding: 32px !important; }
+
+    /* TEXTO */
+    .u-text-left { text-align: left !important; }
+    .u-text-center { text-align: center !important; }
+    .u-text-right { text-align: right !important; }
+
+    .u-text-sm { font-size: 0.875rem !important; }
+    .u-text-base { font-size: 1rem !important; }
+    .u-text-lg { font-size: 1.125rem !important; }
+    .u-text-xl { font-size: 1.25rem !important; }
+    .u-text-2xl { font-size: 1.5rem !important; }
+
+    .u-font-light { font-weight: 300 !important; }
+    .u-font-normal { font-weight: 400 !important; }
+    .u-font-medium { font-weight: 500 !important; }
+    .u-font-semibold { font-weight: 600 !important; }
+    .u-font-bold { font-weight: 700 !important; }
+
+    /* COLORES */
+    .u-text-primary { color: #3498db !important; }
+    .u-text-success { color: #2ecc71 !important; }
+    .u-text-warning { color: #f39c12 !important; }
+    .u-text-danger { color: #e74c3c !important; }
+    .u-text-muted { color: #666 !important; }
+
+    .u-bg-primary { background-color: #3498db !important; }
+    .u-bg-success { background-color: #2ecc71 !important; }
+    .u-bg-warning { background-color: #f39c12 !important; }
+    .u-bg-danger { background-color: #e74c3c !important; }
+    .u-bg-light { background-color: #f8f9fa !important; }
+
+    /* FLEXBOX */
+    .u-flex { display: flex !important; }
+    .u-flex-col { flex-direction: column !important; }
+    .u-flex-wrap { flex-wrap: wrap !important; }
+    .u-justify-start { justify-content: flex-start !important; }
+    .u-justify-center { justify-content: center !important; }
+    .u-justify-end { justify-content: flex-end !important; }
+    .u-justify-between { justify-content: space-between !important; }
+    .u-items-start { align-items: flex-start !important; }
+    .u-items-center { align-items: center !important; }
+    .u-items-end { align-items: flex-end !important; }
+
+    /* DISPLAY */
+    .u-block { display: block !important; }
+    .u-inline { display: inline !important; }
+    .u-inline-block { display: inline-block !important; }
+    .u-hidden { display: none !important; }
+
+    /* POSICIÓN */
+    .u-relative { position: relative !important; }
+    .u-absolute { position: absolute !important; }
+    .u-fixed { position: fixed !important; }
+
+    /* ANCHO */
+    .u-w-full { width: 100% !important; }
+    .u-w-auto { width: auto !important; }
+    .u-w-1-2 { width: 50% !important; }
+    .u-w-1-3 { width: 33.333333% !important; }
+    .u-w-2-3 { width: 66.666667% !important; }
+
+    /* BORDES */
+    .u-border { border: 1px solid #e0e0e0 !important; }
+    .u-border-0 { border: 0 !important; }
+    .u-rounded { border-radius: 6px !important; }
+    .u-rounded-lg { border-radius: 12px !important; }
+    .u-rounded-full { border-radius: 50% !important; }
+
+    /* SOMBRAS */
+    .u-shadow { box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important; }
+    .u-shadow-lg { box-shadow: 0 4px 12px rgba(0,0,0,0.1) !important; }
+    .u-shadow-none { box-shadow: none !important; }
+
+    /* ===== LAYOUT GENERAL ===== */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .seccion {
+      padding: 64px 0;
+    }
+
+    .titulo-seccion {
+      font-size: 2.5rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 16px;
+      color: #2c3e50;
+    }
+
+    .subtitulo-seccion {
+      font-size: 1.25rem;
+      text-align: center;
+      color: #666;
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .grid {
+      display: grid;
+      gap: 32px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+    .explicacion {
+      background: white;
+      padding: 32px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 32px;
+    }
+
+    .explicacion h3 {
+      color: #2c3e50;
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+
+    .explicacion ul {
+      padding-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    .explicacion li {
+      margin-bottom: 8px;
+    }
+
+    .codigo-ejemplo {
+      background: #f8f9fa;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      padding: 16px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+
+    /* Responsivo */
+    @media (max-width: 768px) {
+      .navbar-menu {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .producto__acciones {
+        flex-direction: column;
+      }
+
+      .titulo-seccion {
+        font-size: 2rem;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navegación usando MÓDULOS -->
+  <nav class="navbar">
+    <div class="navbar-container">
+      <a href="#" class="navbar-logo">CSS Metodologías</a>
+      <ul class="navbar-menu">
+        <li><a href="#bem" class="navbar-link navbar-link--active">BEM</a></li>
+        <li><a href="#modulos" class="navbar-link">Módulos</a></li>
+        <li><a href="#utilidades" class="navbar-link">Utilidades</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container">
+    <!-- Sección BEM -->
+    <section id="bem" class="seccion">
+      <h1 class="titulo-seccion">BEM - Block Element Modifier</h1>
+      <p class="subtitulo-seccion">
+        Metodología que nos ayuda a crear componentes CSS reutilizables y mantenibles 
+        con una nomenclatura clara y predecible.
+      </p>
+
+      <div class="explicacion">
+        <h3>🎯 ¿Qué es BEM?</h3>
+        <p><strong>BEM</strong> es una metodología de nomenclatura que divide los componentes en:</p>
+        <ul>
+          <li><strong>Block (Bloque):</strong> Componente independiente → <code>.producto</code></li>
+          <li><strong>Element (Elemento):</strong> Parte del bloque → <code>.producto__titulo</code></li>
+          <li><strong>Modifier (Modificador):</strong> Variación del bloque/elemento → <code>.producto--destacado</code></li>
+        </ul>
+
+        <div class="codigo-ejemplo">
+          <!-- Bloque -->
+          .producto { }
+
+          <!-- Elementos -->
+          .producto__titulo { }
+          .producto__descripcion { }
+          .producto__boton { }
+
+          <!-- Modificadores -->
+          .producto--destacado { }
+          .producto__boton--primario { }
+        </div>
+
+        <h4>✅ Ventajas:</h4>
+        <ul>
+          <li>Nomenclatura clara y predecible</li>
+          <li>Evita conflictos de especificidad</li>
+          <li>Componentes verdaderamente reutilizables</li>
+          <li>Fácil mantenimiento y debugging</li>
+        </ul>
+
+        <h4>❌ Desventajas:</h4>
+        <ul>
+          <li>Nombres de clases muy largos</li>
+          <li>HTML puede verse verboso</li>
+          <li>Curva de aprendizaje inicial</li>
+        </ul>
+
+        <h4>📋 Cuándo usar BEM:</h4>
+        <ul>
+          <li>Proyectos grandes con múltiples desarrolladores</li>
+          <li>Cuando necesitas componentes reutilizables</li>
+          <li>Aplicaciones que requieren escalabilidad</li>
+          <li>Cuando trabajas con frameworks/librerías</li>
+        </ul>
+      </div>
+
+      <h3 class="u-text-center u-mb-3">Ejemplos Prácticos de BEM</h3>
+      
+      <div class="grid">
+        <!-- Producto normal -->
+        <div class="producto">
+          <img src="https://via.placeholder.com/300x200/3498db/ffffff?text=Producto+Normal" alt="Producto" class="producto__imagen">
+          <h3 class="producto__titulo">Smartphone Galaxy</h3>
+          <p class="producto__descripcion">Un smartphone moderno con excelente cámara y batería de larga duración.</p>
+          <div class="producto__precio">$599.99</div>
+          <div class="producto__acciones">
+            <button class="producto__boton producto__boton--primario">Comprar</button>
+            <button class="producto__boton producto__boton--secundario">Ver detalles</button>
+          </div>
+        </div>
+
+        <!-- Producto destacado -->
+        <div class="producto producto--destacado">
+          <div class="producto__etiqueta producto__etiqueta--nuevo">Nuevo</div>
+          <img src="https://via.placeholder.com/300x200/e74c3c/ffffff?text=Producto+Destacado" alt="Producto destacado" class="producto__imagen">
+          <h3 class="producto__titulo">iPhone Pro Max</h3>
+          <p class="producto__descripcion">El último iPhone con tecnología de punta y diseño premium.</p>
+          <div class="producto__precio">$1,199.99</div>
+          <div class="producto__acciones">
+            <button class="producto__boton producto__boton--primario producto__boton--grande">Comprar ahora</button>
+            <button class="producto__boton producto__boton--secundario producto__boton--pequeno">Favoritos</button>
+          </div>
+        </div>
+
+        <!-- Producto agotado -->
+        <div class="producto producto--agotado">
+          <div class="producto__etiqueta producto__etiqueta--oferta">Agotado</div>
+          <img src="https://via.placeholder.com/300x200/95a5a6/ffffff?text=Producto+Agotado" alt="Producto agotado" class="producto__imagen">
+          <h3 class="producto__titulo">Tablet Surface</h3>
+          <p class="producto__descripcion">Tablet profesional perfecta para trabajo y entretenimiento.</p>
+          <div class="producto__precio">$799.99</div>
+          <div class="producto__acciones">
+            <button class="producto__boton producto__boton--secundario">Notificar disponibilidad</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Módulos -->
+    <section id="modulos" class="seccion u-bg-light">
+      <h2 class="titulo-seccion">Metodología de Módulos</h2>
+      <p class="subtitulo-seccion">
+        Organización del CSS en módulos independientes y reutilizables, 
+        cada uno con su propia responsabilidad y función específica.
+      </p>
+
+      <div class="explicacion">
+        <h3>🧩 ¿Qué son los Módulos CSS?</h3>
+        <p>Los módulos son <strong>componentes CSS independientes</strong> que encapsulan estilos específicos para una funcionalidad concreta.</p>
+
+        <div class="codigo-ejemplo">
+          /* MÓDULO: Navegación */
+          .navbar { }
+          .navbar-container { }
+          .navbar-logo { }
+          .navbar-menu { }
+          .navbar-link { }
+
+          /* MÓDULO: Modal */
+          .modal { }
+          .modal-content { }
+          .modal-header { }
+          .modal-body { }
+          .modal-footer { }
+        </div>
+
+        <h4>✅ Ventajas:</h4>
+        <ul>
+          <li>Organización clara por funcionalidad</li>
+          <li>Fácil localización y mantenimiento</li>
+          <li>Reutilización eficiente de código</li>
+          <li>Desarrollo en equipo más organizado</li>
+          <li>Testing más sencillo por módulo</li>
+        </ul>
+
+        <h4>❌ Desventajas:</h4>
+        <ul>
+          <li>Puede generar muchos archivos CSS</li>
+          <li>Requiere estructura de carpetas organizada</li>
+          <li>Necesita bundler para optimizar en producción</li>
+          <li>Curva de aprendizaje para organización</li>
+        </ul>
+
+        <h4>📋 Cuándo usar Módulos:</h4>
+        <ul>
+          <li>Proyectos medianos a grandes</li>
+          <li>Cuando trabajas con preprocesadores (Sass, Less)</li>
+          <li>Equipos que necesitan organización clara</li>
+          <li>Aplicaciones con muchos componentes</li>
+          <li>Cuando quieres reutilizar componentes</li>
+        </ul>
+      </div>
+
+      <h3 class="u-text-center u-mb-3">Ejemplos de Módulos en Acción</h3>
+
+      <!-- Ejemplo de formulario como módulo -->
+      <div class="formulario">
+        <h3 class="u-mb-3">Módulo: Formulario de Contacto</h3>
+        <form>
+          <div class="formulario-grupo">
+            <label class="formulario-etiqueta" for="nombre">Nombre completo</label>
+            <input type="text" id="nombre" class="formulario-campo" placeholder="Tu nombre">
+            <div class="formulario-mensaje formulario-mensaje--exito">Campo válido ✓</div>
+          </div>
+
+          <div class="formulario-grupo">
+            <label class="formulario-etiqueta" for="email">Correo electrónico</label>
+            <input type="email" id="email" class="formulario-campo formulario-campo--error" placeholder="tu@email.com">
+            <div class="formulario-mensaje formulario-mensaje--error">Ingresa un email válido</div>
+          </div>
+
+          <div class="formulario-grupo">
+            <label class="formulario-etiqueta" for="mensaje">Mensaje</label>
+            <textarea id="mensaje" class="formulario-campo" rows="4" placeholder="Tu mensaje aquí..."></textarea>
+          </div>
+
+          <div class="formulario-grupo">
+            <button type="submit" class="producto__boton producto__boton--primario producto__boton--grande">Enviar mensaje</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Botón para mostrar modal -->
+      <div class="u-text-center u-mt-4">
+        <button id="abrirModal" class="producto__boton producto__boton--secundario producto__boton--grande">
+          Ver Módulo: Modal
+        </button>
+      </div>
+
+      <!-- Modal como módulo -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h3 class="modal-title">Módulo: Modal de Ejemplo</h3>
+            <button class="modal-close">&times;</button>
+          </div>
+          <div class="modal-body">
+            <p>Este modal es un <strong>módulo independiente</strong> que puede reutilizarse en cualquier parte de la aplicación.</p>
+            <p>Incluye todos sus estilos encapsulados y lógica de funcionamiento.</p>
+            <ul>
+              <li>Header con título y botón de cierre</li>
+              <li>Body con contenido flexible</li>
+              <li>Footer con acciones</li>
+              <li>Animaciones incluidas</li>
+            </ul>
+          </div>
+          <div class="modal-footer">
+            <button class="producto__boton producto__boton--secundario modal-close">Cancelar</button>
+            <button class="producto__boton producto__boton--primario">Aceptar</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección Utilidades -->
+    <section id="utilidades" class="seccion">
+      <h2 class="titulo-seccion">Metodología de Utilidades</h2>
+      <p class="subtitulo-seccion">
+        Clases pequeñas y específicas que aplican un único estilo, 
+        permitiendo construir interfaces combinando múltiples utilidades.
+      </p>
+
+      <div class="explicacion">
+        <h3>⚡ ¿Qué son las Utilidades CSS?</h3>
+        <p>Las utilidades son <strong>clases de propósito único</strong> que aplican un estilo específico y se combinan para crear diseños complejos.</p>
+
+        <div class="codigo-ejemplo">
+          /* Ejemplos de utilidades */
+          .u-text-center { text-align: center !important; }
+          .u-mb-3 { margin-bottom: 24px !important; }
+          .u-flex { display: flex !important; }
+          .u-justify-between { justify-content: space-between !important; }
+          .u-bg-primary { background-color: #3498db !important; }
+          .u-text-white { color: white !important; }
+        </div>
+
+        <h4>✅ Ventajas:</h4>
+        <ul>
+          <li>Desarrollo extremadamente rápido</li>
+          <li>Consistencia visual automática</li>
+          <li>Tamaño de CSS predecible</li>
+          <li>Ideal para prototipado</li>
+          <li>No necesitas inventar nombres de clase</li>
+        </ul>
+
+        <h4>❌ Desventajas:</h4>
+        <ul>
+          <li>HTML puede verse desordenado</li>
+          <li>Muchas clases por elemento</li>
+          <li>Curva de aprendizaje para memorizar clases</li>
+          <li>Puede ser difícil mantener en proyectos grandes</li>
+        </ul>
+
+        <h4>📋 Cuándo usar Utilidades:</h4>
+        <ul>
+          <li>Prototipado rápido de interfaces</li>
+          <li>Proyectos pequeños a medianos</li>
+          <li>Cuando necesitas velocidad de desarrollo</li>
+          <li>Equipos que conocen bien la metodología</li>
+          <li>Para ajustes rápidos y específicos</li>
+        </ul>
+      </div>
+
+      <h3 class="u-text-center u-mb-3">Ejemplos Prácticos con Utilidades</h3>
+
+      <!-- Tarjetas creadas solo con utilidades -->
+      <div class="u-flex u-flex-wrap u-justify-between">
+        <!-- Tarjeta 1 -->
+        <div class="u-bg-primary u-text-white u-p-4 u-rounded-lg u-shadow-lg u-mb-3 u-w-1-3" style="min-width: 280px;">
+          <div class="u-flex u-items-center u-mb-2">
+            <div class="u-w-12 u-h-12 u-bg-white u-text-primary u-rounded-full u-flex u-items-center u-justify-center u-font-bold u-text-xl u-mr-3" style="width: 48px; height: 48px;">📊</div>
+            <h3 class="u-text-xl u-font-semibold u-m-0">Analíticas</h3>
+          </div>
+          <p class="u-mb-3 u-text-sm">Visualiza datos en tiempo real con gráficos interactivos y métricas clave.</p>
+          <button class="u-bg-white u-text-primary u-px-4 u-py-2 u-rounded u-font-medium u-border-0">Ver detalles</button>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="u-bg-success u-text-white u-p-4 u-rounded-lg u-shadow-lg u-mb-3 u-w-1-3" style="min-width: 280px;">
+          <div class="u-flex u-items-center u-mb-2">
+            <div class="u-w-12 u-h-12 u-bg-white u-text-success u-rounded-full u-flex u-items-center u-justify-center u-font-bold u-text-xl u-mr-3" style="width: 48px; height: 48px;">🚀</div>
+            <h3 class="u-text-xl u-font-semibold u-m-0">Productividad</h3>
+          </div>
+          <p class="u-mb-3 u-text-sm">Herramientas avanzadas para optimizar tu flujo de trabajo diario.</p>
+          <button class="u-bg-white u-text-success u-px-4 u-py-2 u-rounded u-font-medium u-border-0">Comenzar</button>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="u-bg-warning u-text-white u-p-4 u-rounded-lg u-shadow-lg u-mb-3 u-w-1-3" style="min-width: 280px;">
+          <div class="u-flex u-items-center u-mb-2">
+            <div class="u-w-12 u-h-12 u-bg-white u-text-warning u-rounded-full u-flex u-items-center u-justify-center u-font-bold u-text-xl u-mr-3" style="width: 48px; height: 48px;">🔒</div>
+            <h3 class="u-text-xl u-font-semibold u-m-0">Seguridad</h3>
+          </div>
+          <p class="u-mb-3 u-text-sm">Protege tu información con encriptación de nivel empresarial.</p>
+          <button class="u-bg-white u-text-warning u-px-4 u-py-2 u-rounded u-font-medium u-border-0">Configurar</button>
+        </div>
+      </div>
+
+      <!-- Panel de estadísticas con utilidades -->
+      <div class="u-bg-white u-rounded-lg u-shadow-lg u-p-4 u-mt-4">
+        <h3 class="u-text-2xl u-font-bold u-text-center u-mb-4 u-text-primary">Panel construido con Utilidades</h3>
+        
+        <div class="u-flex u-justify-between u-items-center u-mb-4 u-p-3 u-bg-light u-rounded">
+          <div class="u-text-center">
+            <div class="u-text-3xl u-font-bold u-text-success">2,547</div>
+            <div class="u-text-sm u-text-muted">Usuarios activos</div>
+          </div>
+          <div class="u-text-center">
+            <div class="u-text-3xl u-font-bold u-text-primary">89.2%</div>
+            <div class="u-text-sm u-text-muted">Satisfacción</div>
+          </div>
+          <div class="u-text-center">
+            <div class="u-text-3xl u-font-bold u-text-warning">1,247</div>
+            <div class="u-text-sm u-text-muted">Ventas del mes</div>
+          </div>
+          <div class="u-text-center">
+            <div class="u-text-3xl u-font-bold u-text-danger">0.8%</div>
+            <div class="u-text-sm u-text-muted">Tasa de error</div>
+          </div>
+        </div>
+
+        <div class="u-flex u-justify-center u-mt-4">
+          <div class="u-bg-primary u-text-white u-px-6 u-py-3 u-rounded-lg u-mr-3 u-font-medium u-inline-block">Generar reporte</div>
+          <div class="u-border u-text-primary u-px-6 u-py-3 u-rounded-lg u-font-medium u-inline-block" style="border-color: #3498db;">Exportar datos</div>
+        </div>
+      </div>
+
+      <!-- Comparación de metodologías -->
+      <div class="u-mt-4 u-bg-white u-rounded-lg u-shadow-lg u-p-4">
+        <h3 class="u-text-2xl u-font-bold u-text-center u-mb-4">🔍 Comparación de Metodologías</h3>
+        
+        <div class="u-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+          <!-- BEM -->
+          <div class="u-border u-rounded-lg u-p-4">
+            <h4 class="u-text-xl u-font-semibold u-text-primary u-mb-3">BEM</h4>
+            <div class="u-mb-2"><strong>Mejor para:</strong> Proyectos grandes, equipos</div>
+            <div class="u-mb-2"><strong>Velocidad:</strong> ⭐⭐⭐</div>
+            <div class="u-mb-2"><strong>Mantenimiento:</strong> ⭐⭐⭐⭐⭐</div>
+            <div class="u-mb-2"><strong>Curva de aprendizaje:</strong> ⭐⭐⭐</div>
+            <div class="u-text-sm u-text-muted">Ideal cuando necesitas componentes escalables y reutilizables</div>
+          </div>
+
+          <!-- Módulos -->
+          <div class="u-border u-rounded-lg u-p-4">
+            <h4 class="u-text-xl u-font-semibold u-text-success u-mb-3">Módulos</h4>
+            <div class="u-mb-2"><strong>Mejor para:</strong> Organización, reutilización</div>
+            <div class="u-mb-2"><strong>Velocidad:</strong> ⭐⭐⭐⭐</div>
+            <div class="u-mb-2"><strong>Mantenimiento:</strong> ⭐⭐⭐⭐</div>
+            <div class="u-mb-2"><strong>Curva de aprendizaje:</strong> ⭐⭐⭐⭐</div>
+            <div class="u-text-sm u-text-muted">Perfecto para proyectos con múltiples componentes</div>
+          </div>
+
+          <!-- Utilidades -->
+          <div class="u-border u-rounded-lg u-p-4">
+            <h4 class="u-text-xl u-font-semibold u-text-warning u-mb-3">Utilidades</h4>
+            <div class="u-mb-2"><strong>Mejor para:</strong> Desarrollo rápido, prototipos</div>
+            <div class="u-mb-2"><strong>Velocidad:</strong> ⭐⭐⭐⭐⭐</div>
+            <div class="u-mb-2"><strong>Mantenimiento:</strong> ⭐⭐⭐</div>
+            <div class="u-mb-2"><strong>Curva de aprendizaje:</strong> ⭐⭐</div>
+            <div class="u-text-sm u-text-muted">Excelente para builds rápidos y consistencia visual</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusión -->
+    <section class="seccion u-bg-primary u-text-white">
+      <div class="u-text-center">
+        <h2 class="u-text-3xl u-font-bold u-mb-4">🎯 Conclusión</h2>
+        <div class="u-max-w-4xl u-mx-auto">
+          <p class="u-text-lg u-mb-4">
+            Cada metodología tiene su lugar en el desarrollo web moderno. 
+            La clave está en <strong>elegir la metodología correcta</strong> según el contexto del proyecto.
+          </p>
+          
+          <div class="u-grid u-mt-4" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+            <div class="u-bg-white u-text-primary u-p-4 u-rounded-lg">
+              <h4 class="u-font-bold u-mb-2">💡 Proyecto Personal</h4>
+              <p class="u-text-sm">Utilidades para velocidad</p>
+            </div>
+            <div class="u-bg-white u-text-primary u-p-4 u-rounded-lg">
+              <h4 class="u-font-bold u-mb-2">👥 Equipo Pequeño</h4>
+              <p class="u-text-sm">Módulos para organización</p>
+            </div>
+            <div class="u-bg-white u-text-primary u-p-4 u-rounded-lg">
+              <h4 class="u-font-bold u-mb-2">🏢 Empresa Grande</h4>
+              <p class="u-text-sm">BEM para escalabilidad</p>
+            </div>
+            <div class="u-bg-white u-text-primary u-p-4 u-rounded-lg">
+              <h4 class="u-font-bold u-mb-2">🚀 Prototipo Rápido</h4>
+              <p class="u-text-sm">Utilidades para velocidad</p>
+            </div>
+          </div>
+          
+          <p class="u-text-lg u-mt-4">
+            <strong>Recuerda:</strong> Puedes combinar metodologías según las necesidades de cada parte de tu proyecto.
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    // Funcionalidad del modal (ejemplo de módulo JS)
+    const modal = document.getElementById('modal');
+    const abrirModal = document.getElementById('abrirModal');
+    const cerrarModal = document.querySelectorAll('.modal-close');
+
+    abrirModal.addEventListener('click', () => {
+      modal.classList.add('modal--visible');
+    });
+
+    cerrarModal.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal.classList.remove('modal--visible');
+      });
+    });
+
+    // Cerrar modal al hacer clic fuera
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.classList.remove('modal--visible');
+      }
+    });
+
+    // Navegación suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+
+    // Actualizar navegación activa
+    const navLinks = document.querySelectorAll('.navbar-link');
+    const sections = document.querySelectorAll('section[id]');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        if (scrollY >= (sectionTop - 200)) {
+          current = section.getAttribute('id');
+        }
+      });
+
+      navLinks.forEach(link => {
+        link.classList.remove('navbar-link--active');
+        if (link.getAttribute('href') === `#${current}`) {
+          link.classList.add('navbar-link--active');
+        }
+      });
+    });
+
+    // Ejemplo de interactividad en productos BEM
+    document.querySelectorAll('.producto__boton').forEach(button => {
+      button.addEventListener('click', function() {
+        const originalText = this.textContent;
+        this.textContent = '¡Acción realizada!';
+        this.style.transform = 'scale(0.95)';
+        
+        setTimeout(() => {
+          this.textContent = originalText;
+          this.style.transform = 'scale(1)';
+        }, 1000);
+      });
+    });
+
+    // Validación básica del formulario (ejemplo de módulo)
+    const formulario = document.querySelector('.formulario form');
+    const campos = formulario.querySelectorAll('.formulario-campo');
+
+    campos.forEach(campo => {
+      campo.addEventListener('blur', function() {
+        const mensaje = this.parentNode.querySelector('.formulario-mensaje');
+        
+        if (this.value.trim() === '') {
+          this.classList.add('formulario-campo--error');
+          mensaje.className = 'formulario-mensaje formulario-mensaje--error';
+          mensaje.textContent = 'Este campo es requerido';
+        } else {
+          this.classList.remove('formulario-campo--error');
+          mensaje.className = 'formulario-mensaje formulario-mensaje--exito';
+          mensaje.textContent = 'Campo válido ✓';
+        }
+      });
+    });
+
+    // Mostrar código fuente al hacer clic en elementos
+    document.addEventListener('click', function(e) {
+      if (e.ctrlKey && e.target.classList.length > 0) {
+        e.preventDefault();
+        const clases = Array.from(e.target.classList).join(' ');
+        alert(`Clases aplicadas:\n.${clases.replace(/ /g, '\n.')}`);
+      }
+    });
+
+    console.log('💡 Tip: Mantén presionado Ctrl y haz clic en cualquier elemento para ver sus clases CSS');
+  </script>
+</body>
+</html></p></div></p></div></p></div></p></section></div>
