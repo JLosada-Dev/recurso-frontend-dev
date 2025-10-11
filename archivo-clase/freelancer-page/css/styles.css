@@ -269,3 +269,15 @@ h3 {
   border: none;
   border-radius: 0.5rem;
 }
+
+/* footer */
+.footer {
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--negro);
+  color: var(--blanco);
+  padding: 3rem 0;
+  margin-top: 4rem;
+  font-size: 1.4rem;
+  border-top: 0.3rem solid var(--primario);
+}
