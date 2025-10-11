@@ -190,37 +190,57 @@
 
       <section>
         <h2>Contacto</h2>
-        <form action="">
+        <form class="formulario">
           <fieldset>
             <legend>Contactános llenando todos los campos</legend>
 
-            <div>
-              <label for="nombre">Nombre</label>
-              <input type="text" id="nombre" placeholder="Juan" />
-            </div>
+            <div class="contenedor-campos">
+              <div class="campo">
+                <label for="nombre">Nombre</label>
+                <input
+                  class="input-text"
+                  type="text"
+                  id="nombre"
+                  placeholder="Juan"
+                />
+              </div>
 
-            <div>
-              <label for="telefono">Teléfono</label>
-              <input type="tel" id="telefono" placeholder="3142345" />
-            </div>
+              <div class="campo">
+                <label for="telefono">Teléfono</label>
+                <input
+                  class="input-text"
+                  type="tel"
+                  id="telefono"
+                  placeholder="3142345"
+                />
+              </div>
 
-            <div>
-              <label for="correo">Correo</label>
-              <input type="email" id="correo" placeholder="pedro@correo.com" />
-            </div>
+              <div class="campo">
+                <label for="correo">Correo</label>
+                <input
+                  class="input-text"
+                  type="email"
+                  id="correo"
+                  placeholder="pedro@correo.com"
+                />
+              </div>
 
-            <div>
-              <label for="mensaje">Mensaje</label>
-              <textarea
-                name=""
-                id="mensaje"
-                placeholder="Deja tu mensaje"
-              ></textarea>
+              <div class="campo">
+                <label for="mensaje">Mensaje</label>
+                <textarea
+                  class="input-text"
+                  name=""
+                  id="mensaje"
+                  placeholder="Deja tu mensaje"
+                ></textarea>
+              </div>
             </div>
-            <div>
-              <input type="submit" value="Enviar" />
-              <!-- <button type="submit">Enviar</button> -->
+            <!-- .contenedor-campos -->
+
+            <div class="alinear-derecha flex">
+              <input class="boton w-sm-100" type="submit" value="Enviar" />
             </div>
+            
           </fieldset>
         </form>
       </section>
