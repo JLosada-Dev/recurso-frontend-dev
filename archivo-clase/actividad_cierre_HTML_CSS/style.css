@@ -206,45 +206,7 @@ body {
 }
 
 /* ============================================
-   PUZZLE 3: BOX MODEL MYSTERY
-   ============================================ */
-
-.box-container {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.box-item {
-  /* MODIFICA ESTA PROPIEDAD: */
-  /* box-sizing: ??; */
-  width: 200px;
-  padding: 20px;
-  border: 5px solid;
-  border-radius: 8px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.box1 {
-  background: #ffadad;
-  border-color: #ff6b6b;
-}
-
-.box2 {
-  background: #ffd6a5;
-  border-color: #ffa94d;
-}
-
-.box3 {
-  background: #caffbf;
-  border-color: #5dd39e;
-}
-
-/* ============================================
-   PUZZLE 4: POSITION MASTER
+   PUZZLE 3: POSITION MASTER
    ============================================ */
 
 .position-container {
@@ -296,7 +258,7 @@ body {
 }
 
 /* ============================================
-   PUZZLE 5: RESPONSIVE CARDS
+   PUZZLE 4: RESPONSIVE CARDS
    ============================================ */
 
 .responsive-grid {
@@ -339,55 +301,7 @@ body {
 }
 
 /* ============================================
-   PUZZLE 6: Z-INDEX LAYERS
-   ============================================ */
-
-.zindex-container {
-  position: relative;
-  height: 300px;
-  background: #f8f9fa;
-  border-radius: 10px;
-}
-
-.layer {
-  position: absolute;
-  width: 200px;
-  height: 150px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-/* MODIFICA LOS Z-INDEX DE ESTAS CLASES: */
-.layer-back {
-  background: #4facfe;
-  top: 50px;
-  left: 50px;
-  z-index: 1; /* Modificar */
-}
-
-.layer-middle {
-  background: #43e97b;
-  top: 80px;
-  left: 120px;
-  z-index: 1; /* Modificar */
-}
-
-.layer-front {
-  background: #fa709a;
-  top: 110px;
-  left: 190px;
-  z-index: 1; /* Modificar */
-}
-
-/* ============================================
-   PUZZLE 7: CSS ANIMATION
+   PUZZLE 5: CSS ANIMATION
    ============================================ */
 
 .animation-demo {
