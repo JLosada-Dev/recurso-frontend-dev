@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guía Completa CSS Flexbox y Grid</title>
+
+  <!-- Fuente Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Krub:wght@400;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --blanco: #ffffff;
+      --oscuro: #212121;
+      --primario: #ffc107;
+      --secundario: #0097a7;
+      --gris: #757575;
+      --grisClaro: #dfe9f3;
+      --rojo: #e53e3e;
+      --verde: #38a169;
+      --azul: #3182ce;
+    }
+    
+    html {
+      font-size: 62.5%;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+    
+    *, *:before, *:after {
+      box-sizing: inherit;
+    }
+    
+    body {
+      font-size: 16px;
+      font-family: 'Krub', sans-serif;
+      background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    .contenedor {
+      max-width: 120rem;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    .seccion {
+      margin-bottom: 5rem;
+      padding: 3rem 0;
+    }
+
+    .titulo-seccion {
+      text-align: center;
+      font-size: 3rem;
+      color: var(--oscuro);
+      margin-bottom: 3rem;
+      border-bottom: 3px solid var(--primario);
+      padding-bottom: 1rem;
+    }
+
+    .codigo-ejemplo {
+      background: var(--oscuro);
+      color: var(--blanco);
+      padding: 1.5rem;
+      border-radius: 0.5rem;
+      font-family: 'Courier New', monospace;
+      font-size: 1.4rem;
+      margin: 1rem 0;
+      overflow-x: auto;
+    }
+
+    header {
+      background: var(--oscuro);
+      color: var(--blanco);
+      padding: 2rem 0;
+      text-align: center;
+    }
+
+    .nav-bg {
+      background-color: var(--secundario);
+      margin-bottom: 2rem;
+    }
+    
+    .navegacion-principal {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+    
+    .navegacion-principal a {
+      color: var(--blanco);
+      text-decoration: none;
+      font-size: 2rem;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+    }
+    
+    .navegacion-principal a:hover {
+      background-color: var(--primario);
+      color: var(--oscuro);
+      transition: all 0.3s;
+    }
+    
+    @media (min-width: 768px) {
+      .navegacion-principal {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+    }
+
+    /* FLEXBOX EJEMPLOS */
+    .flex-container-basico {
+      display: flex;
+      background: var(--grisClaro);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      margin: 2rem 0;
+      gap: 1rem;
+    }
+
+    .flex-item {
+      background: var(--primario);
+      color: var(--oscuro);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .flex-direction-row { flex-direction: row; }
+    .flex-direction-column { flex-direction: column; }
+    .flex-direction-row-reverse { flex-direction: row-reverse; }
+
+    .justify-start { justify-content: flex-start; }
+    .justify-center { justify-content: center; }
+    .justify-end { justify-content: flex-end; }
+    .justify-between { justify-content: space-between; }
+    .justify-around { justify-content: space-around; }
+    .justify-evenly { justify-content: space-evenly; }
+
+    .align-start { align-items: flex-start; }
+    .align-center { align-items: center; }
+    .align-end { align-items: flex-end; }
+    .align-stretch { align-items: stretch; }
+
+    .flex-wrap { flex-wrap: wrap; }
+    .flex-nowrap { flex-wrap: nowrap; }
+
+    /* GRID EJEMPLOS */
+    .grid-container-basico {
+      display: grid;
+      background: var(--grisClaro);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      margin: 2rem 0;
+      gap: 1rem;
+    }
+
+    .grid-item {
+      background: var(--secundario);
+      color: var(--blanco);
+      padding: 2rem;
+      border-radius: 0.5rem;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .grid-2-columnas { grid-template-columns: 1fr 1fr; }
+    .grid-3-columnas { grid-template-columns: repeat(3, 1fr); }
+    .grid-auto-fit { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+    .grid-areas {
+      grid-template-areas: 
+        "header header header"
+        "sidebar main main"
+        "footer footer footer";
+      grid-template-columns: 200px 1fr 1fr;
+      grid-template-rows: auto 1fr auto;
+    }
+
+    .grid-header { grid-area: header; background: var(--rojo); }
+    .grid-sidebar { grid-area: sidebar; background: var(--verde); }
+    .grid-main { grid-area: main; background: var(--azul); }
+    .grid-footer { grid-area: footer; background: var(--oscuro); }
+
+    /* EJEMPLOS PRÁCTICOS */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .card {
+      background: var(--blanco);
+      border-radius: 1rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-header {
+      background: var(--primario);
+      color: var(--oscuro);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .card-content {
+      padding: 2rem;
+    }
+
+    .navbar-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--blanco);
+      padding: 1rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 2rem 0;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--oscuro);
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar-links a {
+      color: var(--gris);
+      text-decoration: none;
+      font-size: 1.6rem;
+    }
+
+    .control-panel {
+      background: var(--grisClaro);
+      padding: 2rem;
+      border-radius: 1rem;
+      margin: 2rem 0;
+    }
+
+    .control-group {
+      margin-bottom: 2rem;
+    }
+
+    .control-group label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      color: var(--oscuro);
+    }
+
+    .control-buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-control {
+      background: var(--primario);
+      color: var(--oscuro);
+      border: none;
+      padding: 1rem 2rem;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      font-size: 1.4rem;
+      transition: all 0.3s;
+    }
+
+    .btn-control:hover {
+      background: var(--secundario);
+      color: var(--blanco);
+    }
+
+    .btn-control.active {
+      background: var(--verde);
+      color: var(--blanco);
+    }
+
+    .demo-area {
+      min-height: 200px;
+      background: var(--blanco);
+      border: 2px dashed var(--gris);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin: 2rem 0;
+    }
+
+    footer {
+      background: var(--oscuro);
+      color: var(--blanco);
+      padding: 3rem 2rem;
+      text-align: center;
+      margin-top: 5rem;
+      border-top: 3px solid var(--primario);
+    }
+
+    @media (max-width: 768px) {
+      .navbar-flex {
+        flex-direction: column;
+        gap: 2rem;
+      }
+      
+      .control-buttons {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Guía Completa de Flexbox y Grid CSS</h1>
+    <p>Tutorial interactivo para dominar los layouts modernos de CSS</p>
+  </header>
+
+  <div class="nav-bg">
+    <nav class="navegacion-principal contenedor">
+      <a href="#flexbox">Flexbox</a>
+      <a href="#grid">Grid</a>
+      <a href="#ejemplos">Ejemplos</a>
+      <a href="#practicos">Casos Prácticos</a>
+      <a href="#interactivo">Interactivo</a>
+    </nav>
+  </div>
+
+  <main class="contenedor">
+    
+    <!-- SECCIÓN FLEXBOX -->
+    <section id="flexbox" class="seccion">
+      <h2 class="titulo-seccion">CSS Flexbox</h2>
+      
+      <h3>1. Flex Direction</h3>
+      <p>Controla la dirección principal del contenedor flex:</p>
+      <div class="codigo-ejemplo">
+        flex-direction: row | column | row-reverse | column-reverse;
+      </div>
+      
+      <div class="flex-container-basico flex-direction-row">
+        <div class="flex-item">Item 1</div>
+        <div class="flex-item">Item 2</div>
+        <div class="flex-item">Item 3</div>
+      </div>
+      
+      <h3>2. Justify Content</h3>
+      <p>Alineación en el eje principal:</p>
+      <div class="codigo-ejemplo">
+        justify-content: flex-start | center | flex-end | space-between | space-around | space-evenly;
+      </div>
+      
+      <div class="flex-container-basico justify-center">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+      </div>
+      
+      <div class="flex-container-basico justify-between">
+        <div class="flex-item">A</div>
+        <div class="flex-item">B</div>
+        <div class="flex-item">C</div>
+      </div>
+      
+      <h3>3. Align Items</h3>
+      <p>Alineación en el eje transversal:</p>
+      <div class="codigo-ejemplo">
+        align-items: flex-start | center | flex-end | stretch | baseline;
+      </div>
+      
+      <div class="flex-container-basico align-center" style="height: 150px;">
+        <div class="flex-item">Centrado</div>
+        <div class="flex-item">Verticalmente</div>
+      </div>
+      
+      <h3>4. Flex Wrap</h3>
+      <div class="flex-container-basico flex-wrap">
+        <div class="flex-item" style="min-width: 200px;">Item 1</div>
+        <div class="flex-item" style="min-width: 200px;">Item 2</div>
+        <div class="flex-item" style="min-width: 200px;">Item 3</div>
+        <div class="flex-item" style="min-width: 200px;">Item 4</div>
+        <div class="flex-item" style="min-width: 200px;">Item 5</div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN GRID -->
+    <section id="grid" class="seccion">
+      <h2 class="titulo-seccion">CSS Grid</h2>
+      
+      <h3>1. Grid Template Columns</h3>
+      <div class="codigo-ejemplo">
+        grid-template-columns: 1fr 1fr 1fr;
+        /* o */
+        grid-template-columns: repeat(3, 1fr);
+      </div>
+      
+      <div class="grid-container-basico grid-3-columnas">
+        <div class="grid-item">1</div>
+        <div class="grid-item">2</div>
+        <div class="grid-item">3</div>
+        <div class="grid-item">4</div>
+        <div class="grid-item">5</div>
+        <div class="grid-item">6</div>
+      </div>
+      
+      <h3>2. Grid Auto-fit</h3>
+      <div class="codigo-ejemplo">
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      </div>
+      
+      <div class="grid-container-basico grid-auto-fit">
+        <div class="grid-item">Auto 1</div>
+        <div class="grid-item">Auto 2</div>
+        <div class="grid-item">Auto 3</div>
+        <div class="grid-item">Auto 4</div>
+      </div>
+      
+      <h3>3. Grid Areas</h3>
+      <div class="codigo-ejemplo">
+        grid-template-areas: 
+          "header header header"
+          "sidebar main main"
+          "footer footer footer";
+      </div>
+      
+      <div class="grid-container-basico grid-areas" style="height: 300px;">
+        <div class="grid-item grid-header">Header</div>
+        <div class="grid-item grid-sidebar">Sidebar</div>
+        <div class="grid-item grid-main">Main Content</div>
+        <div class="grid-item grid-footer">Footer</div>
+      </div>
+    </section>
+
+    <!-- EJEMPLOS PRÁCTICOS -->
+    <section id="practicos" class="seccion">
+      <h2 class="titulo-seccion">Casos Prácticos</h2>
+      
+      <h3>Navbar con Flexbox</h3>
+      <div class="navbar-flex">
+        <div class="navbar-brand">MiSitio</div>
+        <ul class="navbar-links">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="#">Servicios</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+      
+      <h3>Card Layout con Grid</h3>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-header">
+            <h4>Flexbox</h4>
+          </div>
+          <div class="card-content">
+            <p>Ideal para componentes unidimensionales como barras de navegación y botones.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Grid</h4>
+          </div>
+          <div class="card-content">
+            <p>Perfecto para layouts bidimensionales complejos como páginas completas.</p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-header">
+            <h4>Combinados</h4>
+          </div>
+          <div class="card-content">
+            <p>Usar Grid para el layout general y Flexbox para componentes internos.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN INTERACTIVA -->
+    <section id="interactivo" class="seccion">
+      <h2 class="titulo-seccion">Panel Interactivo</h2>
+      
+      <div class="control-panel">
+        <div class="control-group">
+          <label>Flexbox - Justify Content:</label>
+          <div class="control-buttons">
+            <button class="btn-control" onclick="cambiarJustify('flex-start')">flex-start</button>
+            <button class="btn-control" onclick="cambiarJustify('center')">center</button>
+            <button class="btn-control" onclick="cambiarJustify('flex-end')">flex-end</button>
+            <button class="btn-control" onclick="cambiarJustify('space-between')">space-between</button>
+            <button class="btn-control" onclick="cambiarJustify('space-around')">space-around</button>
+          </div>
+        </div>
+        
+        <div class="control-group">
+          <label>Grid - Template Columns:</label>
+          <div class="control-buttons">
+            <button class="btn-control" onclick="cambiarGrid('1fr')">1 columna</button>
+            <button class="btn-control" onclick="cambiarGrid('1fr 1fr')">2 columnas</button>
+            <button class="btn-control" onclick="cambiarGrid('repeat(3, 1fr)')">3 columnas</button>
+            <button class="btn-control" onclick="cambiarGrid('repeat(auto-fit, minmax(150px, 1fr))')">auto-fit</button>
+          </div>
+        </div>
+      </div>
+      
+      <div id="demoFlex" class="demo-area" style="display: flex; gap: 1rem;">
+        <div class="flex-item">Flex A</div>
+        <div class="flex-item">Flex B</div>
+        <div class="flex-item">Flex C</div>
+      </div>
+      
+      <div id="demoGrid" class="demo-area" style="display: grid; gap: 1rem; grid-template-columns: repeat(3, 1fr);">
+        <div class="grid-item">Grid 1</div>
+        <div class="grid-item">Grid 2</div>
+        <div class="grid-item">Grid 3</div>
+        <div class="grid-item">Grid 4</div>
+      </div>
+    </section>
+
+    <!-- CHEAT SHEET -->
+    <section class="seccion">
+      <h2 class="titulo-seccion">Cheat Sheet</h2>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem;">
+        <div>
+          <h3>Flexbox Properties</h3>
+          <div class="codigo-ejemplo">
+/* Container */
+display: flex;
+flex-direction: row | column;
+justify-content: flex-start | center | flex-end | space-between | space-around;
+align-items: flex-start | center | flex-end | stretch;
+flex-wrap: nowrap | wrap;
+gap: 1rem;
+
+/* Items */
+flex: 1;
+flex-grow: 1;
+flex-shrink: 0;
+flex-basis: auto;
+align-self: auto | flex-start | center | flex-end;
+          </div>
+        </div>
+        
+        <div>
+          <h3>Grid Properties</h3>
+          <div class="codigo-ejemplo">
+/* Container */
+display: grid;
+grid-template-columns: 1fr 2fr | repeat(3, 1fr) | auto 1fr;
+grid-template-rows: auto 1fr auto;
+grid-template-areas: "header header" "sidebar main";
+gap: 1rem;
+justify-items: start | center | end | stretch;
+align-items: start | center | end | stretch;
+
+/* Items */
+grid-column: 1 / 3;
+grid-row: 1 / 2;
+grid-area: header;
+justify-self: start | center | end | stretch;
+align-self: start | center | end | stretch;
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Guía Completa de Flexbox y Grid CSS | Diseñada para el aprendizaje práctico</p>
+    <p>Experimenta con los controles interactivos para entender mejor cada propiedad</p>
+  </footer>
+
+  <script>
+    function cambiarJustify(valor) {
+      const demo = document.getElementById('demoFlex');
+      demo.style.justifyContent = valor;
+      
+      // Remover clase active de todos los botones
+      document.querySelectorAll('.btn-control').forEach(btn => btn.classList.remove('active'));
+      // Añadir clase active al botón clickeado
+      event.target.classList.add('active');
+    }
+    
+    function cambiarGrid(valor) {
+      const demo = document.getElementById('demoGrid');
+      demo.style.gridTemplateColumns = valor;
+      
+      // Remover clase active de todos los botones
+      document.querySelectorAll('.btn-control').forEach(btn => btn.classList.remove('active'));
+      // Añadir clase active al botón clickeado
+      event.target.classList.add('active');
+    }
+  </script>
+</body>
+</html>
