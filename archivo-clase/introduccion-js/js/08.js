@@ -361,3 +361,17 @@ console.log(`
 // ==========================================
 // FIN DEL RECURSO DIDÁCTICO
 // ==========================================
+
+
+
+const arregloEjemplo = [1, 2, 3];
+
+const newArray = arregloEjemplo.map((num) => num * 2);
+
+/* for (let i = 0; i < arregloEjemplo.length; i++) {
+  arregloEjemplo[i] = arregloEjemplo[i] * 2;
+} */
+
+const acumulado = arregloEjemplo.reduce((acc, num) => acc + num, 0);
+
+const filteredArray = arregloEjemplo.filter((num) => num > 1);
