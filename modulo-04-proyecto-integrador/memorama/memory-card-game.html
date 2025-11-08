@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Memorama - Juego de Memoria</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="game-container">
+      <!-- Header -->
+      <header class="game-header">
+        <h1>🎮 Memorama</h1>
+        <p>Encuentra todos los pares de cartas</p>
+      </header>
+
+      <!-- Panel de Estadísticas -->
+      <div class="stats-panel">
+        <div class="stat-card">
+          <div class="stat-card__label">Movimientos</div>
+          <div class="stat-card__value" id="moves">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__label">Tiempo</div>
+          <div class="stat-card__value" id="timer">00:00</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-card__label">Pares</div>
+          <div class="stat-card__value" id="pairs">0/8</div>
+        </div>
+      </div>
+
+      <!-- Tablero de Juego -->
+      <div class="game-board" id="gameBoard">
+        <!-- Las cartas se generarán dinámicamente con JavaScript -->
+      </div>
+
+      <!-- Controles -->
+      <div class="game-controls">
+        <button class="btn" id="resetBtn">🔄 Reiniciar Juego</button>
+      </div>
+    </div>
+
+    <!-- Modal de Victoria -->
+    <div class="modal" id="victoryModal">
+      <div class="modal__content">
+        <h2 class="modal__title">🎉 ¡Felicidades!</h2>
+        <p>¡Has completado el juego!</p>
+        <div class="modal__stats">
+          <p><strong>Movimientos:</strong> <span id="finalMoves">0</span></p>
+          <p><strong>Tiempo:</strong> <span id="finalTime">00:00</span></p>
+        </div>
+        <button class="btn" id="playAgainBtn">Jugar de Nuevo</button>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
