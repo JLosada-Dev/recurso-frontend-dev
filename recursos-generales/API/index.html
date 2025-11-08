@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla Simple con API</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Lista de Usuarios</h1>
+
+      <!-- Controles -->
+      <div class="controles">
+        <input type="text" id="buscar" placeholder="Buscar por nombre..." />
+        <button id="recargar">Recargar</button>
+      </div>
+
+      <!-- Tabla -->
+      <table id="tabla-usuarios">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Usuario</th>
+            <th>Ciudad</th>
+            <th>Empresa</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tabla-body">
+          <!-- Datos aquí -->
+        </tbody>
+      </table>
+
+      <!-- Información -->
+      <div id="info" class="info"></div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
